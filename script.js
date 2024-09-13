@@ -1,74 +1,3 @@
-// Funcion que muestra los combos
-const mostrarProductos = () => {
-    console.log('NUESTRAS COMIDAS SON:');
-    productos.forEach(producto => {
-        console.log(`${producto.id} - ${producto.nombre} - $${producto.precio}`);
-    });
-    seleccionarIdProducto()
-};
-// Funcion para seleccionar productos segun id
-const seleccionarIdProducto = () => {
-    let eleccion;
-    do {
-        eleccion = prompt('Elige un producto (ingresando un número) o escribe "fin" para terminar');
-        if (eleccion === null || eleccion === 'fin') {
-            break;
-        } else if (!isNaN(eleccion)) {
-            idProducto.push(eleccion);
-        } else if (eleccion !== 'fin') {
-            alert('Por favor, introduce un número valido')
-        }
-    } while (true);
-    return idProducto;
-};
-
-// Funcion para hacer el pedido
-// function hacerPedido() {
-//     while (true) {
-//         const eleccion = prompt('Elige un combo (ingresa el número) o escribe "fin" para terminar:');
-//         if (eleccion === 'fin' || eleccion === null) {
-//             break;
-//         };
-//         const comboElegido = combos[eleccion - 1];
-//         if (comboElegido) {
-//             combosElegidos.push(comboElegido);
-//             console.log(`Combo agregado: ${comboElegido.nombre}`);
-//         } else {
-//             console.log('Combo no encontrado, intenta de nuevo.');
-//         }
-//     };
-//     total = calcularImporteTotal(combosElegidos);
-//     enviar = confirm(`¿Quiere que se lo enviemos a su domicilio?. El envio cuesta $${envio}`);
-//     if (enviar == true) {
-//         enviarADomicilio();
-//     } else alert(`En total es $${total}, estara listo en 20 minutos y podras retirarlo por nuestro local, Muchas gracias.`);
-
-// };
-
-// // función enviar a domicilio
-// function enviarADomicilio() {
-//     domicilio = prompt('¿Cual es su domicilio?');
-//     for (const combo of combosElegidos) {
-//         console.log(`Su pedido es: ${combo.nombre} $${combo.precio}`);
-//     }
-//     alert(`Se enviara a ${domicilio} y el total es: ${total + envio}`);
-// };
-
-// // Funcion que calcula el importe total
-// function calcularImporteTotal(array) {
-//     return array.reduce((total, array) => total + array.precio, 0);
-// };
-
-// // Combos 
-// const combos = [
-//     { id: 1, nombre: "Lomitos2x1", precio: 9500 },
-//     { id: 2, nombre: "Hamburguesas2x1", precio: 8500 },
-//     { id: 3, nombre: "Hamburguesa+bebida", precio: 5500 },
-//     { id: 4, nombre: "2 Muzzarella", precio: 10500 },
-//     { id: 5, nombre: "Muzza+especial", precio: 13500 },
-//     { id: 6, nombre: "1/2 Doc. empanadas", precio: 4000 },
-//     { id: 7, nombre: "1 Doc. empanadas", precio: 7800 }
-// ];
 class Producto {
     constructor(id, nombre, precio,) {
         this.id = id
@@ -103,14 +32,65 @@ let producto19 = new Producto(20, "Fanta", 2100);
 let producto20 = new Producto(21, "Cerveza Quilmes 1Lt", 3200);
 let producto21 = new Producto(22, "Cervaza Los Andes 1Lt", 4000);
 // Arrays
-let productos = [producto, producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9, producto10, producto11, producto12, producto13, producto14, producto15, producto16, producto17, producto18, producto19, producto20, producto21];
+const productos = [producto, producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9, producto10, producto11, producto12, producto13, producto14, producto15, producto16, producto17, producto18, producto19, producto20, producto21];
 
-alert('Bienvenido a La casa de comida - Lo Más Rico');
+// Funcion que muestra los combos
+const mostrarProductos = () => {
+    console.log('NUESTRAS COMIDAS SON:');
+    productos.forEach(producto => {
+        console.log(`${producto.id} - ${producto.nombre} - $${producto.precio}`);
+    });
+    seleccionarIdProducto()
+};
+// Funcion que calcula el importe total
+function calcularImporteTotal(array) {
+    return array.reduce((total, array) => total + array.precio, 0);
+};
+// Funcion para seleccionar productos segun id
 let idProducto = [];
-let total = "";
+let productosSeleccionados = [];
+const seleccionarIdProducto = () => {
+    let eleccion;
+    do {
+        eleccion = prompt('Elige un producto (ingresando un número) o escribe "fin" para terminar');
+        if (eleccion === null || eleccion === 'fin') {
+            break;
+        } else if (!isNaN(eleccion)) {
+            const indice = parseInt(eleccion) - 1;
+            if (indice >= 0 && indice < productos.length) {
+                idProducto.push(indice);
+            } else {
+                alert(`El producto con ID ${eleccion} no existe`);
+            }
+        } else if (eleccion !== 'fin') {
+            alert('Por favor, introduce un número válido');
+        }
+    } while (true);
+    mostrarProductosSeleccionados();
+    return idProducto;
+};
+
+// función enviar a domicilio
 let envio = 2000;
-let combosElegidos = [];
 let domicilio = "";
+let total = "";
+const enviarADomicilio = () => {
+    domicilio = prompt('¿Cual es su domicilio?');
+    for (const producto of productosSeleccionados) {
+        console.log(`${producto.nombre}`);
+        console.log(`${producto.precio}`);
+    }
+    alert(`Se enviara a ${domicilio} y el total es: ${total + envio}`);
+};
+
+//Funcion mostrar productos seleccionados
+const mostrarProductosSeleccionados = () => {
+    productosSeleccionados = idProducto.map(indice => productos[indice]);
+    total = calcularImporteTotal(productosSeleccionados);
+    console.log(productosSeleccionados);
+    enviarADomicilio();
+};
+// Inicio
 let pedido = confirm('¿Quiere realizar algún pedido?');
 if (pedido == true) {
     mostrarProductos();
@@ -118,11 +98,8 @@ if (pedido == true) {
     console.log('Tenemos varias ofertas para vos, APROVECHALAS!!!!');
 };
 
-// REVISAAAR
-// const productosEncontrados = productos.filter((producto) => idProducto.includes((productos.id)));
-// console.log(productosEncontrados);
 
-  
+
 
 
 
