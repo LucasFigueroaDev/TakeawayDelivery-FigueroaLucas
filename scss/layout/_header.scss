@@ -1,0 +1,30 @@
+.inicio {
+    &_nav {
+        &_contenido {
+            display: flex;
+            justify-content: center;
+            &_link {
+                font-size: 2rem;
+                color: $blanco;
+                text-decoration: none;
+                padding: 3rem;
+                margin: 1rem;
+                &:hover{
+                    cursor: pointer;
+                    transition: font-size 1s;
+                    font-size: 2.5rem;
+                    text-shadow: 0px -1px 16px rgba(11, 15, 248, 0.98);
+                }
+            }
+        }
+    }
+    &_contenedor {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        &_img {
+            max-width: 100%;
+            width: 50rem;
+        }
+    }
+}
