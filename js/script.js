@@ -1,6 +1,33 @@
 import { crearProducto } from "./productos.js";
 const productos = crearProducto();
 
+// Desplegar el menu
+const menu = document.getElementById('menu');
+const contenedor = document.getElementById('contenedor');
+const linkMenu = document.getElementById('link-menu');
+
+// Crear div con producto
+
+
+//-------->REVISAR ID <------
+const divProducto = (producto) => {
+    const contenido = document.createElement('div');
+    contenido.classList.add('activo_cards_card');
+    contenido.innerHTML = `<h3>${producto.nombre}</h3> <p class="activo_cards_card_txt">$${producto.precio}</p> <button class="activo_cards_card_btn id="${producto.id}">Agregar pedido</button>`;
+    return contenido;
+};
+
+
+linkMenu.addEventListener('click', () => {
+    menu.classList.add('activo');
+    contenedor.innerHTML = '';
+
+    productos.forEach((producto) => {
+        const contenido = divProducto(producto);
+        contenedor.appendChild(contenido);
+    });
+
+});
 
 // Funcion que muestra los combos
 const mostrarProductos = () => {
@@ -10,6 +37,7 @@ const mostrarProductos = () => {
     });
     seleccionarIdProducto()
 };
+
 // Funcion que calcula el importe total
 function calcularImporteTotal(array) {
     return array.reduce((total, array) => total + array.precio, 0);
@@ -58,13 +86,7 @@ const mostrarProductosSeleccionados = () => {
     console.log(productosSeleccionados);
     enviarADomicilio();
 };
-// Inicio
-let pedido = confirm('¿Quiere realizar algún pedido?');
-if (pedido == true) {
-    mostrarProductos();
-} else {
-    console.log('Tenemos varias ofertas para vos, APROVECHALAS!!!!');
-};
+
 
 
 

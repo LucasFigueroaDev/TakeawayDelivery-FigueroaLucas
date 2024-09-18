@@ -29,10 +29,10 @@
     <header class="inicio">
         <nav class="inicio_nav">
             <ul class="inicio_nav_contenido">
-                <li><a class="inicio_nav_contenido_link" href="#">Home</a></li>
-                <li><a class="inicio_nav_contenido_link" href="#">Menú</a></li>
-                <li><a class="inicio_nav_contenido_link" href="#">Nosotros</a></li>
-                <li><a class="inicio_nav_contenido_link" href="#">Horario y ubicación</a></li>
+                <li><a class="inicio_nav_contenido_link" href="index.html">Home</a></li>
+                <li><a class="inicio_nav_contenido_link" href="#menu" id="link-menu">Menú</a></li>
+                <li><a class="inicio_nav_contenido_link" href="#nosotros">Nosotros</a></li>
+                <li><a class="inicio_nav_contenido_link" href="#horarios">Horarios y ubicación</a></li>
             </ul>
         </nav>
         <div class="inicio_contenedor">
@@ -41,6 +41,10 @@
         </div>
     </header>
     <main>
+        <section class="menu" id="menu">
+            <h2>Menú</h2>
+            <div class="activo_cards" id="contenedor"></div>
+        </section>
         <section class="nosotros" id="nosotros">
             <h2>Nosotros</h2>
             <div class="nosotros_cajas">
@@ -54,9 +58,11 @@
                 </div>
             </div>
         </section>
-        <section>
+        </section>
+        <section class="hyu" id="horarios">
             <h2>Horarios y Ubicación</h2>
-            <p><span>Nuestro horarios son:</span> 10am a 15pm y 18pm a 24pm</p>
+            <p class="hyu_txt"><span class="hyu_txt_sp1">Nuestros horarios son: </span> 10am a 15pm y 18pm a 24pm</p>
+            <p class="hyu_ubi">Encontranos en Av. Velez Sarfield 123</p>
         </section>
     </main>
     <footer>

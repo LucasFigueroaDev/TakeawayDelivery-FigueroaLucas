@@ -1,0 +1,34 @@
+.menu {
+    display: none;
+}
+
+.activo {
+    display: block;
+    background-color: rgba(0, 0, 0, .5);
+    margin-bottom: 2rem;
+    padding-top: 3rem;
+    &_cards {
+        margin-top: 2rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        padding: 1rem;
+        &_card {
+            background-color: rgba(0, 0, 0, .8);
+            width: 30rem;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid $negro;
+            border-radius: 1rem;
+            padding: 1rem;
+            &_txt {
+                text-align: center;
+                color: $verde;
+            }
+            &_btn {
+                font-size: 1.5rem;
+                padding: 0.5rem;
+            }
+        }
+    }
+}
