@@ -1,15 +1,21 @@
 .inicio {
     &_nav {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 1rem;
+        background-color: rgba(0,0,0,.8);
         &_contenido {
             display: flex;
-            justify-content: center;
+
             &_link {
                 font-size: 2rem;
                 color: $blanco;
                 text-decoration: none;
                 padding: 3rem;
                 margin: 1rem;
-                &:hover{
+
+                &:hover {
                     cursor: pointer;
                     transition: font-size 1s;
                     font-size: 2.5rem;
@@ -17,14 +23,28 @@
                 }
             }
         }
+
+        &_carrito {
+            max-width: 100%;
+            width: 4rem;
+            margin-right: 3rem;
+        }
     }
+
     &_contenedor {
         display: flex;
         justify-content: space-evenly;
         align-items: center;
+
         &_img {
             max-width: 100%;
             width: 50rem;
         }
+    }
+
+    &_marq {
+        color: $blanco;
+        text-shadow: 0px -1px 16px rgba(11, 15, 248, 0.98);
+        font-size: 3rem;
     }
 }

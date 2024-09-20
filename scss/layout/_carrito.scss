@@ -1,0 +1,23 @@
+.carrito {
+    height: 100vh;
+    margin-top: 3rem;
+    &_lista {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        width: 50rem;
+        &_titulo {
+            text-align: start;
+        }
+        &_btn {
+            font-size: 1rem;
+            padding: 0.5rem;
+        }
+    }
+    &_total {
+        font-size: 3rem;
+    }
+    &_vaciar {
+        font-size: 1.5rem;
+        padding: 0.5rem;
+    }
+}
