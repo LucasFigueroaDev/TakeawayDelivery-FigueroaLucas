@@ -1,23 +1,49 @@
 .carrito {
-    height: 100vh;
+    height: 100%;
     margin-top: 3rem;
-    &_lista {
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
-        width: 50rem;
-        &_titulo {
-            text-align: start;
+
+    &_contenedor {
+        margin: 0 auto;
+        padding: 5rem;
+        display: flex;
+        justify-content: center;
+        gap: 5rem;
+
+        &_lista {
+            &_li {
+                background-color: rgba(0, 0, 0, .8);
+                margin: 1rem;
+                padding: 1rem;
+                text-align: center;
+                border-radius: 2rem;
+
+                &_btn {
+                    font-size: 1.5rem;
+                    padding: 0 2rem;
+                    border-radius: 5rem;
+                    margin-top: 1rem;
+                }
+            }
         }
-        &_btn {
-            font-size: 1rem;
-            padding: 0.5rem;
+
+        &_total-boton {
+            &_total {
+                background-color: rgba(0, 0, 0, .8);
+                border-radius: 2rem;
+                padding: 0 2rem;
+                font-size: 3rem;
+                text-transform: uppercase;
+                color: $verde;
+                text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.75);
+            }
+
+            &_vaciar {
+                font-size: 1.5rem;
+                padding: 0 2rem;
+                border-radius: 5rem;
+                margin-top: 1rem;
+            }
         }
-    }
-    &_total {
-        font-size: 3rem;
-    }
-    &_vaciar {
-        font-size: 1.5rem;
-        padding: 0.5rem;
+
     }
 }

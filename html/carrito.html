@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="../css/main.css">
     <title>Lo más rico - Carrito</title>
 </head>
+
 <body>
     <header class="inicio">
         <nav class="inicio_nav">
@@ -33,14 +34,20 @@
                 <li><a class="inicio_nav_contenido_link" href="../index.html#nosotros">Nosotros</a></li>
                 <li><a class="inicio_nav_contenido_link" href="../index.html#horarios">Horarios y ubicación</a></li>
             </ul>
-            <a href="carrito.html" id="carrito"><img class="inicio_nav_carrito" src="../assets/carrito-de-compras.png" alt="Carrito de compras"></a>
+            <a href="carrito.html" id="carrito"><img class="inicio_nav_carrito" src="../assets/carrito-de-compras.png"
+                    alt="Carrito de compras"></a>
         </nav>
     </header>
     <main>
         <section id="carrito" class="carrito">
             <h2>Carrito de compras</h2>
-            <ul id="carrito_lista" class="carrito_lista"></ul>
-            <button id="carrito_vaciar" class="carrito_vaciar">Vaciar carrito</button>
+            <div class="carrito_contenedor">
+                <ul id="carrito_lista" class="carrito_contenedor_lista"></ul>
+                <div class="carrito_contenedor_total-boton">
+                    <p class="carrito_contenedor_total-boton_total"></p>
+                    <button id="carrito_vaciar" class="carrito_contenedor_total-boton_vaciar">Vaciar carrito</button>
+                </div>
+            </div>
         </section>
     </main>
     <footer>

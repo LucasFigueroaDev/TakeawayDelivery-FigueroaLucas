@@ -57,5 +57,25 @@ function calcularImporteTotal(array) {
     return array.reduce((total, array) => total + array.precio, 0);
 };
 
+// Funcion para eliminar producto
+function eliminarProducto(id) {
+    // Obtener el carrito del localStorage
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    
+    // Buscar el índice del producto que coincide con el id
+    const index = carrito.findIndex((producto) => producto.id === parseInt(id));
+    
+    // Si index es diferente a -1, significa que se encontró el producto
+    if (index !== -1) {
+        // Eliminar el producto del carrito usando splice
+        carrito.splice(index, 1);
+        
+        // Actualizar el carrito en el localStorage
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+    }
+    
+    // Retornar el carrito actualizado
+    return carrito;
+};
 
-export { crearProducto, calcularImporteTotal};
+export { crearProducto, calcularImporteTotal, eliminarProducto};

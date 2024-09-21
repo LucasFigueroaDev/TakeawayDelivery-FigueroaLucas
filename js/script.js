@@ -5,17 +5,27 @@ const contenedor = document.getElementById('contenedor');
 const linkMenu = document.getElementById('link-menu');
 // Crear div con los producto
 const divProducto = (producto) => {
-    const contenido = document.createElement('div');
-    contenido.classList.add('activo_cards_card');
-    contenido.innerHTML = `<h3>${producto.nombre}</h3> <p class="activo_cards_card_txt">$${producto.precio}</p> <button class="activo_cards_card_btn" id="${producto.id}">Agregar pedido</button>`;
-    return contenido;
-};
-// Crear lista de carrito
-const liCarrito = (producto) => {
-    const liContenido = document.createElement('li');
-    liContenido.innerHTML = `<h3>${producto.nombre}</h3> 
-    <p>$${producto.precio}</p> <button>Eliminar pedido</button>`;
-    return liContenido;
+    // Crear elementos
+    const div = document.createElement('div');
+    const h3 = document.createElement('h3');
+    const p = document.createElement('p');
+    const btn = document.createElement('button');
+    // agregar clases
+    div.classList.add('activo_cards_card');
+    p.classList.add('activo_cards_card_txt');
+    btn.classList.add('activo_cards_card_btn');
+    // agregar id
+    btn.setAttribute('id', producto.id);
+    // agregar contenido
+    h3.textContent = producto.nombre;
+    p.textContent = `Precio: $${producto.precio}`;
+    btn.textContent = 'Agregar pedido';
+    // agregar al html
+    div.appendChild(h3);
+    div.appendChild(p);
+    div.appendChild(btn);
+
+    return div;
 };
 // Evento donde muestra los productos en el html
 linkMenu.addEventListener('click', () => {
