@@ -1,32 +1,42 @@
 import { crearProducto } from "./utils.js";
+import { crearNotificacion } from "./utils.js";
+import { notificacionCarrito } from "./utils.js";
+
 const productos = crearProducto();
 const menu = document.getElementById('menu');
 const contenedor = document.getElementById('contenedor');
 const linkMenu = document.getElementById('link-menu');
+
 // Crear div con los producto
 const divProducto = (producto) => {
     // Crear elementos
     const div = document.createElement('div');
+    const img = document.createElement('img');
     const h3 = document.createElement('h3');
     const p = document.createElement('p');
     const btn = document.createElement('button');
     // agregar clases
     div.classList.add('activo_cards_card');
+    img.classList.add('activo_cards_card_img');
     p.classList.add('activo_cards_card_txt');
     btn.classList.add('activo_cards_card_btn');
     // agregar id
     btn.setAttribute('id', producto.id);
     // agregar contenido
+    img.setAttribute('src', `assets/img-productos/producto${producto.id}.jpg`);
+    img.setAttribute('alt', `${producto.nombre}`);
     h3.textContent = producto.nombre;
     p.textContent = `Precio: $${producto.precio}`;
     btn.textContent = 'Agregar pedido';
     // agregar al html
+    div.appendChild(img);
     div.appendChild(h3);
     div.appendChild(p);
     div.appendChild(btn);
 
     return div;
 };
+
 // Evento donde muestra los productos en el html
 linkMenu.addEventListener('click', () => {
     menu.classList.add('activo');
@@ -38,18 +48,21 @@ linkMenu.addEventListener('click', () => {
     });
 
 });
+
 // Crear carrito
 let carrito = [];
 // Funcion para seleccionar productos segun id
-contenedor.addEventListener('click', (e)=>{ //Se agrega un evento al contenedor de los pedidos
-    if (e.target.classList.contains('activo_cards_card_btn')){ // Se busca todos los botones con la clase activo_cards_card_btn
+contenedor.addEventListener('click', (e) => { //Se agrega un evento al contenedor de los pedidos
+    const tituloNtf = "Producto agregado con exito";
+    if (e.target.classList.contains('activo_cards_card_btn')) { // Se busca todos los botones con la clase activo_cards_card_btn
         const productoId = parseInt(e.target.id); // Se seleciona el id que selecciona el usuario y se convierte a entero para poder compararlo
         const productoSeleccionado = productos.find((producto) =>
             producto.id === productoId);
-        carrito.push(productoSeleccionado); 
+        carrito.push(productoSeleccionado);
+        notificacionCarrito(carrito.length);
         localStorage.setItem('carrito', JSON.stringify(carrito));
-        console.log(carrito);   
     }
+    crearNotificacion(tituloNtf);
 });
 
 

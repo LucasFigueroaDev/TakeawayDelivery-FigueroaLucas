@@ -4,7 +4,8 @@
         justify-content: space-evenly;
         align-items: center;
         padding: 1rem;
-        background-color: rgba(0,0,0,.8);
+        background-color: rgba(0, 0, 0, .8);
+
         &_contenido {
             display: flex;
 
@@ -25,9 +26,28 @@
         }
 
         &_carrito {
-            max-width: 100%;
-            width: 4rem;
-            margin-right: 3rem;
+            position: relative;
+
+            &_img {
+                max-width: 100%;
+                width: 4rem;
+                margin-right: 3rem;
+            }
+
+            &_notificacion {
+                position: absolute;
+                top: -7px;
+                right: 15px;
+                background-color: $rojo;
+                color: $blanco;
+                border-radius: 50%;
+                padding: 0.5rem;
+                font-size: 1rem;
+                width: 2rem;
+                height: 2rem;
+                text-align: center;
+                display: none;
+            }
         }
     }
 
@@ -38,13 +58,14 @@
 
         &_img {
             max-width: 100%;
-            width: 50rem;
+            width: 60rem;
+            filter: drop-shadow(5px 5px 12px rgb(17, 0, 255));
         }
     }
 
     &_marq {
         color: $blanco;
-        text-shadow: 0px -1px 16px rgba(11, 15, 248, 0.98);
-        font-size: 3rem;
+        font-size: 5rem;
+        background-color: rgba(17, 0, 255, 0.5);
     }
 }

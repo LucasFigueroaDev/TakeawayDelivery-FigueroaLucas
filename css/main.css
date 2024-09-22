@@ -13,20 +13,25 @@
 
 h1 {
   font-size: 5rem;
-  font-weight: 400;
+  font-weight: 700;
+  text-transform: uppercase;
   font-style: italic;
   color: #fff;
-  text-shadow: 0px -1px 16px rgba(11, 15, 248, 0.98);
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: #000;
 }
 
 h2 {
   font-size: 3.5rem;
   letter-spacing: 1rem;
-  font-weight: 400;
+  font-weight: 500;
   font-style: italic;
   color: #fff;
   text-align: center;
-  text-shadow: 0px -1px 16px rgba(11, 15, 248, 0.98);
+  margin: 3rem;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000;
+  background-color: black;
 }
 
 h3 {
@@ -38,17 +43,31 @@ h3 {
   text-shadow: 0px -1px 16px rgba(159, 243, 2, 0.98);
 }
 
-p {
+h4 {
   font-size: 2rem;
   font-weight: 400;
+  font-style: italic;
+  color: #fff;
+}
+
+p {
+  font-size: 2.5rem;
+  font-weight: 500;
   color: #fff;
 }
 
 body {
-  background: url(../assets/bg.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-image: url(../assets/bg.jpg);
+  background-attachment: fixed;
+}
+
+.notificacion {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 3rem;
+  border-radius: 2rem;
+  background-color: rgba(76, 47, 156, 0.6117647059);
 }
 
 .inicio_nav {
@@ -75,9 +94,26 @@ body {
   text-shadow: 0px -1px 16px rgba(11, 15, 248, 0.98);
 }
 .inicio_nav_carrito {
+  position: relative;
+}
+.inicio_nav_carrito_img {
   max-width: 100%;
   width: 4rem;
   margin-right: 3rem;
+}
+.inicio_nav_carrito_notificacion {
+  position: absolute;
+  top: -7px;
+  right: 15px;
+  background-color: #ff0000;
+  color: #fff;
+  border-radius: 50%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  display: none;
 }
 .inicio_contenedor {
   display: flex;
@@ -86,12 +122,13 @@ body {
 }
 .inicio_contenedor_img {
   max-width: 100%;
-  width: 50rem;
+  width: 60rem;
+  filter: drop-shadow(5px 5px 12px rgb(17, 0, 255));
 }
 .inicio_marq {
   color: #fff;
-  text-shadow: 0px -1px 16px rgba(11, 15, 248, 0.98);
-  font-size: 3rem;
+  font-size: 5rem;
+  background-color: rgba(17, 0, 255, 0.5);
 }
 
 .menu {
@@ -100,14 +137,11 @@ body {
 
 .activo {
   display: block;
-  background-color: rgba(0, 0, 0, 0.5);
-  margin-bottom: 2rem;
-  padding-top: 3rem;
 }
 .activo_cards {
-  margin-top: 2rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
   gap: 1rem;
   padding: 1rem;
 }
@@ -129,14 +163,8 @@ body {
   padding: 0.5rem;
 }
 
-.nosotros {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-.nosotros h2 {
-  padding-top: 3rem;
-  margin-bottom: 5rem;
-}
 .nosotros_cajas {
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -144,20 +172,18 @@ body {
   padding-bottom: 2rem;
 }
 .nosotros_cajas_caja {
-  background-color: rgba(0, 0, 0, 0.8);
-  max-width: 100rem;
-  padding: 2.5rem;
-  border-radius: 5rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  padding: 2rem;
 }
 .nosotros_cajas_caja_txt {
+  width: 50%;
+  margin: 0 auto;
   letter-spacing: 5px;
 }
 
 .hyu {
-  background-color: rgba(0, 0, 0, 0.5);
-  margin-top: 2rem;
-  padding-top: 3rem;
-  height: 30rem;
+  margin-bottom: 3rem;
 }
 .hyu_txt {
   text-align: center;
@@ -175,15 +201,18 @@ body {
 }
 
 .carrito {
-  height: 100%;
-  margin-top: 3rem;
+  height: 150vh;
 }
 .carrito_contenedor {
   margin: 0 auto;
   padding: 5rem;
-  display: flex;
-  justify-content: center;
-  gap: 5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+}
+.carrito_contenedor_lista {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }
 .carrito_contenedor_lista_li {
   background-color: rgba(0, 0, 0, 0.8);
@@ -198,7 +227,12 @@ body {
   border-radius: 5rem;
   margin-top: 1rem;
 }
+.carrito_contenedor_total-boton {
+  display: flex;
+  flex-direction: column;
+}
 .carrito_contenedor_total-boton_total {
+  width: 30rem;
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 2rem;
   padding: 0 2rem;
@@ -208,6 +242,7 @@ body {
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.75);
 }
 .carrito_contenedor_total-boton_vaciar {
+  max-width: 20rem;
   font-size: 1.5rem;
   padding: 0 2rem;
   border-radius: 5rem;

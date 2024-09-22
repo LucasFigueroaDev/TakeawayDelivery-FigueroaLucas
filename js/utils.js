@@ -26,29 +26,32 @@ const productos = [
     { id: 17, nombre: 'Coca Cola 1.5Lt', precio: 2500 },
     { id: 18, nombre: 'Sprite 1.5Lt', precio: 2500 },
     { id: 19, nombre: 'Fanta 1.5Lt', precio: 2500 },
-    { id: 21, nombre: 'Cerveza Quilmes 1Lt', precio: 3200 },
-    { id: 22, nombre: 'Cerveza Los Andes 1Lt', precio: 4000 },
+    { id: 20, nombre: 'Cerveza Quilmes Lata', precio: 1700 },
+    { id: 21, nombre: 'Cerveza Los Andes ', precio: 2000 },
 ];
 
+class ProductoConImg extends Producto {
+    constructor(id, nombre, precio, imagen) {
+        super(id, nombre, precio);
+        this.imagen = imagen
+    }
+};
+// Crear productos y manejos posibles errores
 const crearProducto = () => {
-    // validar que no sea un array vacio
-    if (!productos || !productos.length) {
+    if (!productos || !productos.length) { // validar que no este vacio
         throw new Error("Error cargar productos");
     }
     return productos.map((producto) => {
-        //validar que el id sea un número
-        if (typeof producto.id != "number") {
+        if (typeof producto.id != "number") { // Valida que sea un número
             throw new Error("Error, el id debe ser un número");
         }
-        // validar que el nombre sea un string
-        if (typeof producto.nombre != "string") {
+        if (typeof producto.nombre != "string") { // Valida que sea un string
             throw new Error("Error, el nombre no es valido");
         }
-        // validad que el precio sea positivo
-        if (producto.precio <= 0) {
+        if (producto.precio <= 0) { // Valida que sea número positivo
             throw new Error("El precio debe ser número positivo");
         }
-        return new Producto(producto.id, producto.nombre, producto.precio);
+        return new ProductoConImg(producto.id, producto.nombre, producto.precio, producto.imagen);
     });
 };
 
@@ -59,23 +62,48 @@ function calcularImporteTotal(array) {
 
 // Funcion para eliminar producto
 function eliminarProducto(id) {
-    // Obtener el carrito del localStorage
     const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-    
-    // Buscar el índice del producto que coincide con el id
     const index = carrito.findIndex((producto) => producto.id === parseInt(id));
-    
+
     // Si index es diferente a -1, significa que se encontró el producto
     if (index !== -1) {
-        // Eliminar el producto del carrito usando splice
         carrito.splice(index, 1);
-        
         // Actualizar el carrito en el localStorage
         localStorage.setItem('carrito', JSON.stringify(carrito));
     }
-    
-    // Retornar el carrito actualizado
+
     return carrito;
 };
 
-export { crearProducto, calcularImporteTotal, eliminarProducto};
+function crearNotificacion(titulo) {
+    const notificacion = document.createElement('div');
+    const notificacionTitulo = document.createElement('h4');
+
+    notificacion.classList.add('notificacion');
+    notificacion.classList.add('animate__animated');
+    notificacion.classList.add('animate__slideInRight');
+    notificacionTitulo.classList.add('notificacion_titulo');
+
+    notificacionTitulo.textContent = titulo;
+
+    notificacion.appendChild(notificacionTitulo);
+
+    document.body.appendChild(notificacion);
+
+    setTimeout(() => {
+        notificacion.remove();
+    }, 3000);
+
+};
+
+function notificacionCarrito(cantidad) {
+    const cantidadProducto = document.querySelector('.inicio_nav_carrito_notificacion');
+    if (cantidad > 0) {
+        cantidadProducto.textContent = cantidad;
+        cantidadProducto.style.display = 'block';
+    }else {
+        cantidadProducto.style.display = 'none';
+    }
+}
+
+export { crearProducto, calcularImporteTotal, eliminarProducto, crearNotificacion, notificacionCarrito};
