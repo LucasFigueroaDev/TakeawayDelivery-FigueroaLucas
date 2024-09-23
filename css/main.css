@@ -167,6 +167,9 @@ body {
   filter: drop-shadow(5px 5px 12px rgb(17, 0, 255));
 }
 .inicio_desplazable {
+  overflow: hidden;
+}
+.inicio_desplazable_txt {
   color: #fff;
   font-size: 5rem;
   text-align: center;
