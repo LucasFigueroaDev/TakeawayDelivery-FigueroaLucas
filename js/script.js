@@ -53,7 +53,6 @@ linkMenu.addEventListener('click', () => {
 let carrito = [];
 // Funcion para seleccionar productos segun id
 contenedor.addEventListener('click', (e) => { //Se agrega un evento al contenedor de los pedidos
-    const tituloNtf = "Producto agregado con exito";
     if (e.target.classList.contains('activo_cards_card_btn')) { // Se busca todos los botones con la clase activo_cards_card_btn
         const productoId = parseInt(e.target.id); // Se seleciona el id que selecciona el usuario y se convierte a entero para poder compararlo
         const productoSeleccionado = productos.find((producto) =>
@@ -61,41 +60,6 @@ contenedor.addEventListener('click', (e) => { //Se agrega un evento al contenedo
         carrito.push(productoSeleccionado);
         notificacionCarrito(carrito.length);
         localStorage.setItem('carrito', JSON.stringify(carrito));
+        crearNotificacion('Pedido agregado con exito');
     }
-    crearNotificacion(tituloNtf);
 });
-
-
-
-
-
-// // función enviar a domicilio
-// let envio = 2000;
-// let domicilio = "";
-// let total = "";
-// const enviarADomicilio = () => {
-//     domicilio = prompt('¿Cual es su domicilio?');
-//     for (const producto of productosSeleccionados) {
-//         console.log(`${producto.nombre}`);
-//         console.log(`${producto.precio}`);
-//     }
-//     alert(`Se enviara a ${domicilio} y el total es: ${total + envio}`);
-// };
-
-// //Funcion mostrar productos seleccionados
-// const mostrarProductosSeleccionados = () => {
-//     productosSeleccionados = idProducto.map(indice => productos[indice]);
-//     total = calcularImporteTotal(productosSeleccionados);
-//     console.log(productosSeleccionados);
-//     enviarADomicilio();
-// };
-
-
-
-
-
-
-
-
-
-
