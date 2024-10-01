@@ -7,6 +7,7 @@ const menu = document.getElementById('menu');
 const contenedor = document.getElementById('contenedor');
 const linkMenu = document.getElementById('link-menu');
 
+
 // Crear div con los producto
 const divProducto = (producto) => {
     // Crear elementos
@@ -50,16 +51,30 @@ linkMenu.addEventListener('click', () => {
 });
 
 // Crear carrito
-let carrito = [];
+let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+notificacionCarrito(carrito.length);
+
 // Funcion para seleccionar productos segun id
 contenedor.addEventListener('click', (e) => { //Se agrega un evento al contenedor de los pedidos
     if (e.target.classList.contains('activo_cards_card_btn')) { // Se busca todos los botones con la clase activo_cards_card_btn
         const productoId = parseInt(e.target.id); // Se seleciona el id que selecciona el usuario y se convierte a entero para poder compararlo
         const productoSeleccionado = productos.find((producto) =>
             producto.id === productoId);
-        carrito.push(productoSeleccionado);
-        notificacionCarrito(carrito.length);
-        localStorage.setItem('carrito', JSON.stringify(carrito));
-        crearNotificacion('Pedido agregado con exito');
+        if (productoSeleccionado) {
+            // Verificar si el producto ya está en el carrito
+            const productoEnCarrito = carrito.find(item => item.id === productoId);
+
+
+            if (productoEnCarrito) {
+                // Si el producto ya está en el carrito, incrementar su cantidad
+                productoEnCarrito.cantidad += 1;
+            } else {
+                // Si no está en el carrito, agregarlo con cantidad inicial de 1
+                carrito.push({ ...productoSeleccionado, cantidad: 1 });
+            }
+            notificacionCarrito(carrito.length);
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            crearNotificacion('Pedido agregado con exito');
+        }
     }
 });

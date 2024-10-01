@@ -61,14 +61,6 @@ body {
   background-attachment: fixed;
 }
 
-@keyframes desplazar {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
 .notificacion {
   position: fixed;
   top: 10px;
@@ -76,6 +68,11 @@ body {
   padding: 3rem;
   border-radius: 2rem;
   background-color: rgba(76, 47, 156, 0.6117647059);
+}
+
+.carrito_finalizar {
+  display: flex;
+  justify-content: center;
 }
 
 .contenedor_finalizar {
@@ -166,15 +163,14 @@ body {
   width: 60rem;
   filter: drop-shadow(5px 5px 12px rgb(17, 0, 255));
 }
-.inicio_desplazable {
+.inicio_descripcion {
   overflow: hidden;
 }
-.inicio_desplazable_txt {
+.inicio_descripcion_txt {
   color: #fff;
   font-size: 5rem;
   text-align: center;
   background-color: rgba(17, 0, 255, 0.5);
-  animation: desplazar 30s linear infinite;
 }
 
 .menu {
@@ -253,7 +249,7 @@ body {
   margin: 0 auto;
   padding: 5rem;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 4fr 1fr;
   justify-items: center;
 }
 .carrito_contenedor_lista {
@@ -261,17 +257,24 @@ body {
   grid-template-columns: repeat(4, 1fr);
 }
 .carrito_contenedor_lista_li {
+  width: 35rem;
   background-color: rgba(0, 0, 0, 0.8);
   margin: 1rem;
-  padding: 1rem;
+  padding: 2rem;
   text-align: center;
   border-radius: 2rem;
 }
-.carrito_contenedor_lista_li_btn {
+.carrito_contenedor_lista_li_btn-sumar, .carrito_contenedor_lista_li_btn-restar {
   font-size: 1.5rem;
   padding: 0 2rem;
   border-radius: 5rem;
   margin-top: 1rem;
+  border: none;
+  margin: 1rem;
+}
+.carrito_contenedor_lista_li_btn-sumar:hover, .carrito_contenedor_lista_li_btn-restar:hover {
+  background-color: rgba(76, 47, 156, 0.6117647059);
+  color: #fff;
 }
 .carrito_contenedor_total-boton {
   display: flex;
@@ -283,16 +286,22 @@ body {
   border-radius: 2rem;
   padding: 0 2rem;
   font-size: 3rem;
+  text-align: center;
   text-transform: uppercase;
   color: #00FB02;
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.75);
 }
 .carrito_contenedor_total-boton_vaciar {
-  max-width: 20rem;
-  font-size: 1.5rem;
-  padding: 0 2rem;
-  border-radius: 5rem;
-  margin-top: 1rem;
+  font-size: 2rem;
+  margin: 1rem;
+  width: 25rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 2rem;
+}
+.carrito_contenedor_total-boton_vaciar:hover {
+  background-color: rgba(76, 47, 156, 0.6117647059);
+  color: #fff;
 }
 
 .pie-de-pagina {
@@ -300,6 +309,19 @@ body {
   background-color: #000;
   text-align: center;
   font-size: 1rem;
+}
+
+@media (max-width: 480px) {
+  .inicio_contenedor {
+    flex-direction: column;
+  }
+  .inicio_contenedor_titulo {
+    font-size: 4rem;
+    text-align: center;
+  }
+  .inicio_descripcion_txt {
+    font-size: 2rem;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

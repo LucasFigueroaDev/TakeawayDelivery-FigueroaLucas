@@ -1,0 +1,18 @@
+@media (max-width: 480px) {
+    .inicio {
+        &_contenedor {
+            flex-direction: column;
+
+            &_titulo {
+                font-size: 4rem;
+                text-align: center;
+            }
+        }
+
+        &_descripcion {
+            &_txt {
+                font-size: 2rem;
+            }
+        }
+    }
+}

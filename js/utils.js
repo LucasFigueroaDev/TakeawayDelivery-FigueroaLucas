@@ -1,33 +1,34 @@
 class Producto {
-    constructor(id, nombre, precio) {
+    constructor(id, nombre, precio, cantidad) {
         this.id = id
         this.nombre = nombre
         this.precio = precio
+        this.cantidad = cantidad
     }
 };
 
 const productos = [
-    { id: 1, nombre: 'Pizza Muzzarella', precio: 6000 },
-    { id: 2, nombre: 'Pizza Especial', precio: 8500 },
-    { id: 3, nombre: 'Pizza Napolitana', precio: 10000 },
-    { id: 4, nombre: 'Pizza Palmitos', precio: 12500 },
-    { id: 5, nombre: 'Pizza Cuatro Quesos', precio: 9500 },
-    { id: 6, nombre: 'Pizza Americana', precio: 13500 },
-    { id: 7, nombre: 'Lomo Simple', precio: 4000 },
-    { id: 8, nombre: 'Lomo Completo', precio: 5500 },
-    { id: 9, nombre: 'Lomo Vegetariano', precio: 6000 },
-    { id: 10, nombre: 'Lomo de Pollo', precio: 5000 },
-    { id: 11, nombre: 'Lomo De Cerdo', precio: 5000 },
-    { id: 12, nombre: 'Empanada Criollas', precio: 1500 },
-    { id: 13, nombre: 'Empanada Arabes', precio: 2000 },
-    { id: 14, nombre: 'Empanada Jamon y Queso', precio: 1500 },
-    { id: 15, nombre: 'Empanada De Pollo', precio: 1500 },
-    { id: 16, nombre: 'Empanada De Choclo', precio: 1500 },
-    { id: 17, nombre: 'Coca Cola 1.5Lt', precio: 2500 },
-    { id: 18, nombre: 'Sprite 1.5Lt', precio: 2500 },
-    { id: 19, nombre: 'Fanta 1.5Lt', precio: 2500 },
-    { id: 20, nombre: 'Cerveza Quilmes Lata', precio: 1700 },
-    { id: 21, nombre: 'Cerveza Los Andes ', precio: 2000 },
+    { id: 1, nombre: 'Pizza Muzzarella', precio: 6000, cantidad: 0 },
+    { id: 2, nombre: 'Pizza Especial', precio: 8500, cantidad: 0 },
+    { id: 3, nombre: 'Pizza Napolitana', precio: 10000, cantidad: 0 },
+    { id: 4, nombre: 'Pizza Palmitos', precio: 12500, cantidad: 0 },
+    { id: 5, nombre: 'Pizza Cuatro Quesos', precio: 9500, cantidad: 0 },
+    { id: 6, nombre: 'Pizza Americana', precio: 13500, cantidad: 0 },
+    { id: 7, nombre: 'Lomo Simple', precio: 4000, cantidad: 0 },
+    { id: 8, nombre: 'Lomo Completo', precio: 5500, cantidad: 0 },
+    { id: 9, nombre: 'Lomo Vegetariano', precio: 6000, cantidad: 0 },
+    { id: 10, nombre: 'Lomo de Pollo', precio: 5000, cantidad: 0 },
+    { id: 11, nombre: 'Lomo De Cerdo', precio: 5000, cantidad: 0 },
+    { id: 12, nombre: 'Empanada Criollas', precio: 1500, cantidad: 0 },
+    { id: 13, nombre: 'Empanada Arabes', precio: 2000, cantidad: 0 },
+    { id: 14, nombre: 'Empanada Jamon y Queso', precio: 1500, cantidad: 0 },
+    { id: 15, nombre: 'Empanada De Pollo', precio: 1500, cantidad: 0 },
+    { id: 16, nombre: 'Empanada De Choclo', precio: 1500, cantidad: 0 },
+    { id: 17, nombre: 'Coca Cola 1.5Lt', precio: 2500, cantidad: 0 },
+    { id: 18, nombre: 'Sprite 1.5Lt', precio: 2500, cantidad: 0 },
+    { id: 19, nombre: 'Fanta 1.5Lt', precio: 2500, cantidad: 0 },
+    { id: 20, nombre: 'Cerveza Quilmes Lata', precio: 1700, cantidad: 0 },
+    { id: 21, nombre: 'Cerveza Los Andes ', precio: 2000, cantidad: 0 },
 ];
 
 class ProductoConImg extends Producto {
@@ -57,22 +58,7 @@ const crearProducto = () => {
 
 // Funcion que calcula el importe total
 function calcularImporteTotal(array) {
-    return array.reduce((total, array) => total + array.precio, 0);
-};
-
-// Funcion para eliminar producto
-function eliminarProducto(id) {
-    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-    const index = carrito.findIndex((producto) => producto.id === parseInt(id));
-
-    // Si index es diferente a -1, significa que se encontró el producto
-    if (index !== -1) {
-        carrito.splice(index, 1);
-        // Actualizar el carrito en el localStorage
-        localStorage.setItem('carrito', JSON.stringify(carrito));
-    }
-
-    return carrito;
+    return array.reduce((total, array) => total + (array.precio * array.cantidad), 0);
 };
 
 function crearNotificacion(titulo) {
@@ -101,9 +87,10 @@ function notificacionCarrito(cantidad) {
     if (cantidad > 0) {
         cantidadProducto.textContent = cantidad;
         cantidadProducto.style.display = 'block';
-    }else {
+    } else {
         cantidadProducto.style.display = 'none';
     }
 }
 
-export { crearProducto, calcularImporteTotal, eliminarProducto, crearNotificacion, notificacionCarrito};
+
+export { crearProducto, calcularImporteTotal, crearNotificacion, notificacionCarrito };
