@@ -92,5 +92,16 @@ function notificacionCarrito(cantidad) {
     }
 }
 
-
-export { crearProducto, calcularImporteTotal, crearNotificacion, notificacionCarrito };
+function NotificacionAgregar(msj) {
+    Swal.fire({
+        position: "top-end",
+        title: msj,
+        icon: "success",
+        showConfirmButton: false,
+        timer: 1500,
+        customClass: {
+            popup: 'cuadro'
+        }
+    });
+}
+export { crearProducto, calcularImporteTotal, crearNotificacion, notificacionCarrito, NotificacionAgregar };

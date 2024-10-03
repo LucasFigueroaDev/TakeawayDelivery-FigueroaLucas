@@ -62,13 +62,9 @@ body {
   background-attachment: fixed;
 }
 
-.notificacion {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  padding: 3rem;
-  border-radius: 2rem;
+.cuadro {
   background-color: rgba(76, 47, 156, 0.6117647059);
+  width: 35rem;
 }
 
 .carrito_finalizar {
