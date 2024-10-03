@@ -18,8 +18,10 @@
     <meta property="og:description" content="El mejor restaurante de la cuidad">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="css/main.css">
     <title>Lo más rico</title>
 </head>
@@ -27,6 +29,9 @@
 <body>
     <header class="inicio">
         <nav class="inicio_nav">
+            <div class="inicio_nav_menu-hamburguesa">
+                <img src="assets/menu.png" alt="logo menu hamburguesa">
+            </div>
             <ul class="inicio_nav_contenido">
                 <li><a class="inicio_nav_contenido_link" href="index.html">Home</a></li>
                 <li><a class="inicio_nav_contenido_link" href="#menu" id="link-menu">Menú</a></li>
@@ -45,38 +50,40 @@
             <h1 class="inicio_contenedor_titulo">Pedí nuestras delicias</h1>
         </div>
         <div class="inicio_descripcion">
-            <p class="inicio_descripcion_txt animate__animated animate__pulse animate__slow animate__repeat-3">Para disfrutar de todas nuestras delicias, consulte nuestro menú</p>
+            <p class="inicio_descripcion_txt animate__animated animate__pulse animate__slow animate__repeat-3">Para
+                disfrutar de todas nuestras delicias, consulte nuestro menú</p>
         </div>
     </header>
     <main>
         <section class="menu" id="menu">
-                <h2>Menú</h2>
-                <div class="activo_cards" id="contenedor"></div>
+            <h2>Menú</h2>
+            <div class="activo_cards" id="contenedor"></div>
         </section>
         <section class="nosotros" id="nosotros">
-                <h2>Nosotros</h2>
-                <div class="nosotros_cajas">
-                    <div class="nosotros_cajas_caja">
-                        <p class="nosotros_cajas_caja_txt">Creemos en los placeres sencillos de la vida. Buena comida,
-                            ingredientes frescos
-                            y buena vibra.</p>
-                    </div>
-                    <div class="nosotros_cajas_caja">
-                        <p class="nosotros_cajas_caja_txt">Nuestro negocio familiar lleva más de diez años brindando los
-                            mejores sabores de
-                            la ciudad.</p>
-                    </div>
+            <h2>Nosotros</h2>
+            <div class="nosotros_cajas">
+                <div class="nosotros_cajas_caja">
+                    <p class="nosotros_cajas_caja_txt">Creemos en los placeres sencillos de la vida. Buena comida,
+                        ingredientes frescos
+                        y buena vibra.</p>
                 </div>
+                <div class="nosotros_cajas_caja">
+                    <p class="nosotros_cajas_caja_txt">Nuestro negocio familiar lleva más de diez años brindando los
+                        mejores sabores de
+                        la ciudad.</p>
+                </div>
+            </div>
         </section>
         <section class="hyu" id="horarios">
-                <h2>Horarios y Ubicación</h2>
-                <p class="hyu_txt"><span class="hyu_txt_sp1">Nuestros horarios son: </span> 10am a 15pm y 18pm a 24pm</p>
-                <p class="hyu_ubi">Encontranos en Av. Velez Sarfield 123</p>
+            <h2>Horarios y Ubicación</h2>
+            <p class="hyu_txt"><span class="hyu_txt_sp1">Nuestros horarios son: </span> 10am a 15pm y 18pm a 24pm</p>
+            <p class="hyu_ubi">Encontranos en Av. Velez Sarfield 123</p>
         </section>
     </main>
     <footer>
         <p class="pie-de-pagina">℗ App Web - Desing Figueroa Lucas</p>
     </footer>
+    <script src="js/menu.js"></script>
     <script type="module" src="./js/script.js"></script>
 </body>
 

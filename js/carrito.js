@@ -43,8 +43,8 @@ const crearCarrito = (producto, contenedorCarrito) => {
         btnSumar.setAttribute('id', `${producto.id}`);
         btnRestar.setAttribute('id', `${producto.id}`);
 
-        div.appendChild(cantidad);
         div.appendChild(h3);
+        div.appendChild(cantidad);
         div.appendChild(precio);
         div.appendChild(btnSumar);
         div.appendChild(btnRestar);

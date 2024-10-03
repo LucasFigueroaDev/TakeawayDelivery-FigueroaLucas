@@ -1,20 +1,13 @@
 .carrito {
-    height: 150vh;
+    min-height: 100vh;
 
     &_contenedor {
-        margin: 0 auto;
-        padding: 5rem;
-        display: grid;
-        grid-template-columns: 4fr 1fr;
-        justify-items: center;
-
         &_lista {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-
+            gap: 5rem;
             &_li {
                 width: 35rem;
-                background-color: rgba(0, 0, 0, .8);
+                background-color: $bg-oscuro;
                 margin: 1rem;
                 padding: 2rem;
                 text-align: center;
@@ -40,10 +33,11 @@
         &_total-boton {
             display: flex;
             flex-direction: column;
+            align-items: center;
 
             &_total {
                 width: 30rem;
-                background-color: rgba(0, 0, 0, .8);
+                background-color: $bg-oscuro;
                 border-radius: 2rem;
                 padding: 0 2rem;
                 font-size: 3rem;

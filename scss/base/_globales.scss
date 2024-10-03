@@ -18,7 +18,8 @@ h2 {
     margin: 3rem;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: $negro;
-    background-color: black;
+    background-color: $negro;
+    border-radius: 2rem;
 }
 
 h3 {
@@ -47,5 +48,3 @@ body {
     background-image: $bg;
     background-attachment: fixed;
 }
-
-   

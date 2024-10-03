@@ -6,12 +6,11 @@
     display: block;
     &_cards {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
         justify-items: center;
         gap: 1rem;
         padding: 1rem;
         &_card {
-            background-color: rgba(0, 0, 0, .8);
+            background-color: $bg-oscuro;
             width: 30rem;
             display: flex;
             flex-direction: column;

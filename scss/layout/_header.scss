@@ -1,13 +1,19 @@
 .inicio {
     &_nav {
-        display: flex;
-        justify-content: space-evenly;
         align-items: center;
         padding: 1rem;
-        background-color: rgba(0, 0, 0, .8);
+        background-color: $bg-oscuro;
+
+        &_menu-hamburguesa {
+            & img {
+                height: 4rem;
+                cursor: pointer;
+                display: inline-block;
+            }
+        }
 
         &_contenido {
-            display: flex;
+            display: none;
 
             &_link {
                 font-size: 2rem;
@@ -24,6 +30,8 @@
                 }
             }
         }
+
+        
 
         &_carrito {
             position: relative;
@@ -63,9 +71,10 @@
         }
     }
 
-    
+
     &_descripcion {
         overflow: hidden;
+
         &_txt {
             color: $blanco;
             font-size: 5rem;
