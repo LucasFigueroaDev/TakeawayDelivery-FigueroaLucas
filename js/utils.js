@@ -61,27 +61,6 @@ function calcularImporteTotal(array) {
     return array.reduce((total, array) => total + (array.precio * array.cantidad), 0);
 };
 
-function crearNotificacion(titulo) {
-    const notificacion = document.createElement('div');
-    const notificacionTitulo = document.createElement('h4');
-
-    notificacion.classList.add('notificacion');
-    notificacion.classList.add('animate__animated');
-    notificacion.classList.add('animate__slideInRight');
-    notificacionTitulo.classList.add('notificacion_titulo');
-
-    notificacionTitulo.textContent = titulo;
-
-    notificacion.appendChild(notificacionTitulo);
-
-    document.body.appendChild(notificacion);
-
-    setTimeout(() => {
-        notificacion.remove();
-    }, 3000);
-
-};
-
 function notificacionCarrito(cantidad) {
     const cantidadProducto = document.querySelector('.inicio_nav_carrito_notificacion');
     if (cantidad > 0) {
@@ -92,16 +71,17 @@ function notificacionCarrito(cantidad) {
     }
 }
 
-function NotificacionAgregar(msj) {
+function msjAlert(msj) {
     Swal.fire({
         position: "top-end",
         title: msj,
-        icon: "success",
         showConfirmButton: false,
-        timer: 1500,
+        timer: 1000,
         customClass: {
-            popup: 'cuadro'
+            title: 'title',
+            popup: 'popup'
         }
     });
-}
-export { crearProducto, calcularImporteTotal, crearNotificacion, notificacionCarrito, NotificacionAgregar };
+};
+
+export { crearProducto, calcularImporteTotal, notificacionCarrito, msjAlert };

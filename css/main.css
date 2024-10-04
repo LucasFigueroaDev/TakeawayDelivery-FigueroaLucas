@@ -62,9 +62,39 @@ body {
   background-attachment: fixed;
 }
 
-.cuadro {
+.popup {
   background-color: rgba(76, 47, 156, 0.6117647059);
-  width: 35rem;
+  border: 1px solid black;
+  width: 50rem;
+}
+
+.title {
+  background-color: transparent !important;
+  color: #fff;
+  font-size: 1.5rem;
+  -webkit-text-stroke-width: 0px;
+}
+
+.datos {
+  background-color: transparent;
+  -webkit-text-stroke-width: 0px;
+}
+
+.box {
+  width: 45rem;
+  height: auto;
+}
+
+.select-vcp {
+  font-size: 1.5rem;
+}
+
+.dato {
+  font-size: 1.5rem;
+}
+
+.btn-sweet {
+  font-size: 1.5rem;
 }
 
 .carrito_finalizar {

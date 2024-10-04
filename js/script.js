@@ -1,7 +1,6 @@
 import { crearProducto } from "./utils.js";
-import { crearNotificacion } from "./utils.js";
 import { notificacionCarrito } from "./utils.js";
-import { NotificacionAgregar } from "./utils.js";
+import { msjAlert } from "./utils.js";
 
 const productos = crearProducto();
 const menu = document.getElementById('menu');
@@ -75,7 +74,7 @@ contenedor.addEventListener('click', (e) => { //Se agrega un evento al contenedo
             }
             notificacionCarrito(carrito.length);
             localStorage.setItem('carrito', JSON.stringify(carrito));
-            NotificacionAgregar('Pedido agregado');
+            msjAlert('pedido agregado');
         }
     }
 });
