@@ -61,6 +61,7 @@ function calcularImporteTotal(array) {
     return array.reduce((total, array) => total + (array.precio * array.cantidad), 0);
 };
 
+// Funcion que muestra la cantidad de producto en el carrito
 function notificacionCarrito(cantidad) {
     const cantidadProducto = document.querySelector('.inicio_nav_carrito_notificacion');
     if (cantidad > 0) {
@@ -71,6 +72,7 @@ function notificacionCarrito(cantidad) {
     }
 }
 
+// Funcion de sweetalert
 function msjAlert(msj) {
     Swal.fire({
         position: "top-end",
@@ -84,4 +86,13 @@ function msjAlert(msj) {
     });
 };
 
-export { crearProducto, calcularImporteTotal, notificacionCarrito, msjAlert };
+// Funcion que crea el menu hamburguesa
+function menuHamburguesa() {
+    const selectorMenu = document.querySelector('.inicio_nav_menu-hamburguesa');
+    const navMenu = document.querySelector('.inicio_nav_contenido');
+    selectorMenu.addEventListener('click', () => {
+        navMenu.classList.toggle('activo');
+    });
+};
+
+export { crearProducto, calcularImporteTotal, notificacionCarrito, msjAlert, menuHamburguesa };

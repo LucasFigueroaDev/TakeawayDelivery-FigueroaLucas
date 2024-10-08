@@ -1,4 +1,9 @@
 @media (max-width: 900px) {
+    .app {
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: calc(100% / 2);
+    }
     .inicio {
         &_nav {
             display: grid;
@@ -10,7 +15,7 @@
                 &_link {
                     font-size: 1.5rem;
                     padding: 0;
-                    margin: 0;
+                    margin: 1rem;
                     margin-bottom: 1rem;
 
                     &:hover {

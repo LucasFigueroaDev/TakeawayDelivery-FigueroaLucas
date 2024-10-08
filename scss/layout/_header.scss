@@ -31,8 +31,6 @@
             }
         }
 
-        
-
         &_carrito {
             position: relative;
 
@@ -69,14 +67,22 @@
             width: 60rem;
             filter: drop-shadow(5px 5px 12px rgb(17, 0, 255));
         }
-    }
 
+        &_titulo {
+            font-size: 5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-style: italic;
+            color: $blanco;
+            -webkit-text-stroke-width: 3px;
+            -webkit-text-stroke-color: $negro;
+        }
+    }
 
     &_descripcion {
         overflow: hidden;
 
         &_txt {
-            color: $blanco;
             font-size: 5rem;
             text-align: center;
             background-color: rgba(17, 0, 255, 0.5);

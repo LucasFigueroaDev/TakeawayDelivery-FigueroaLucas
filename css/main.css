@@ -11,16 +11,6 @@
   box-sizing: inherit;
 }
 
-h1 {
-  font-size: 5rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-style: italic;
-  color: #fff;
-  -webkit-text-stroke-width: 3px;
-  -webkit-text-stroke-color: #000;
-}
-
 h2 {
   font-size: 3.5rem;
   letter-spacing: 1rem;
@@ -57,82 +47,9 @@ p {
   color: #fff;
 }
 
-body {
+.app {
   background-image: url(../assets/bg.jpg);
   background-attachment: fixed;
-}
-
-.popup {
-  background-color: rgba(76, 47, 156, 0.6117647059);
-  border: 1px solid black;
-  width: 50rem;
-}
-
-.title {
-  background-color: transparent !important;
-  color: #fff;
-  font-size: 1.5rem;
-  -webkit-text-stroke-width: 0px;
-}
-
-.datos {
-  background-color: transparent;
-  -webkit-text-stroke-width: 0px;
-}
-
-.box {
-  width: 45rem;
-  height: auto;
-}
-
-.select-vcp {
-  font-size: 1.5rem;
-}
-
-.dato {
-  font-size: 1.5rem;
-}
-
-.btn-sweet {
-  font-size: 1.5rem;
-}
-
-.carrito_finalizar {
-  display: flex;
-  justify-content: center;
-}
-
-.contenedor_finalizar {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70rem;
-  padding: 1rem;
-  display: grid;
-  row-gap: 1rem;
-  background-color: black;
-}
-.contenedor_finalizar_select {
-  font-size: 2rem;
-  padding: 0.5rem;
-}
-.contenedor_finalizar_btn {
-  font-size: 2rem;
-  margin: 1rem;
-  width: 40rem;
-  border: none;
-  cursor: pointer;
-  border-radius: 2rem;
-}
-.contenedor_finalizar_btn:hover {
-  background-color: rgba(76, 47, 156, 0.6117647059);
-  color: #fff;
-}
-.contenedor_finalizar_input {
-  display: none;
-  font-size: 2rem;
-  grid-row: 4/5;
 }
 
 .inicio_nav {
@@ -193,11 +110,19 @@ body {
   width: 60rem;
   filter: drop-shadow(5px 5px 12px rgb(17, 0, 255));
 }
+.inicio_contenedor_titulo {
+  font-size: 5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-style: italic;
+  color: #fff;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: #000;
+}
 .inicio_descripcion {
   overflow: hidden;
 }
 .inicio_descripcion_txt {
-  color: #fff;
   font-size: 5rem;
   text-align: center;
   background-color: rgba(17, 0, 255, 0.5);
@@ -334,7 +259,88 @@ body {
   font-size: 1rem;
 }
 
+.popup {
+  background-color: #fff;
+  border: 1px solid black;
+  width: 50rem;
+}
+
+.popup-confirm {
+  width: 30rem;
+}
+
+.sweet-p {
+  color: #000;
+  font-size: 1.5rem;
+}
+
+.title {
+  background-color: transparent !important;
+  color: #000;
+  font-size: 2rem;
+  -webkit-text-stroke-width: 0px;
+}
+
+.input {
+  font-size: 2rem;
+}
+
+option {
+  font-size: 1.5rem;
+}
+
+.sweet-btn {
+  font-size: 1rem;
+}
+
+.swal2-confirm {
+  font-size: 1rem;
+}
+
+.carrito_finalizar {
+  display: flex;
+  justify-content: center;
+}
+
+.contenedor_finalizar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70rem;
+  padding: 1rem;
+  display: grid;
+  row-gap: 1rem;
+  background-color: black;
+}
+.contenedor_finalizar_select {
+  font-size: 2rem;
+  padding: 0.5rem;
+}
+.contenedor_finalizar_btn {
+  font-size: 2rem;
+  margin: 1rem;
+  width: 40rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 2rem;
+}
+.contenedor_finalizar_btn:hover {
+  background-color: rgba(76, 47, 156, 0.6117647059);
+  color: #fff;
+}
+.contenedor_finalizar_input {
+  display: none;
+  font-size: 2rem;
+  grid-row: 4/5;
+}
+
 @media (max-width: 900px) {
+  .app {
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: 50%;
+  }
   .inicio_nav {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -345,7 +351,7 @@ body {
   .inicio_nav_contenido_link {
     font-size: 1.5rem;
     padding: 0;
-    margin: 0;
+    margin: 1rem;
     margin-bottom: 1rem;
   }
   .inicio_nav_contenido_link:hover {

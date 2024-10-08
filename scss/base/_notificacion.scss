@@ -1,28 +1,30 @@
 .popup {
-    background-color: $azul;
+    background-color: $blanco;
     border: 1px solid black;
     width: 50rem;
 }
+.popup-confirm {
+    width: 30rem;
+}
+.sweet-p {
+    color: $negro;
+    font-size: 1.5rem;
+}
 .title {
     background-color: transparent !important;
-    color: #fff;
-    font-size: 1.5rem;
+    color: $negro;
+    font-size: 2rem;
     -webkit-text-stroke-width: 0px;
 }
-.datos {
-    background-color: transparent;
-    -webkit-text-stroke-width: 0px;
+.input {
+    font-size: 2rem;
 }
-.box {
-    width: 45rem;
-    height: auto;
-}
-.select-vcp {
+option {
     font-size: 1.5rem;
 }
-.dato {
-    font-size: 1.5rem;
+.sweet-btn {
+    font-size: 1rem;
 }
-.btn-sweet {
-    font-size: 1.5rem;
+.swal2-confirm {
+    font-size: 1rem;
 }

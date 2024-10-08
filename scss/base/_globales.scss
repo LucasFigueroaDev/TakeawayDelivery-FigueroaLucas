@@ -1,12 +1,3 @@
-h1 {
-    font-size: 5rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-style: italic;
-    color: $blanco;
-    -webkit-text-stroke-width: 3px;
-    -webkit-text-stroke-color: $negro;
-}
 
 h2 {
     font-size: 3.5rem;
@@ -44,7 +35,7 @@ p {
     color: $blanco;
 }
 
-body {
+.app {
     background-image: $bg;
     background-attachment: fixed;
 }

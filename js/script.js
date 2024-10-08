@@ -1,6 +1,7 @@
 import { crearProducto } from "./utils.js";
 import { notificacionCarrito } from "./utils.js";
 import { msjAlert } from "./utils.js";
+import { menuHamburguesa } from "./utils.js";
 
 const productos = crearProducto();
 const menu = document.getElementById('menu');
@@ -24,7 +25,7 @@ const divProducto = (producto) => {
     // agregar id
     btn.setAttribute('id', producto.id);
     // agregar contenido
-    img.setAttribute('src', `assets/img-productos/producto${producto.id}.jpg`);
+    img.setAttribute('src', `assets/img-productos/producto${producto.id}.webp`);
     img.setAttribute('alt', `${producto.nombre}`);
     h3.textContent = producto.nombre;
     p.textContent = `Precio: $${producto.precio}`;
@@ -55,15 +56,14 @@ let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 notificacionCarrito(carrito.length);
 
 // Funcion para seleccionar productos segun id
-contenedor.addEventListener('click', (e) => { //Se agrega un evento al contenedor de los pedidos
-    if (e.target.classList.contains('activo_cards_card_btn')) { // Se busca todos los botones con la clase activo_cards_card_btn
-        const productoId = parseInt(e.target.id); // Se seleciona el id que selecciona el usuario y se convierte a entero para poder compararlo
+contenedor.addEventListener('click', (e) => { 
+    if (e.target.classList.contains('activo_cards_card_btn')) {
+        const productoId = parseInt(e.target.id);
         const productoSeleccionado = productos.find((producto) =>
             producto.id === productoId);
         if (productoSeleccionado) {
             // Verificar si el producto ya está en el carrito
             const productoEnCarrito = carrito.find(item => item.id === productoId);
-
 
             if (productoEnCarrito) {
                 // Si el producto ya está en el carrito, incrementar su cantidad
@@ -78,3 +78,5 @@ contenedor.addEventListener('click', (e) => { //Se agrega un evento al contenedo
         }
     }
 });
+
+menuHamburguesa();
