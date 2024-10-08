@@ -37,6 +37,7 @@ class ProductoConImg extends Producto {
         this.imagen = imagen
     }
 };
+obtenerProductos()
 // Crear productos y manejos posibles errores
 const crearProducto = () => {
     if (!productos || !productos.length) { // validar que no este vacio
