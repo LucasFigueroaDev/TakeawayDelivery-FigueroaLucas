@@ -1,9 +1,10 @@
-import { crearProducto } from "./utils.js";
+// import { crearProducto } from "./utils.js";
 import { notificacionCarrito } from "./utils.js";
 import { msjAlert } from "./utils.js";
 import { menuHamburguesa } from "./utils.js";
+import { productos } from "./utils.js";
 
-const productos = crearProducto();
+// const productos = crearProducto();
 const menu = document.getElementById('menu');
 const contenedor = document.getElementById('contenedor');
 const linkMenu = document.getElementById('link-menu');
