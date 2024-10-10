@@ -2,7 +2,21 @@
 import { notificacionCarrito } from "./utils.js";
 import { msjAlert } from "./utils.js";
 import { menuHamburguesa } from "./utils.js";
-import { productos } from "./utils.js";
+let productos;
+const url = 'json/productos.json';
+
+async function cargarProductos() {
+    try {
+        const respuesta = await fetch(url);
+        const datos = await respuesta.json();
+        productos = datos;
+    } catch (error) {
+        console.error('Error:', error);
+        msjAlert('Error al cargar los productos');
+    }
+}
+
+cargarProductos();
 
 // const productos = crearProducto();
 const menu = document.getElementById('menu');
@@ -57,7 +71,7 @@ let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 notificacionCarrito(carrito.length);
 
 // Funcion para seleccionar productos segun id
-contenedor.addEventListener('click', (e) => { 
+contenedor.addEventListener('click', (e) => {
     if (e.target.classList.contains('activo_cards_card_btn')) {
         const productoId = parseInt(e.target.id);
         const productoSeleccionado = productos.find((producto) =>

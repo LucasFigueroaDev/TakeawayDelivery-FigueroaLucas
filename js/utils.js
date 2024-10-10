@@ -1,42 +1,3 @@
-// fetch ('json/productos.json')
-// .then(respuesta => respuesta.json())
-// .then(data => console.log(data))
-// .catch(err => console.error('error', err))
-
-export let productos;
-
-
-fetch('json/productos.json')
-.then(respuesta => respuesta.json())
-.then(datos => {
-    productos = datos
-})
-.catch(error => console.error('Error:', error));
-
-console.log(productos);
-
-
-
-
-// // Crear productos y manejos posibles errores
-// const crearProducto = () => {
-//     if (!productos || !productos.length) { // validar que no este vacio
-//         throw new Error("Error cargar productos");
-//     }
-//     return productos.map((producto) => {
-//         if (typeof producto.id != "number") { // Valida que sea un número
-//             throw new Error("Error, el id debe ser un número");
-//         }
-//         if (typeof producto.nombre != "string") { // Valida que sea un string
-//             throw new Error("Error, el nombre no es valido");
-//         }
-//         if (producto.precio <= 0) { // Valida que sea número positivo
-//             throw new Error("El precio debe ser número positivo");
-//         }
-//         return new ProductoConImg(producto.id, producto.nombre, producto.precio, producto.imagen);
-//     });
-// };
-
 // Funcion que calcula el importe total
 function calcularImporteTotal(array) {
     return array.reduce((total, array) => total + (array.precio * array.cantidad), 0);
@@ -75,6 +36,5 @@ function menuHamburguesa() {
         navMenu.classList.toggle('activo');
     });
 };
-
 
 export { calcularImporteTotal, notificacionCarrito, msjAlert, menuHamburguesa };
