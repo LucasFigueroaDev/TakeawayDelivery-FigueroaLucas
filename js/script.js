@@ -1,24 +1,24 @@
-// import { crearProducto } from "./utils.js";
-import { notificacionCarrito } from "./utils.js";
-import { msjAlert } from "./utils.js";
-import { menuHamburguesa } from "./utils.js";
-let productos;
-const url = 'json/productos.json';
+import { notificacionCarrito, msjAlert, menuHamburguesa } from "./utils.js";
 
+let productos;
+
+// Funcion para cargar productos del archivo json
+const url = 'json/productos.json';
 async function cargarProductos() {
     try {
         const respuesta = await fetch(url);
         const datos = await respuesta.json();
         productos = datos;
+        if (productos.length === 0 ){
+            msjAlert('No hay productos disponibles');
+        }
     } catch (error) {
-        console.error('Error:', error);
         msjAlert('Error al cargar los productos');
     }
 }
-
 cargarProductos();
 
-// const productos = crearProducto();
+// Variables del DOM
 const menu = document.getElementById('menu');
 const contenedor = document.getElementById('contenedor');
 const linkMenu = document.getElementById('link-menu');
@@ -50,14 +50,17 @@ const divProducto = (producto) => {
     div.appendChild(h3);
     div.appendChild(p);
     div.appendChild(btn);
-
     return div;
 };
 
 // Evento donde muestra los productos en el html
-linkMenu.addEventListener('click', () => {
+linkMenu.addEventListener('click', async () => {
     menu.classList.add('activo');
     contenedor.innerHTML = '';
+
+    if(!productos){
+        await cargarProductos();
+    }
 
     productos.forEach((producto) => {
         const contenido = divProducto(producto);

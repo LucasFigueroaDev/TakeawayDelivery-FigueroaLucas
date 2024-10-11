@@ -1,6 +1,4 @@
-import { calcularImporteTotal, msjAlert } from "./utils.js";
-import { notificacionCarrito } from "./utils.js";
-import { menuHamburguesa } from "./utils.js";
+import { calcularImporteTotal, msjAlert, notificacionCarrito, menuHamburguesa } from "./utils.js";
 
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 let totalCarrito = 0;
