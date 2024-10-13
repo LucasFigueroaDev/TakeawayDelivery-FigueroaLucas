@@ -1,4 +1,4 @@
-import { calcularImporteTotal, msjAlert, notificacionCarrito, menuHamburguesa } from "./utils.js";
+import { calcularImporteTotal, msjAlert, notificacionCarrito, menuHamburguesa, confirmacion } from "./utils.js";
 
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 let totalCarrito = 0;
@@ -128,16 +128,23 @@ vaciar.addEventListener('click', () => {
     actualizarCarrito(carrito);
 });
 
-// Funcion de preguntar si se envia el pedido o lo retira por el local
-const enviarORetirar = () => {
+// Formulario de metodo de pago y envio
+const formCompra = () => {
     Swal.fire({
-        title: '¿Enviamos tu pedido o lo retiras por el local?',
-        input: 'select',
-        inputOptions: {
-            'domicilio': 'Enviar a domicilio',
-            'local': 'Retirarlo por el local'
-        },
-        inputPlaceholder: 'Selecciona una opción',
+        title: 'Metodo de pago y envio',
+        html: `
+            <label class="inputLabel" for="metodoDePago">Método de pago:</label>
+            <select id="metodoDePago" class="swal2-select input">
+            <option value="tarjeta">Tarjeta de crédito/débito</option>
+            <option value="efectivo">Efectivo</option>
+            </select>
+
+            <label class="inputLabel" for="metodoDeEntrega">Tipo de entrega:</label>
+            <select id="metodoDeEntrega" class="swal2-select input">
+            <option value="local">Retirar por local</option>
+            <option value="domicilio">Enviar a domicilio</option>
+            </select>`,
+        focusConfirm: false,
         showCancelButton: true,
         confirmButtonText: 'Continuar',
         cancelButtonText: 'Cancelar',
@@ -148,69 +155,39 @@ const enviarORetirar = () => {
             confirmButton: 'sweet-btn',
             cancelButton: 'sweet-btn'
         },
-        preConfirm: (opcion) => {
-            if (opcion === 'domicilio') {
-                enviarADomicilio();
-            } else if (opcion === 'local') {
-                retirarPorLocal();
-            } else {
-                Swal.showValidationMessage('Debes seleccionar una opción');
-            }
-        }
-    });
-};
-
-// Funcion de enviar pedido a domicilio
-const enviarADomicilio = () => {
-    Swal.fire({
-        title: 'Rellena tus datos',
-        html:
-            '<input id="swal-nombre" class="swal2-input" placeholder="Nombre">' +
-            '<input id="swal-direccion" class="swal2-input" placeholder="Dirección">' +
-            '<input id="swal-telefono" class="swal2-input" placeholder="Teléfono">',
-        focusConfirm: false,
-        showCancelButton: true,
-        confirmButtonText: 'Enviar',
-        customClass: {
-            title: 'title',
-            popup: 'popup',
-            input: 'input',
-            confirmButton: 'sweet-btn',
-            cancelButton: 'sweet-btn'
-        },
         preConfirm: () => {
-            const nombre = document.getElementById('swal-nombre').value;
-            const direccion = document.getElementById('swal-direccion').value;
-            const telefono = document.getElementById('swal-telefono').value;
+            const metodoDePago = document.getElementById('metodoDePago').value;
+            const metodoDeEntrega = document.getElementById('metodoDeEntrega').value;
 
-            if (!nombre || !direccion || !telefono) {
+            if (!metodoDePago || !metodoDeEntrega) {
                 Swal.showValidationMessage('Todos los campos son obligatorios');
-            } else {
-                return { nombre, direccion, telefono };
+                return false
             }
+            return { metodoDeEntrega, metodoDePago }
         }
     }).then((result) => {
         if (result.isConfirmed) {
-            Swal.fire({
-                title: 'Pedido confirmado',
-                html: `<p class="sweet-p">El pedido será enviado a ${result.value.direccion}. ¡Gracias, ${result.value.nombre}!</p>`,
-                customClass: {
-                    title: 'title',
-                    popup: 'popup-confirm'
-                }
-            });
-            carrito = [];
-            actualizarCarrito(carrito);
-            actualizarTotal();
+            const metodoDeEntrega = result.value.metodoDeEntrega;
+            const metodoDePago = result.value.metodoDePago;
+
+            if (metodoDeEntrega === 'local') {
+                solicitarDatos(metodoDePago);
+            } else if (metodoDeEntrega === 'domicilio') {
+                solicitarDatosDomicilio(metodoDePago);
+            }
         }
-    });
+    })
 };
 
-// Funcion retirar por el local
-const retirarPorLocal = () => {
+// Funcion solicitar datos
+const solicitarDatos = (metodoDePago) => {
     Swal.fire({
-        title: 'Rellena los datos',
-        html: '<input id="swal-nombre" class="swal2-input" placeholder="Nombre">',
+        title: 'Ingresa tu nombre',
+        html: `
+            <label class="inputLabel" for="nombreCompleto">Tu nombre completo:</label>
+            <input type="text" class="swal2-input" id="nombreCompleto" placeholder="Tu nombre">
+            <label class="inputLabel" for="cel">Tu telefono:</label>
+            <input type="number" class="swal2-input" id="cel" placeholder="Tu telefono">`,
         focusConfirm: false,
         showCancelButton: true,
         confirmButtonText: 'Confirmar',
@@ -222,30 +199,128 @@ const retirarPorLocal = () => {
             cancelButton: 'sweet-btn'
         },
         preConfirm: () => {
-            const nombre = document.getElementById('swal-nombre').value;
+            const nombreCompleto = document.getElementById('nombreCompleto').value;
+            const telefono = document.getElementById('cel').value;
 
-            if (!nombre) {
-                Swal.showValidationMessage('El campo es obligatorio');
-            } else {
-                return { nombre };
+            if (!nombreCompleto || !telefono) {
+                Swal.showValidationMessage('Debes completar los datos');
+                return false;
             }
+            return { nombreCompleto, telefono };
         }
     }).then((result) => {
         if (result.isConfirmed) {
-            Swal.fire({
-                title: 'Pedido confirmado',
-                html: `<p class="sweet-p">El pedido estará listo en 20 minutos y podras retirarlo. ¡Gracias, ${result.value.nombre}!</p>`,
-                customClass: {
-                    title: 'title',
-                    popup: 'popup-confirm'
-                }
-            });
-            carrito = [];
-            actualizarCarrito(carrito);
-            actualizarTotal();
+            if (metodoDePago === 'tarjeta') {
+                solicitarDatosTarjeta();
+            } else if (metodoDePago === 'efectivo') {
+                confirmacion(`Pedido confirmado. ¡Gracias ${result.value.nombreCompleto}! Podras retirarlo en 30 minutos por nuestro local abonando ahi mismo.`);
+            }
         }
     });
 };
+
+// Funcion solicitar datos de tarjeta
+const solicitarDatosTarjeta = () => {
+    Swal.fire({
+        title: 'Ingresa los datos de la tarjeta',
+        html: `
+        <label class="inputLabel" for="numeroTarjeta">Número de tarjeta:</label>
+        <input type="number" id="numeroTarjeta" class="swal2-input inputNumber" placeholder="1234 5678 9012 3456">
+        <label class="inputLabel" for="fechaExpiracion">Fecha de expiración:</label>
+        <input type="text" id="fechaExpiracion" class="swal2-input" placeholder="MM/AA">
+        <label class="inputLabel" for="cvv">CVV:</label>
+        <input type="number" id="cvv" class="swal2-input inputNumber" placeholder="123">
+        <label class="inputLabel" for="titular">Titular de la tarjeta:</label>
+        <input type="text" class="swal2-input" id="titular" placeholder="Titular de la tarjeta">
+        <label class="inputLabel" for="dni">DNI:</label>
+        <input type="number" class="swal2-input" id="dni" placeholder="Tu dni">`,
+        focusConfirm: false,
+        showCancelButton: true,
+        confirmButtonText: 'Pagar',
+        customClass: {
+            title: 'title',
+            popup: 'popup',
+            input: 'input',
+            confirmButton: 'sweet-btn',
+            cancelButton: 'sweet-btn'
+        },
+        preConfirm: () => {
+            const numeroTarjeta = document.getElementById('numeroTarjeta').value;
+            const fechaExpiracion = document.getElementById('fechaExpiracion').value;
+            const cvv = document.getElementById('cvv').value;
+            const titular = document.getElementById('titular').value;
+            const dni = document.getElementById('dni').value;
+
+            if (!numeroTarjeta || !fechaExpiracion || !cvv || !titular || !dni) {
+                Swal.showValidationMessage('Debes completar todos los campos de la tarjeta');
+                return false;
+            } else if (numeroTarjeta === Number || dni === Number) {
+                Swal.showValidationMessage('Debes ingresar número de tarjeta valido');
+            }
+
+            return { numeroTarjeta, fechaExpiracion, cvv, titular, dni };
+        }
+    }).then((result) => {
+        const metodoDeEntrega = document.getElementById('metodoDeEntrega');
+        
+        console.log(metodoDeEntrega);
+        
+        if (result.isConfirmed) {
+
+            if (metodoDeEntrega === 'domicilio') {
+                confirmacion(`¡Pago aprobado con exitos! Tu envio se entregara en: ${result.value.direccion}. Gracias ${result.value.titular}`)
+            } else if (metodoDeEntrega === 'local') {
+                confirmacion(`¡Pago aprobado con exitos! Podras retirarlo en 30 minutos por nuestro local. Gracias ${result.value.titular}`);
+            }
+
+        }
+    });
+};
+
+// Funcion solicitar datos del domicilio
+const solicitarDatosDomicilio = (metodoDePago) => {
+    Swal.fire({
+        title: 'Ingresa los datos de envío',
+        html: `
+                <label class="inputLabel" for="nombre">Tu nombre:</label>
+                <input type="text" id="nombre" class="swal2-input" placeholder="Tu nombre">
+                <label class="inputLabel" for="direccion">Dirección:</label>
+                <input type="text" id="direccion" class="swal2-input" placeholder="Calle 123">
+                <label class="inputLabel" for="telefono">Teléfono:</label>
+                <input type="number" id="telefono" class="swal2-input" placeholder="Tu telefono">`,
+        focusConfirm: false,
+        showCancelButton: true,
+        confirmButtonText: 'Confirmar Envío',
+        customClass: {
+            title: 'title',
+            popup: 'popup',
+            input: 'input',
+            confirmButton: 'sweet-btn',
+            cancelButton: 'sweet-btn'
+        },
+        preConfirm: () => {
+            const nombre = document.getElementById('nombre').value;
+            const direccion = document.getElementById('direccion').value;
+            const telefono = document.getElementById('telefono').value;
+
+            if (!nombre || !direccion || !telefono) {
+                Swal.showValidationMessage('Debes completar todos los campos de envío');
+                return false;
+            }
+
+            return { nombre, direccion, telefono };
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            if (metodoDePago === 'tarjeta') {
+                solicitarDatosTarjeta();
+            } else {
+                confirmacion(`¡Envío registrado!¡Gracias por la compra ${result.value.nombre}! Su pedido se entregara en ${result.value.direccion}`);
+            }
+        }
+    });
+};
+
 
 // Boton finalizar compra
 const finCompra = document.getElementById('seccion_carrito');
@@ -259,7 +334,7 @@ finCompraContenedor.appendChild(btnfinalizar);
 finCompra.appendChild(finCompraContenedor);
 btnfinalizar.addEventListener('click', (e) => {
     if (carrito.length >= 1) {
-        enviarORetirar();
+        formCompra();
     } else {
         msjAlert('No agregaste ningun pedido');
     }

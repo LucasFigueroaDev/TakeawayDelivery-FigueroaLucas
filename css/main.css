@@ -262,7 +262,7 @@ p {
 .popup {
   background-color: #fff;
   border: 1px solid black;
-  width: 50rem;
+  width: 45rem;
 }
 
 .popup-confirm {
@@ -278,6 +278,7 @@ p {
   background-color: transparent !important;
   color: #000;
   font-size: 2rem;
+  letter-spacing: 0px;
   -webkit-text-stroke-width: 0px;
 }
 
@@ -285,16 +286,26 @@ p {
   font-size: 2rem;
 }
 
+.inputLabel {
+  font-size: 1.5rem;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 option {
   font-size: 1.5rem;
 }
 
 .sweet-btn {
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 .swal2-confirm {
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 .carrito_finalizar {

@@ -28,6 +28,20 @@ function msjAlert(msj) {
     });
 };
 
+// Funcion de sweetAlert2 
+function confirmacion (msj) {
+    Swal.fire({
+        title: msj,
+        showConfirmButton: true,
+        confirmButtonText: 'Aceptar',
+        customClass: {
+            title: 'title',
+            popup: 'popup',
+            confirmButton: 'sweet-btn'
+        }
+    })
+};
+
 // Funcion que crea el menu hamburguesa
 function menuHamburguesa() {
     const selectorMenu = document.querySelector('.inicio_nav_menu-hamburguesa');
@@ -37,4 +51,4 @@ function menuHamburguesa() {
     });
 };
 
-export { calcularImporteTotal, notificacionCarrito, msjAlert, menuHamburguesa };
+export { calcularImporteTotal, notificacionCarrito, msjAlert, menuHamburguesa, confirmacion };
