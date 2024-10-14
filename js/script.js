@@ -1,5 +1,4 @@
 import { notificacionCarrito, msjAlert, menuHamburguesa } from "./utils.js";
-
 let productos;
 
 // Funcion para cargar productos del archivo json
@@ -42,6 +41,8 @@ const divProducto = (producto) => {
     // agregar contenido
     img.setAttribute('src', `assets/img-productos/producto${producto.id}.webp`);
     img.setAttribute('alt', `${producto.nombre}`);
+    img.setAttribute('width', '800');
+    img.setAttribute('height', '800');
     h3.textContent = producto.nombre;
     p.textContent = `Precio: $${producto.precio}`;
     btn.textContent = 'Agregar pedido';
@@ -73,21 +74,17 @@ linkMenu.addEventListener('click', async () => {
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 notificacionCarrito(carrito.length);
 
-// Funcion para seleccionar productos segun id
+// Funcion para seleccionar productos segun id, si existe el producto le suma la cantidad
 contenedor.addEventListener('click', (e) => {
     if (e.target.classList.contains('activo_cards_card_btn')) {
         const productoId = parseInt(e.target.id);
         const productoSeleccionado = productos.find((producto) =>
             producto.id === productoId);
         if (productoSeleccionado) {
-            // Verificar si el producto ya está en el carrito
             const productoEnCarrito = carrito.find(item => item.id === productoId);
-
             if (productoEnCarrito) {
-                // Si el producto ya está en el carrito, incrementar su cantidad
                 productoEnCarrito.cantidad += 1;
             } else {
-                // Si no está en el carrito, agregarlo con cantidad inicial de 1
                 carrito.push({ ...productoSeleccionado, cantidad: 1 });
             }
             notificacionCarrito(carrito.length);

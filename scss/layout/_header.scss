@@ -6,6 +6,7 @@
 
         &_menu-hamburguesa {
             & img {
+                width: auto;
                 height: 4rem;
                 cursor: pointer;
                 display: inline-block;
@@ -36,6 +37,7 @@
 
             &_img {
                 max-width: 100%;
+                height: auto;
                 width: 4rem;
                 margin-right: 3rem;
             }

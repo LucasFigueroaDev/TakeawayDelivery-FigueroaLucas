@@ -48,7 +48,7 @@ p {
 }
 
 .app {
-  background-image: url(../assets/bg.jpg);
+  background-image: url(../assets/bg.webp);
   background-attachment: fixed;
 }
 
@@ -58,6 +58,7 @@ p {
   background-color: rgba(0, 0, 0, 0.8);
 }
 .inicio_nav_menu-hamburguesa img {
+  width: auto;
   height: 4rem;
   cursor: pointer;
   display: inline-block;
@@ -83,6 +84,7 @@ p {
 }
 .inicio_nav_carrito_img {
   max-width: 100%;
+  height: auto;
   width: 4rem;
   margin-right: 3rem;
 }
@@ -149,6 +151,10 @@ p {
   border: 1px solid #000;
   border-radius: 1rem;
   padding: 1rem;
+}
+.activo_cards_card_img {
+  width: 27.8rem;
+  height: 27.8rem;
 }
 .activo_cards_card_txt {
   text-align: center;

@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!--meta-->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Casa de comidas familiar con las mejores comidas">
+    <meta name="description" content="Casa de comidas familiar ofreciendo los mejores sabores locales. ¡Explora nuestro menú!">
     <meta name="author" content="Figueroa Lucas">
     <meta name="copyright" content="Figueroa Lucas">
     <meta name="robots" content="index, follow">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Lo más rico">
-    <meta property="og:url" content="https://lucasfigueroadev.github.io/preentrega2-FigueroaLucas/">
-    <meta property="og:image" content="https://github.com/LucasFigueroaDev/preentrega2-FigueroaLucas/blob/main/assets/bg.jpg"> 
+    <meta property="og:url" content="https://lucasfigueroadev.github.io/Entregafinal-FigueroaLucas/">
+    <meta property="og:image" content="https://github.com/LucasFigueroaDev/Entregafinal-FigueroaLucas/blob/main/assets/logo.png"> 
     <meta property="og:description" content="La mejor casa de comidas de la ciudad">
     <!--fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,12 +27,11 @@
     <!--Title-->
     <title>Carrito - Lo más rico</title>
 </head>
-
 <body class="app">
     <header class="inicio">
         <nav class="inicio_nav">
             <div class="inicio_nav_menu-hamburguesa">
-                <img src="../assets/menu.png" alt="logo menu hamburguesa">
+                <img loading="lazy" src="../assets/menu.png" alt="logo menu hamburguesa" width="512" height="512">
             </div>
             <ul class="inicio_nav_contenido">
                 <li><a class="inicio_nav_contenido_link" href="../index.html">Home</a></li>
@@ -44,9 +40,7 @@
                 <li><a class="inicio_nav_contenido_link" href="../index.html#horarios">Horarios y ubicación</a></li>
             </ul>
             <div class="inicio_nav_carrito">
-                <a href="carrito.html" id="carrito">
-                    <img class="inicio_nav_carrito_img" src="../assets/carrito-de-compras.png" alt="Carrito de compras">
-                </a>
+                <a href="carrito.html" id="carrito"><img loading="lazy" class="inicio_nav_carrito_img" src="../assets/carrito-de-compras.png" alt="Icono carrito de compras" width="512" height="512"></a>
                 <span class="inicio_nav_carrito_notificacion">0</span>
             </div>
         </nav>
@@ -56,18 +50,13 @@
             <h2>Carrito de compras</h2>
             <div class="carrito_contenedor">
                 <ul id="carrito_lista" class="carrito_contenedor_lista"></ul>
-                <div class="carrito_contenedor_total-boton">
-                    <p class="carrito_contenedor_total-boton_total"></p>
-                    <button id="carrito_vaciar" class="carrito_contenedor_total-boton_vaciar">Vaciar carrito</button>
-                </div>
             </div>
         </section>
     </main>
     <footer>
-        <p class="pie-de-pagina">℗ App Web - Desing Figueroa Lucas</p>
+        <p class="pie-de-pagina">℗ App Web - Design Figueroa Lucas</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="../js/carrito.js"></script>
 </body>
-
 </html>

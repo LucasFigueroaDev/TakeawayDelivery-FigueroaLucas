@@ -14,7 +14,7 @@ function notificacionCarrito(cantidad) {
     }
 }
 
-// Funcion de sweetalert
+// Funcion de sweetalert notificación con tiempo
 function msjAlert(msj) {
     Swal.fire({
         position: "top-end",
@@ -28,7 +28,7 @@ function msjAlert(msj) {
     });
 };
 
-// Funcion de sweetAlert2 
+// Funcion de sweetAlert2 comfirma pago realizado
 function confirmacion (msj) {
     Swal.fire({
         title: msj,
