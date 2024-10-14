@@ -173,9 +173,8 @@ p {
   padding: 2rem;
 }
 .nosotros_cajas_caja_txt {
-  width: 50%;
-  margin: 0 auto;
-  letter-spacing: 5px;
+  font-weight: 400;
+  letter-spacing: 3px;
 }
 
 .hyu {
@@ -262,7 +261,13 @@ p {
 .popup {
   background-color: #fff;
   border: 1px solid black;
-  width: 45rem;
+  width: 55rem;
+}
+
+.htmlContainer {
+  display: grid !important;
+  grid-template-columns: 1fr 2fr !important;
+  align-items: center !important;
 }
 
 .popup-confirm {
@@ -286,7 +291,13 @@ p {
   font-size: 2rem;
 }
 
+.swal2-input {
+  padding: 1.1em !important;
+  margin: 1rem 0 !important;
+}
+
 .inputLabel {
+  display: inline-block;
   font-size: 1.5rem;
 }
 
@@ -384,8 +395,8 @@ option {
     font-size: 2rem;
   }
   .nosotros_cajas_caja_txt {
-    width: 100%;
-    font-size: 1.5rem;
+    letter-spacing: 0px;
+    font-size: 2rem;
   }
   .hyu h2 {
     padding: 1rem;
@@ -429,6 +440,7 @@ option {
   }
   .carrito_contenedor_lista {
     grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+    justify-items: center;
   }
 }
 

@@ -170,17 +170,21 @@ const formCompra = () => {
             const metodoDeEntrega = result.value.metodoDeEntrega;
             const metodoDePago = result.value.metodoDePago;
 
-            if (metodoDeEntrega === 'local') {
-                solicitarDatos(metodoDePago);
-            } else if (metodoDeEntrega === 'domicilio') {
+            if (metodoDePago === 'tarjeta' && metodoDeEntrega === 'local') {
+                solicitarDatos(metodoDeEntrega, metodoDePago);
+            } else if (metodoDePago === 'tarjeta' && metodoDeEntrega === 'domicilio') {
+                solicitarDatosDomicilio(metodoDePago, metodoDeEntrega);
+            } else if (metodoDePago === 'efectivo' && metodoDeEntrega === 'domicilio') {
                 solicitarDatosDomicilio(metodoDePago);
+            } else if (metodoDeEntrega === 'local') {
+                solicitarDatos(metodoDeEntrega, metodoDePago);
             }
         }
     })
 };
 
 // Funcion solicitar datos
-const solicitarDatos = (metodoDePago) => {
+const solicitarDatos = (metodoDeEntrega, metodoDePago) => {
     Swal.fire({
         title: 'Ingresa tu nombre',
         html: `
@@ -192,6 +196,7 @@ const solicitarDatos = (metodoDePago) => {
         showCancelButton: true,
         confirmButtonText: 'Confirmar',
         customClass: {
+            htmlContainer: 'htmlContainer',
             title: 'title',
             popup: 'popup',
             input: 'input',
@@ -210,17 +215,22 @@ const solicitarDatos = (metodoDePago) => {
         }
     }).then((result) => {
         if (result.isConfirmed) {
-            if (metodoDePago === 'tarjeta') {
-                solicitarDatosTarjeta();
-            } else if (metodoDePago === 'efectivo') {
-                confirmacion(`Pedido confirmado. ¡Gracias ${result.value.nombreCompleto}! Podras retirarlo en 30 minutos por nuestro local abonando ahi mismo.`);
+            if (metodoDePago === 'efectivo') {
+                confirmacion('Pedido registrado. Podras retirarlo en 30 minutos por nuestro local. ¡Muchas Gracias!');
+                carrito = [];
+                actualizarCarrito(carrito);
+                actualizarTotal(carrito);
+            } else if (metodoDePago === 'tarjeta' && metodoDeEntrega === 'local') {
+                solicitarDatosTarjeta(metodoDeEntrega);
+            } else if (metodoDePago === 'tarjeta' && metodoDeEntrega === 'domicilio') {
+                solicitarDatosDomicilio(metodoDePago)
             }
         }
     });
 };
 
 // Funcion solicitar datos de tarjeta
-const solicitarDatosTarjeta = () => {
+const solicitarDatosTarjeta = (metodoDeEntrega) => {
     Swal.fire({
         title: 'Ingresa los datos de la tarjeta',
         html: `
@@ -238,6 +248,7 @@ const solicitarDatosTarjeta = () => {
         showCancelButton: true,
         confirmButtonText: 'Pagar',
         customClass: {
+            htmlContainer: 'htmlContainer',
             title: 'title',
             popup: 'popup',
             input: 'input',
@@ -254,47 +265,45 @@ const solicitarDatosTarjeta = () => {
             if (!numeroTarjeta || !fechaExpiracion || !cvv || !titular || !dni) {
                 Swal.showValidationMessage('Debes completar todos los campos de la tarjeta');
                 return false;
-            } else if (numeroTarjeta === Number || dni === Number) {
+            } else if (numeroTarjeta === Number && dni === Number) {
                 Swal.showValidationMessage('Debes ingresar número de tarjeta valido');
             }
 
             return { numeroTarjeta, fechaExpiracion, cvv, titular, dni };
         }
     }).then((result) => {
-        const metodoDeEntrega = document.getElementById('metodoDeEntrega');
-        
-        console.log(metodoDeEntrega);
-        
         if (result.isConfirmed) {
-
             if (metodoDeEntrega === 'domicilio') {
-                confirmacion(`¡Pago aprobado con exitos! Tu envio se entregara en: ${result.value.direccion}. Gracias ${result.value.titular}`)
+                confirmacion(`¡Pago aprobado con exitos! Su pedido se entregara a domicilio. ¡Muchas Gracias!`);
             } else if (metodoDeEntrega === 'local') {
-                confirmacion(`¡Pago aprobado con exitos! Podras retirarlo en 30 minutos por nuestro local. Gracias ${result.value.titular}`);
+                confirmacion(`¡Pago aprobado con exitos! Podras retirarlo en 30 minutos por nuestro local. ¡Muchas Gracias!`);
             }
-
         }
+        carrito = [];
+        actualizarCarrito(carrito);
+        actualizarTotal(carrito);
     });
 };
 
 // Funcion solicitar datos del domicilio
-const solicitarDatosDomicilio = (metodoDePago) => {
+const solicitarDatosDomicilio = (metodoDePago, metodoDeEntrega) => {
     Swal.fire({
         title: 'Ingresa los datos de envío',
         html: `
                 <label class="inputLabel" for="nombre">Tu nombre:</label>
                 <input type="text" id="nombre" class="swal2-input" placeholder="Tu nombre">
                 <label class="inputLabel" for="direccion">Dirección:</label>
-                <input type="text" id="direccion" class="swal2-input" placeholder="Calle 123">
+                <input type="text" id="direccion" class="swal2-input" placeholder="Domicilio de entrega">
                 <label class="inputLabel" for="telefono">Teléfono:</label>
                 <input type="number" id="telefono" class="swal2-input" placeholder="Tu telefono">`,
         focusConfirm: false,
         showCancelButton: true,
         confirmButtonText: 'Confirmar Envío',
         customClass: {
+            htmlContainer: 'htmlContainer',
             title: 'title',
             popup: 'popup',
-            input: 'input',
+            input: 'input-dom',
             confirmButton: 'sweet-btn',
             cancelButton: 'sweet-btn'
         },
@@ -311,12 +320,13 @@ const solicitarDatosDomicilio = (metodoDePago) => {
             return { nombre, direccion, telefono };
         }
     }).then((result) => {
-        if (result.isConfirmed) {
-            if (metodoDePago === 'tarjeta') {
-                solicitarDatosTarjeta();
-            } else {
-                confirmacion(`¡Envío registrado!¡Gracias por la compra ${result.value.nombre}! Su pedido se entregara en ${result.value.direccion}`);
-            }
+        if (metodoDePago === 'tarjeta') {
+            solicitarDatosTarjeta(metodoDeEntrega);
+        } else {
+            confirmacion(`¡Envío registrado! Su pedido se entregará en ${result.value.direccion}. Podrás abonarlo cuando llegue el cadete. ¡Gracias por la compra!`);
+            carrito = [];
+            actualizarCarrito(carrito);
+            actualizarTotal(carrito);
         }
     });
 };

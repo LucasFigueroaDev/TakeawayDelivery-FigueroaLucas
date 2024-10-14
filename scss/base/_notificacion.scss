@@ -1,16 +1,25 @@
 .popup {
     background-color: $blanco;
     border: 1px solid black;
-    width: 45rem;
+    width: 55rem;
+    
+}
+
+.htmlContainer {
+    display: grid !important;
+    grid-template-columns: 1fr 2fr!important;
+    align-items: center !important;
 }
 
 .popup-confirm {
     width: 30rem;
 }
+
 .sweet-p {
     color: $negro;
     font-size: 1.5rem;
 }
+
 .title {
     background-color: transparent !important;
     color: $negro;
@@ -18,23 +27,36 @@
     letter-spacing: 0px;
     -webkit-text-stroke-width: 0px;
 }
+
 .input {
     font-size: 2rem;
 }
-.inputLabel {
-    font-size: 1.5rem;
+
+.swal2-input {
+    padding: 1.1em !important;
+    margin: 1rem 0 !important;
 }
+
+.inputLabel {
+    display: inline-block;
+    font-size: 1.5rem;
+
+}
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
-    }
+}
+
 option {
     font-size: 1.5rem;
 }
+
 .sweet-btn {
     font-size: 1.5rem;
 }
+
 .swal2-confirm {
     font-size: 1.5rem;
 }
