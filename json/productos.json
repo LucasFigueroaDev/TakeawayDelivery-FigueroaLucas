@@ -1,128 +1,174 @@
-[
-    {
-        "id": 1,
-        "nombre": "Pizza Muzzarella",
-        "precio": 6000,
-        "cantidad": 0
-    },
-    {
-        "id": 2,
-        "nombre": "Pizza Especial",
-        "precio": 8500,
-        "cantidad": 0
-    },
-    {
-        "id": 3,
-        "nombre": "Pizza Napolitana",
-        "precio": 10000,
-        "cantidad": 0
-    },
-    {
-        "id": 4,
-        "nombre": "Pizza Palmitos",
-        "precio": 12500,
-        "cantidad": 0
-    },
-    {
-        "id": 5,
-        "nombre": "Pizza Cuatro Quesos",
-        "precio": 9500,
-        "cantidad": 0
-    },
-    {
-        "id": 6,
-        "nombre": "Pizza Americana",
-        "precio": 13500,
-        "cantidad": 0
-    },
-    {
-        "id": 7,
-        "nombre": "Lomo Simple",
-        "precio": 4000,
-        "cantidad": 0
-    },
-    {
-        "id": 8,
-        "nombre": "Lomo Completo",
-        "precio": 5500,
-        "cantidad": 0
-    },
-    {
-        "id": 9,
-        "nombre": "Lomo Vegetariano",
-        "precio": 6000,
-        "cantidad": 0
-    },
-    {
-        "id": 10,
-        "nombre": "Lomo de Pollo",
-        "precio": 5000,
-        "cantidad": 0
-    },
-    {
-        "id": 11,
-        "nombre": "Lomo De Cerdo",
-        "precio": 5000,
-        "cantidad": 0
-    },
-    {
-        "id": 12,
-        "nombre": "Empanada Criollas",
-        "precio": 1500,
-        "cantidad": 0
-    },
-    {
-        "id": 13,
-        "nombre": "Empanada Arabes",
-        "precio": 2000,
-        "cantidad": 0
-    },
-    {
-        "id": 14,
-        "nombre": "Empanada Jamon y Queso",
-        "precio": 1500,
-        "cantidad": 0
-    },
-    {
-        "id": 15,
-        "nombre": "Empanada De Pollo",
-        "precio": 1500,
-        "cantidad": 0
-    },
-    {
-        "id": 16,
-        "nombre": "Empanada De Choclo",
-        "precio": 1500,
-        "cantidad": 0
-    },
-    {
-        "id": 17,
-        "nombre": "Coca Cola 1.5Lt",
-        "precio": 2500,
-        "cantidad": 0
-    },
-    {
-        "id": 18,
-        "nombre": "Sprite 1.5Lt",
-        "precio": 2500,
-        "cantidad": 0
-    },
-    {
-        "id": 19,
-        "nombre": "Fanta 1.5Lt",
-        "precio": 2500,
-        "cantidad": 0
-    },
-    {
-        "id": 20,
-        "nombre": "Cerveza Quilmes Lata",
-        "precio": 1700,
-        "cantidad": 0
-    },
-    {
-        "id": 21,
-        "nombre": "Cerveza Los Andes",
-        "precio": 2000,
-        "cantidad": 0
-    }
-]
+{
+    "pizzas": [
+        {
+            "id": 1,
+            "nombre": "Pizza Muzzarella",
+            "precio": 6000,
+            "cantidad": 0
+        },
+        {
+            "id": 2,
+            "nombre": "Pizza Especial",
+            "precio": 8500,
+            "cantidad": 0
+        },
+        {
+            "id": 3,
+            "nombre": "Pizza Napolitana",
+            "precio": 10000,
+            "cantidad": 0
+        },
+        {
+            "id": 4,
+            "nombre": "Pizza Palmitos",
+            "precio": 12500,
+            "cantidad": 0
+        },
+        {
+            "id": 5,
+            "nombre": "Pizza Cuatro Quesos",
+            "precio": 9500,
+            "cantidad": 0
+        },
+        {
+            "id": 6,
+            "nombre": "Pizza Americana",
+            "precio": 13500,
+            "cantidad": 0
+        }
+    ],
+    "lomos": [
+        {
+            "id": 7,
+            "nombre": "Lomo Simple",
+            "precio": 4000,
+            "cantidad": 0
+        },
+        {
+            "id": 8,
+            "nombre": "Lomo Completo",
+            "precio": 5500,
+            "cantidad": 0
+        },
+        {
+            "id": 9,
+            "nombre": "Lomo Vegetariano",
+            "precio": 6000,
+            "cantidad": 0
+        },
+        {
+            "id": 10,
+            "nombre": "Lomo de Pollo",
+            "precio": 5000,
+            "cantidad": 0
+        },
+        {
+            "id": 11,
+            "nombre": "Lomo De Cerdo",
+            "precio": 5000,
+            "cantidad": 0
+        }
+    ],
+    "empanadas": [
+        {
+            "id": 12,
+            "nombre": "Empanada Criollas",
+            "precio": 1500,
+            "cantidad": 0
+        },
+        {
+            "id": 13,
+            "nombre": "Empanada Arabes",
+            "precio": 2000,
+            "cantidad": 0
+        },
+        {
+            "id": 14,
+            "nombre": "Empanada Jamon y Queso",
+            "precio": 1500,
+            "cantidad": 0
+        },
+        {
+            "id": 15,
+            "nombre": "Empanada De Pollo",
+            "precio": 1500,
+            "cantidad": 0
+        },
+        {
+            "id": 16,
+            "nombre": "Empanada De Choclo",
+            "precio": 1500,
+            "cantidad": 0
+        }
+    ],
+    "bebidas": [
+        {
+            "id": 17,
+            "nombre": "Coca Cola 1.5Lt",
+            "precio": 2500,
+            "cantidad": 0
+        },
+        {
+            "id": 18,
+            "nombre": "Sprite 1.5Lt",
+            "precio": 2500,
+            "cantidad": 0
+        },
+        {
+            "id": 19,
+            "nombre": "Fanta 1.5Lt",
+            "precio": 2500,
+            "cantidad": 0
+        },
+        {
+            "id": 20,
+            "nombre": "Cerveza Quilmes Lata",
+            "precio": 1700,
+            "cantidad": 0
+        },
+        {
+            "id": 21,
+            "nombre": "Cerveza Los Andes",
+            "precio": 2000,
+            "cantidad": 0
+        }
+    ],
+    "ensaladas": [
+        {
+            "id": 22,
+            "nombre": "Ensaladas con pasta",
+            "precio": 7500,
+            "cantidad": 0
+        },
+        {
+            "id": 23,
+            "nombre": "Ensalada de arroz",
+            "precio": 7500,
+            "cantidad": 0
+        },
+        {
+            "id": 24,
+            "nombre": "Ensalada tabulé",
+            "precio": 7500,
+            "cantidad": 0
+        },
+        {
+            "id": 25,
+            "nombre": "Ensalada de quinoa",
+            "precio": 7500,
+            "cantidad": 0
+        },
+        {
+            "id": 26,
+            "nombre": "Ensalada de calabacín",
+            "precio": 7500,
+            "cantidad": 0
+        },
+        {
+            "id": 27,
+            "nombre": "Ensalada de judías verdes",
+            "precio": 7500,
+            "cantidad": 0
+        }
+    ]
+}

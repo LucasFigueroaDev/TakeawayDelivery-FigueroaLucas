@@ -1,93 +1,46 @@
-.inicio {
-    &_nav {
-        align-items: center;
-        padding: 1rem;
-        background-color: $bg-oscuro;
-
-        &_menu-hamburguesa {
-            & img {
-                width: auto;
-                height: 4rem;
-                cursor: pointer;
-                display: inline-block;
+header {
+    background-image: url(../assets/ciudad.jpg);
+    background-attachment: fixed;
+    .containerHeader {
+        background-color: rgba(181, 243, 140, 0.521);
+        display: flex;
+        flex-direction: column;
+        &_nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            &_title {
+                font-size: 2.5rem;
+                font-weight: 450;
+                color: #f00;
             }
-        }
-
-        &_contenido {
-            display: none;
-
-            &_link {
-                font-size: 2rem;
-                color: $blanco;
-                text-decoration: none;
-                padding: 3rem;
-                margin: 1rem;
-
-                &:hover {
-                    cursor: pointer;
-                    transition: font-size 1s;
-                    font-size: 2.5rem;
-                    text-shadow: 0px -1px 16px rgba(11, 15, 248, 0.98);
+            &_ul {
+                display: flex;
+                &_li {
+                    list-style: none;
+                    margin: 1rem;
+                    &_a {
+                        font-size: 2rem;
+                        text-decoration: none;
+                    }
                 }
             }
         }
-
-        &_carrito {
-            position: relative;
-
-            &_img {
-                max-width: 100%;
+        &_description {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            &_textOne {
+                font-size: 3rem;
+            }
+            &_textTwo {
+                font-size: 2rem;
+                font-style: italic;
+            }
+            &_imgDelivery {
+                width: 60rem;
                 height: auto;
-                width: 4rem;
-                margin-right: 3rem;
-            }
-
-            &_notificacion {
-                position: absolute;
-                top: -7px;
-                right: 15px;
-                background-color: $rojo;
-                color: $blanco;
-                border-radius: 50%;
-                padding: 0.5rem;
-                font-size: 1rem;
-                width: 2rem;
-                height: 2rem;
-                text-align: center;
-                display: none;
-            }
-        }
-    }
-
-    &_contenedor {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-
-        &_img {
-            max-width: 100%;
-            width: 60rem;
-            filter: drop-shadow(5px 5px 12px rgb(17, 0, 255));
-        }
-
-        &_titulo {
-            font-size: 5rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-style: italic;
-            color: $blanco;
-            -webkit-text-stroke-width: 3px;
-            -webkit-text-stroke-color: $negro;
-        }
-    }
-
-    &_descripcion {
-        overflow: hidden;
-
-        &_txt {
-            font-size: 5rem;
-            text-align: center;
-            background-color: rgba(17, 0, 255, 0.5);
+            } 
         }
     }
 }

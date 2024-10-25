@@ -51,4 +51,4 @@ function menuHamburguesa() {
     });
 };
 
-export { calcularImporteTotal, notificacionCarrito, msjAlert, menuHamburguesa, confirmacion };
+export { calcularImporteTotal, notificacionCarrito, msjAlert, menuHamburguesa, confirmacion};
