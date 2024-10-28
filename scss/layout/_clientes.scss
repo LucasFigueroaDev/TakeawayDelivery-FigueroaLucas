@@ -1,0 +1,47 @@
+.clientes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+    background-color: #fcfcfc;
+    padding-bottom: 10rem;
+
+    &_title {
+        width: 50rem;
+        font-size: 3.5rem;
+        font-style: italic;
+        margin: 5rem auto;
+        text-align: center;
+        border-top: 2px solid #ff0000;
+        grid-column: 1/3;
+    }
+
+    &_box {
+        background-color: #fff;
+        -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.07);
+        -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.07);
+        box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.07);
+        display: flex;
+        margin: 1rem;
+        padding: 2rem;
+        position: relative;
+        max-width: 80rem;
+
+        &_profile {
+            width: 5rem;
+            height: 5rem;
+            margin-right: 1rem;
+        }
+
+        &_txt {
+            font-size: 2rem;
+        }
+
+        &_span {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+        }
+    }
+}
