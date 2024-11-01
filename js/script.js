@@ -32,7 +32,7 @@ function createCategory(title, img) {
     div.appendChild(h3);
     div.appendChild(image);
     categories.appendChild(div);
-    image.addEventListener('click', async () => { 
+    image.addEventListener('click', async () => {
         await cargarProductos();
         showCategory(productos, title);
     });
@@ -41,12 +41,20 @@ function createCategory(title, img) {
 const showCategory = (productos, nombreCategoria) => {
     const categoryContainer = document.createElement('div');
     categoryContainer.classList.add('categoryContainer');
+    const btnClose = document.createElement('button');
+    btnClose.classList.add('categoryContainer_btn-close');
+    btnClose.textContent = 'X';
+    categoryContainer.appendChild(btnClose);
+    btnClose.addEventListener('click', () =>{
+        categoryContainer.style.display = 'none';
+    })
     const categoryProducts = productos[nombreCategoria];
     if (!categoryProducts || categoryProducts.length === 0) {
         msjAlert(`No se encontraron productos en la categoría de ${nombreCategoria}`);
         return;
     }
     const categoryTitle = document.createElement('h3');
+    categoryTitle.classList.add('categoryContainer_title');
     categoryTitle.textContent = nombreCategoria.charAt(0).toUpperCase() + nombreCategoria.slice(1);
     categoryContainer.appendChild(categoryTitle);
     categoryProducts.forEach((product) => {
@@ -152,10 +160,15 @@ createCategory('ensaladas', 22);
 const divProducto = (producto) => {
     // Crear elementos
     const div = document.createElement('div');
+    div.classList.add('categoryContainer_container-products')
     const img = document.createElement('img');
+    img.classList.add('categoryContainer_container-products_image');
     const h3 = document.createElement('h3');
+    h3.classList.add('categoryContainer_container-products_title');
     const p = document.createElement('p');
+    p.classList.add('categoryContainer_container-products_txt');
     const btn = document.createElement('button');
+    btn.classList.add('categoryContainer_container-products_btn');
     btn.setAttribute('id', producto.id);
     img.src = `assets/img-productos/producto${producto.id}.webp`;
     img.alt = `${producto.nombre}`;

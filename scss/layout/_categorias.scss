@@ -3,6 +3,7 @@
     grid-template-columns: repeat(5, 1fr);
     gap: 2rem;
     padding: 2rem;
+
     &_title {
         width: 50rem;
         font-size: 3.5rem;
@@ -12,15 +13,37 @@
         border-top: 2px solid #ff0000;
         grid-column: 1/6;
     }
+
     &_containerCategories {
+        text-align: center;
+        position: relative;
+
+        transition: transform 1s ease;
+        &:hover {
+            transform: scale(0.9);
+        }
+
         &_title {
+            position: absolute;
+            width: 15rem;
+            bottom: 0;
+            left: 20%;
+            z-index: 1;
             text-transform: uppercase;
             font-size: 2.5rem;
-            text-align: center;
+            font-weight: 700;
+            cursor: default;
+            color: #000;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: #fff;
         }
+
         &_image {
-            width: 35rem;
+            cursor: pointer;
+            border-radius: 2rem;
+            width: 25rem;
             height: auto;
+
         }
     }
 }
