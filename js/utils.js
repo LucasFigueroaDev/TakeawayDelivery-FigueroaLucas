@@ -3,16 +3,16 @@ function calcularImporteTotal(array) {
     return array.reduce((total, array) => total + (array.precio * array.cantidad), 0);
 };
 
-// Funcion que muestra la cantidad de producto en el carrito
-function notificacionCarrito(cantidad) {
-    const cantidadProducto = document.querySelector('.inicio_nav_carrito_notificacion');
-    if (cantidad > 0) {
-        cantidadProducto.textContent = cantidad;
-        cantidadProducto.style.display = 'block';
-    } else {
-        cantidadProducto.style.display = 'none';
-    }
-}
+// // Funcion que muestra la cantidad de producto en el carrito
+// function notificacionCarrito(cantidad) {
+//     const cantidadProducto = document.querySelector('.inicio_nav_carrito_notificacion');
+//     if (cantidad > 0) {
+//         cantidadProducto.textContent = cantidad;
+//         cantidadProducto.style.display = 'block';
+//     } else {
+//         cantidadProducto.style.display = 'none';
+//     }
+// }
 
 // Funcion de sweetalert notificación con tiempo
 function msjAlert(msj) {
@@ -51,4 +51,4 @@ function menuHamburguesa() {
     });
 };
 
-export { calcularImporteTotal, notificacionCarrito, msjAlert, menuHamburguesa, confirmacion};
+export { calcularImporteTotal, msjAlert, menuHamburguesa, confirmacion};

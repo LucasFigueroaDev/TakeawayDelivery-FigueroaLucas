@@ -3,6 +3,7 @@
     grid-template-columns: repeat(5, 1fr);
     gap: 2rem;
     padding: 2rem;
+    position: relative;
 
     &_title {
         width: 50rem;

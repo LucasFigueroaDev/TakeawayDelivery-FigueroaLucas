@@ -1,5 +1,14 @@
-import { notificacionCarrito, msjAlert, menuHamburguesa } from "./utils.js";
+import { msjAlert, menuHamburguesa } from "./utils.js";
+// Variable
 let productos;
+let productosCargados = false;
+let totalCarrito = 0;
+const categories = document.getElementById('categories');
+
+// Crear carrito
+let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+// notificacionCarrito(carrito.length);
+
 // Funcion para cargar productos del archivo json
 const url = 'json/productos.json';
 async function cargarProductos() {
@@ -8,14 +17,14 @@ async function cargarProductos() {
         if (!respuesta.ok) {
             throw new Error("Error al cargar los productos" + respuesta.status + respuesta.statusText);
         }
-        const datos = await respuesta.json();
-
-        productos = datos;
+        productos = await respuesta.json();
+        productosCargados = true;
     } catch (error) {
         msjAlert(`Error al cargar los productos`);
     }
 }
-cargarProductos();
+await cargarProductos();
+
 // Funcion crear categoria de productos
 function createCategory(title, img) {
     const div = document.createElement('div');
@@ -32,27 +41,32 @@ function createCategory(title, img) {
     div.appendChild(h3);
     div.appendChild(image);
     categories.appendChild(div);
-    image.addEventListener('click', async () => {
-        await cargarProductos();
+    image.addEventListener('click', () => {
+        if (!productosCargados) return msjAlert('Error: Productos no estan cargados');
         showCategory(productos, title);
     });
 };
+
 // Cargar por categorias
 const showCategory = (productos, nombreCategoria) => {
     const categoryContainer = document.createElement('div');
     categoryContainer.classList.add('categoryContainer');
+    categoryContainer.setAttribute('id', 'categoryContainer');
+
     const btnClose = document.createElement('button');
     btnClose.classList.add('categoryContainer_btn-close');
     btnClose.textContent = 'X';
     categoryContainer.appendChild(btnClose);
-    btnClose.addEventListener('click', () =>{
+    btnClose.addEventListener('click', () => {
         categoryContainer.style.display = 'none';
     })
+
     const categoryProducts = productos[nombreCategoria];
     if (!categoryProducts || categoryProducts.length === 0) {
         msjAlert(`No se encontraron productos en la categoría de ${nombreCategoria}`);
         return;
     }
+
     const categoryTitle = document.createElement('h3');
     categoryTitle.classList.add('categoryContainer_title');
     categoryTitle.textContent = nombreCategoria.charAt(0).toUpperCase() + nombreCategoria.slice(1);
@@ -62,6 +76,27 @@ const showCategory = (productos, nombreCategoria) => {
         categoryContainer.appendChild(contenido);
     });
     categories.appendChild(categoryContainer);
+
+    categoryContainer.addEventListener('click', (e) => {
+        if (e.target.classList.contains('categoryContainer_container-products_btn')) {
+            const productoId = parseInt(e.target.id);
+
+            const productoSeleccionado = categoryProducts.find((producto) =>
+                producto.id === productoId);
+
+            if (productoSeleccionado) {
+                const productoEnCarrito = carrito.find(item => item.id === productoId);
+                if (productoEnCarrito) {
+                    productoEnCarrito.cantidad += 1;
+                } else {
+                    carrito.push({ ...productoSeleccionado, cantidad: 1 });
+                }
+                localStorage.setItem('carrito', JSON.stringify(carrito));
+                msjAlert('pedido agregado');
+                productCartWindow();
+            }
+        }
+    })
 };
 // Creacion del header
 const header = document.getElementById('header');
@@ -92,6 +127,7 @@ const linksNav = [
         name: "Hacer pedido"
     }
 ];
+
 const containerHeader = document.createElement('div');
 containerHeader.classList.add('containerHeader');
 function createNav(linksNav) {
@@ -118,6 +154,7 @@ function createNav(linksNav) {
     header.appendChild(containerHeader);
 };
 createNav(linksNav);
+
 const containerDescription = document.createElement('div');
 containerDescription.classList.add('containerHeader_description');
 const divText = document.createElement('div');
@@ -140,23 +177,19 @@ imgDelivery.height = '800';
 divImage.appendChild(imgDelivery);
 containerDescription.appendChild(divImage);
 containerHeader.appendChild(containerDescription);
+
 // Seccion categorias
-const categories = document.getElementById('categories');
 const title = document.createElement('h2');
 title.classList.add('categories_title');
 title.textContent = 'Categorías';
 categories.appendChild(title);
-// Seccion pizzas
+// Secciones
 createCategory('pizzas', 1);
-// Seccion lomos
 createCategory('lomos', 9);
-// Seccion empanadas
 createCategory('empanadas', 13);
-// Seccion bebidas
 createCategory('bebidas', 17);
-// Seccion ensaladas
 createCategory('ensaladas', 22);
-// Crear div con los producto
+
 const divProducto = (producto) => {
     // Crear elementos
     const div = document.createElement('div');
@@ -184,29 +217,98 @@ const divProducto = (producto) => {
     return div;
 };
 
+// Crear modal carrito
+const productCartWindow = () => {
 
-// // Crear carrito
-// let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-// notificacionCarrito(carrito.length);
+    let boxSelectedProducts = document.getElementById('selectedProducts');
+    if (!boxSelectedProducts) {
+        boxSelectedProducts = document.createElement('div');
+        boxSelectedProducts.setAttribute('id', 'selectedProducts');
+        boxSelectedProducts.classList.add('selectedProducts-disable');
 
-// // Funcion para seleccionar productos segun id, si existe el producto le suma la cantidad
-// contenedor.addEventListener('click', (e) => {
-//     if (e.target.classList.contains('activo_cards_card_btn')) {
-//         const productoId = parseInt(e.target.id);
-//         const productoSeleccionado = productos.find((producto) =>
-//             producto.id === productoId);
-//         if (productoSeleccionado) {
-//             const productoEnCarrito = carrito.find(item => item.id === productoId);
-//             if (productoEnCarrito) {
-//                 productoEnCarrito.cantidad += 1;
-//             } else {
-//                 carrito.push({ ...productoSeleccionado, cantidad: 1 });
-//             }
-//             notificacionCarrito(carrito.length);
-//             localStorage.setItem('carrito', JSON.stringify(carrito));
-//             msjAlert('pedido agregado');
-//         }
-//     }
-// });
+        const boxTitle = document.createElement('h2');
+        boxTitle.classList.add('selectedProducts_title');
+        boxTitle.textContent = 'Carrito de compras';
+
+        const boxTxt = document.createElement('p');
+        boxTxt.classList.add('selectedProducts_txt');
+        boxTxt.textContent = 'Productos agregados';
+
+        const productList = document.createElement('ul');
+        productList.classList.add('selectedProducts_list');
+
+        const emptyCart = document.createElement('button');
+        emptyCart.classList.add('selectedProducts_emptyCart');
+        emptyCart.textContent = 'Vaciar carrito';
+        emptyCart.addEventListener('click', () => {
+            carrito = [];
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            updateCartList();
+        });
+
+        const closeButton = document.createElement('button');
+        closeButton.classList.add('selectedProducts_close-btn');
+        closeButton.textContent = 'Cerrar carrito';
+        closeButton.addEventListener('click', () => {
+            boxSelectedProducts.classList.remove('selectedProducts');
+            boxSelectedProducts.classList.add('selectedProducts-disable');
+        });
+
+        boxSelectedProducts.appendChild(boxTitle);
+        boxSelectedProducts.appendChild(boxTxt);
+        boxSelectedProducts.appendChild(productList);
+        boxSelectedProducts.appendChild(emptyCart);
+        boxSelectedProducts.appendChild(closeButton);
+        categories.appendChild(boxSelectedProducts);
+    }
+
+    if (carrito && carrito.length >= 1) {
+        updateCartList();
+        boxSelectedProducts.classList.remove('selectedProducts-disable');
+        boxSelectedProducts.classList.add('selectedProducts');
+    }
+};
+
+const updateCartList = () => {
+    const productList = document.querySelector('.selectedProducts_list');
+    productList.innerHTML = '';
+
+    carrito.forEach((item) => {
+        const productItem = document.createElement('li');
+        productItem.classList.add('selectedProducts_list_item');
+        productItem.textContent = `${item.nombre} - Cantindad ${item.cantidad}`;
+
+        const addButton = document.createElement('button');
+        addButton.classList.add('selectedProducts_list_button');
+        addButton.textContent = '+';
+        addButton.addEventListener('click', () => {
+            item.cantidad += 1;
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            updateCartList(); // Actualizar lista tras el cambio
+        });
+
+        const removeButton = document.createElement('button');
+        removeButton.classList.add('selectedProducts_list_button');
+        removeButton.textContent = '-';
+        removeButton.addEventListener('click', () => {
+            if (item.cantidad > 1) {
+                item.cantidad -= 1;
+            } else {
+                const index = carrito.findIndex(producto => producto.id === item.id);
+                if (index !== -1) {
+                    carrito.splice(index, 1); // Elimina el producto si su cantidad es 1
+                }
+            }
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            updateCartList();
+        });
+
+        productList.appendChild(productItem);
+        productList.appendChild(addButton);
+        productList.appendChild(removeButton);
+    });
+};
+
+console.log(carrito);
 
 // menuHamburguesa();
