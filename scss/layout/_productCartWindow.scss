@@ -4,8 +4,8 @@
 
 .selectedProducts {
     background-color: rgba(0, 0, 0, .9);
-    width: 40rem;
-    padding: 5rem;
+    width: 42rem;
+    padding: 2rem;
     z-index: 1;
     position: absolute;
     top: 0;
@@ -38,6 +38,10 @@
             padding: 0 0.5rem;
             margin: 0 0.5rem;
         }
+    }
+    &_emptyCart {
+        font-size: 1.5rem;
+        margin: 1rem 0;
     }
 
     &_close-btn {

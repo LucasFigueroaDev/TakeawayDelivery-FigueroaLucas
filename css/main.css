@@ -170,8 +170,8 @@ header .containerHeader_description_imgDelivery {
 
 .selectedProducts {
   background-color: rgba(0, 0, 0, 0.9);
-  width: 40rem;
-  padding: 5rem;
+  width: 42rem;
+  padding: 2rem;
   z-index: 1;
   position: absolute;
   top: 0;
@@ -199,6 +199,10 @@ header .containerHeader_description_imgDelivery {
   font-size: 2rem;
   padding: 0 0.5rem;
   margin: 0 0.5rem;
+}
+.selectedProducts_emptyCart {
+  font-size: 1.5rem;
+  margin: 1rem 0;
 }
 .selectedProducts_close-btn {
   font-size: 1.5rem;

@@ -29,7 +29,7 @@ function msjAlert(msj) {
 };
 
 // Funcion de sweetAlert2 comfirma pago realizado
-function confirmacion (msj) {
+function confirmacion(msj) {
     Swal.fire({
         title: msj,
         showConfirmButton: true,
@@ -51,4 +51,12 @@ function menuHamburguesa() {
     });
 };
 
-export { calcularImporteTotal, msjAlert, menuHamburguesa, confirmacion};
+const linksNav = [
+    { id: "home", href: "index.html", name: "Home" },
+    { id: "categorias", href: "#categorias", name: "Categorias" },
+    { id: "clientes", href: "#clientes", name: "Clientes" },
+    { id: "nosotros", href: "#nosotros", name: "Nosotros" },
+    { id: "hacerPedido", href: "./html/hacerpedido.html", name: "Hacer pedido" }
+];
+
+export { calcularImporteTotal, msjAlert, menuHamburguesa, confirmacion, linksNav };
