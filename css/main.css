@@ -196,15 +196,27 @@ header .containerHeader_description_imgDelivery {
   margin: 1rem 0;
 }
 .selectedProducts_list_button {
+  cursor: pointer;
   font-size: 2rem;
   padding: 0 0.5rem;
   margin: 0 0.5rem;
 }
+.selectedProducts_total {
+  color: #fff;
+  font-size: 2rem;
+}
+.selectedProducts_finish {
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 0 0.5rem;
+}
 .selectedProducts_emptyCart {
+  cursor: pointer;
   font-size: 1.5rem;
   margin: 1rem 0;
 }
 .selectedProducts_close-btn {
+  cursor: pointer;
   font-size: 1.5rem;
 }
 
