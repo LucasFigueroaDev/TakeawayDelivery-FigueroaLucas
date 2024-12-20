@@ -47,7 +47,6 @@ function menuHamburguesa() {
 };
 
 const linksNav = [
-    { id: "home", href: "index.html", name: "Home" },
     { id: "categorias", href: "#categories", name: "Categorias" },
     { id: "clientes", href: "#customers", name: "Clientes" },
     { id: "nosotros", href: "#us", name: "Nosotros" },

@@ -1,19 +1,20 @@
 .categoryContainer {
-    position: absolute;
-    z-index: 1;
-    background-color: rgba(0, 0, 0, .9);
-    width: 80rem;
+    background-color: rgba(235, 235, 235, 0.9);
+    border: 1px solid #cecece;
+    border-radius: 1rem;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     text-align: center;
 
     &_btn-close {
         cursor: pointer;
-        background-color: transparent;
-        color: #fff;
-        border: none;
+        background-color: #fff;
+        width: 3.5rem;
+        justify-self: center;
+        color: #000;
+        border: 1px solid #000;
         font-size: 2rem;
-        grid-column: 1/3;
+        grid-column: 1/4;
         grid-row: 9/9;
         margin: 2rem 0;
     }
@@ -22,8 +23,8 @@
         font-size: 3.5rem;
         text-align: center;
         font-style: italic;
-        grid-column: 1/3;
-        color: #fff;
+        grid-column: 1/4;
+        color: #000;
         margin-top: 2rem;
         margin-bottom: 3rem;
         letter-spacing: 0.5rem;
@@ -44,12 +45,12 @@
         }
 
         &_title {
-            color: #fff;
+            color: #000;
             font-size: 2.5rem;
         }
 
         &_txt {
-            color: #fff;
+            color: #000;
             font-size: 2rem;
         }
 

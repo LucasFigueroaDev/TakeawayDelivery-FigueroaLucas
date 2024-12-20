@@ -49,16 +49,22 @@ function createCategory(title, img) {
 
 // Cargar por categorias
 const showCategory = (productos, nombreCategoria) => {
+    const showCategories = document.getElementById('showCategories');
+    const existingCategory = document.querySelector('.categoryContainer');
+    if (existingCategory) {
+        existingCategory.remove();
+    }
+
     const categoryContainer = document.createElement('div');
     categoryContainer.classList.add('categoryContainer');
-    categoryContainer.setAttribute('id', 'categoryContainer');
+    // categoryContainer.setAttribute('id', 'categoryContainer');
 
     const btnClose = document.createElement('button');
     btnClose.classList.add('categoryContainer_btn-close');
     btnClose.textContent = 'X';
     categoryContainer.appendChild(btnClose);
     btnClose.addEventListener('click', () => {
-        categoryContainer.style.display = 'none';
+        closeCategoryContainer();
     });
 
     const categoryProducts = productos[nombreCategoria];
@@ -76,7 +82,12 @@ const showCategory = (productos, nombreCategoria) => {
         const contenido = divProducto(product);
         categoryContainer.appendChild(contenido);
     });
-    categories.appendChild(categoryContainer);
+
+    showCategories.appendChild(categoryContainer);
+
+    const closeCategoryContainer = () =>{
+        categoryContainer.remove();
+    };
 
     categoryContainer.addEventListener('click', (e) => {
         if (e.target.classList.contains('categoryContainer_container-products_btn')) {
@@ -108,9 +119,11 @@ containerHeader.classList.add('containerHeader');
 function createNav(linksNav) {
     const nav = document.createElement('nav');
     const h1 = document.createElement('h1');
+    const a = document.createElement('a');
+    a.setAttribute('href', './index.html');
+    a.textContent = 'Fast Food';
     nav.classList.add('containerHeader_nav');
-    h1.classList.add('containerHeader_nav_title');
-    h1.textContent = 'Fast Food';
+    a.classList.add('containerHeader_nav_title');
     const ul = document.createElement('ul');
     ul.classList.add('containerHeader_nav_ul');
     linksNav.forEach(link => {
@@ -123,7 +136,7 @@ function createNav(linksNav) {
         li.appendChild(a);
         ul.appendChild(li);
     });
-    nav.appendChild(h1);
+    nav.appendChild(a);
     nav.appendChild(ul);
     containerHeader.appendChild(nav);
     header.appendChild(containerHeader);
@@ -303,7 +316,7 @@ const updateCartList = () => {
 const createProductItemElement = (item) => {
     const productItem = document.createElement('li');
     productItem.classList.add('selectedProducts_list_item');
-    productItem.textContent = `${item.nombre} - Cantindad ${item.cantidad}`;
+    productItem.textContent = `${item.nombre} - Cantidad ${item.cantidad}`;
 
     const addButton = createAddButton(item);
     const removeButton = createRemoveButton(item);
@@ -358,7 +371,7 @@ const calculateTotalCart = () => {
 };
 // formulario finalizar orden
 const formPay = () => {
-    const category = document.getElementById('categoryContainer');
+    const category = document.querySelector('.categoryContainer');
     category.style.display = 'none';
     const cartProducts = document.getElementById('selectedProducts');
     cartProducts.classList.replace('selectedProducts', 'selectedProducts-disable');

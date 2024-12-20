@@ -1,3 +1,8 @@
+.sectionCategory {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
 .categories {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
