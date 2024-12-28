@@ -23,7 +23,6 @@
     &_containerCategories {
         text-align: center;
         position: relative;
-
         transition: transform 1s ease;
         &:hover {
             transform: scale(0.9);
@@ -47,7 +46,7 @@
         &_image {
             cursor: pointer;
             border-radius: 2rem;
-            width: 25rem;
+            max-width: 25rem;
             height: auto;
 
         }

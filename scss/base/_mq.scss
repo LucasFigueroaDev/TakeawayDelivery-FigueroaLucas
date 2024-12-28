@@ -1,0 +1,47 @@
+@media (max-width: 768px) {
+    .containerHeader {
+        &_nav {
+            flex-direction: column;
+        }
+        &_description {
+            flex-direction: column;
+            
+        }
+    }
+    .categories {
+        display: flex;
+        flex-direction: column;
+        &_title {
+            width: 35rem;
+        }
+        &_containerCategories {
+            &_title {
+                left: 38%;
+            }
+        }
+    }
+    .customers {
+        grid-template-columns: 1fr;
+        &_title {
+            width: 35rem;
+            grid-column: 1/2;
+        }
+    }
+    .us {
+        grid-template-columns: 1fr;
+        &_title {
+            width: 35rem;
+            grid-column: 1/2;
+        }
+        &_container {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            gap: 2rem;
+        }
+        &_description {
+            &_txt {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}

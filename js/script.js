@@ -7,7 +7,6 @@ const categories = document.getElementById('categories');
 
 // Crear carrito
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-// notificacionCarrito(carrito.length);
 
 // Funcion para cargar productos del archivo json
 const url = 'json/productos.json';
@@ -132,6 +131,7 @@ function createNav(linksNav) {
         const a = document.createElement('a');
         a.classList.add('containerHeader_nav_ul_li_a');
         a.textContent = link.name;
+        a.id = link.id;
         a.href = link.href;
         li.appendChild(a);
         ul.appendChild(li);

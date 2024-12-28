@@ -1,14 +1,3 @@
-// // Funcion que muestra la cantidad de producto en el carrito
-// function notificacionCarrito(cantidad) {
-//     const cantidadProducto = document.querySelector('.inicio_nav_carrito_notificacion');
-//     if (cantidad > 0) {
-//         cantidadProducto.textContent = cantidad;
-//         cantidadProducto.style.display = 'block';
-//     } else {
-//         cantidadProducto.style.display = 'none';
-//     }
-// }
-
 // Funcion de sweetalert notificación con tiempo
 function msjAlert(msj) {
     Swal.fire({
@@ -49,8 +38,7 @@ function menuHamburguesa() {
 const linksNav = [
     { id: "categorias", href: "#categories", name: "Categorias" },
     { id: "clientes", href: "#customers", name: "Clientes" },
-    { id: "nosotros", href: "#us", name: "Nosotros" },
-    { id: "hacerPedido", href: "./html/hacerpedido.html", name: "Hacer pedido" }
+    { id: "nosotros", href: "#us", name: "Nosotros" }
 ];
 
 export { msjAlert, menuHamburguesa, confirmacion, linksNav };
