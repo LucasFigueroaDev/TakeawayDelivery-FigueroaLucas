@@ -1,47 +1,140 @@
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+    .categories {
+        grid-template-columns: repeat(2, 1fr);
+
+        &_title {
+            grid-column: 1/3;
+        }
+
+    }
+
+    .categoryContainer {
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+
+        &_btn-close {
+            grid-column: 1/3;
+        }
+
+        &_title {
+            grid-column: 1/3;
+        }
+    }
+}
+
+@media (max-width: 800px) {
     .containerHeader {
         &_nav {
             flex-direction: column;
         }
+
         &_description {
             flex-direction: column;
-            
+
         }
     }
+
     .categories {
         display: flex;
         flex-direction: column;
+
         &_title {
             width: 35rem;
         }
+
         &_containerCategories {
             &_title {
                 left: 38%;
             }
         }
     }
+
     .customers {
         grid-template-columns: 1fr;
+
         &_title {
             width: 35rem;
             grid-column: 1/2;
         }
     }
+
     .us {
         grid-template-columns: 1fr;
+
         &_title {
             width: 35rem;
             grid-column: 1/2;
         }
+
         &_container {
             grid-template-columns: 1fr;
             grid-template-rows: auto;
             gap: 2rem;
+
+            &_box {
+                &:nth-child(2) {
+                    grid-area: 2;
+                }
+            }
         }
+
         &_description {
             &_txt {
                 font-size: 1.5rem;
             }
         }
+    }
+
+    .categoryContainer {
+        grid-template-columns: 1fr;
+        justify-items: center;
+
+        &_btn-close {
+            grid-column: 1/2;
+        }
+
+        &_title {
+            grid-column: 1/2;
+        }
+    }
+}
+
+@media (max-width: 420px) {
+    .categories {
+        &_title {
+            width: 26rem;
+        }
+    }
+
+    .customers {
+        width: 90%;
+        margin: 1rem auto;
+        padding: 1rem;
+        justify-items: center;
+
+        &_title {
+            width: 26rem;
+            margin: 3rem auto;
+        }
+
+        &_box {
+            width: 26rem;
+            padding: 1.5rem;
+        }
+
+        &txt {
+            font-size: 8px;
+        }
+    }
+
+    .us {
+        &_title {
+            width: 26rem;
+        }
+    }
+    .containerFooter {
+        flex-direction: column;
+        padding: 2rem;
+        text-align: center;
     }
 }
