@@ -26,19 +26,4 @@ function confirmacion(msj) {
     })
 };
 
-// Funcion que crea el menu hamburguesa
-function menuHamburguesa() {
-    const selectorMenu = document.querySelector('.inicio_nav_menu-hamburguesa');
-    const navMenu = document.querySelector('.inicio_nav_contenido');
-    selectorMenu.addEventListener('click', () => {
-        navMenu.classList.toggle('activo');
-    });
-};
-
-const linksNav = [
-    { id: "categorias", href: "#categories", name: "Categorias" },
-    { id: "clientes", href: "#customers", name: "Clientes" },
-    { id: "nosotros", href: "#us", name: "Nosotros" }
-];
-
-export { msjAlert, menuHamburguesa, confirmacion, linksNav };
+export { msjAlert, confirmacion };

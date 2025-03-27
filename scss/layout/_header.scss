@@ -1,47 +1,70 @@
-header {
-    background-image: url(../assets/ciudad.jpg);
-    background-attachment: fixed;
-    .containerHeader {
-        background-color: rgba(181, 243, 140, 0.521);
-        display: flex;
-        flex-direction: column;
-        &_nav {
+.header_container {
+    background-color: #f7dcc1;
+
+    &_nav {
+
+        &_menu-toggle {
+            display: none;
+        }
+
+        &_links {
+            margin: 0 2rem;
+            padding: 0.5rem;
             display: flex;
             align-items: center;
-            justify-content: space-around;
-            &_title {
-                font-size: 2.5rem;
-                font-weight: 450;
-                color: #f00;
-                text-decoration: none;
-            }
-            &_ul {
-                display: flex;
-                &_li {
-                    list-style: none;
-                    margin: 1rem;
-                    &_a {
-                        font-size: 2rem;
-                        text-decoration: none;
-                    }
+            justify-content: space-between;
+
+            .name {
+                color: $rojo;
+                font-size: 1.5rem;
+                background-color: transparent;
+
+                &:hover {
+                    background-color: transparent;
+                    color: #117892;
                 }
             }
+
+            &_link {
+                background-color: #41C2E2;
+                padding: 0 2rem;
+                border-radius: 15px;
+                text-decoration: none;
+                font-size: 1.2rem;
+                color: $negro;
+                font-weight: 400;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #117892;
+                    color: $blanco;
+                }
+
+            }
+
         }
-        &_description {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            &_textOne {
-                font-size: 3rem;
-            }
-            &_textTwo {
-                font-size: 2rem;
-                font-style: italic;
-            }
-            &_imgDelivery {
-                width: 60rem;
-                height: auto;
-            } 
+    }
+
+    &_descriptions {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        &_title {
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+        }
+
+        &_txt {
+            font-size: 1.2rem;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        &_box-img {
+            width: 45rem;
+            overflow: hidden;
         }
     }
 }

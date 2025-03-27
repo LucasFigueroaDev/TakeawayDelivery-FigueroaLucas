@@ -26,12 +26,31 @@
     .containerHeader {
         &_nav {
             flex-direction: column;
+
+            &_ul {
+                display: none;
+                width: 100%;
+                text-align: center;
+                margin-top: 20px;
+
+                &_li {
+                    margin: 10px 0;
+                }
+            }
+
+            &_burger-icon {
+                display: block;
+            }
         }
 
         &_description {
             flex-direction: column;
 
         }
+    }
+
+    .containerHeader_nav_ul.active {
+        display: block;
     }
 
     .categories {
@@ -132,6 +151,7 @@
             width: 26rem;
         }
     }
+
     .containerFooter {
         flex-direction: column;
         padding: 2rem;

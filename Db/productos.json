@@ -1,0 +1,181 @@
+[
+    {
+        "title": "Pizza Especial",
+        "price": 8500,
+        "category": "pizzas",
+        "img": "https://i.ibb.co/V0YXvBPm/producto2.webp",
+        "description": "Masa casera, salsa de tomate, queso muzzarella, jamon, pimiento y aceitunas"
+    },
+    {
+        "title": "Pizza Muzzarella",
+        "price": 6000,
+        "category": "pizzas",
+        "img": "https://i.ibb.co/1YwgkxzB/producto1.webp",
+        "description": "Masa casera, salsa de tomare, queso muzzarella, aceitunas"
+    },
+    {
+        "title": "Pizza Napolitana",
+        "price": 10000,
+        "category": "pizzas",
+        "img": "https://i.ibb.co/k6MkJksM/producto3.webp",
+        "description": "Masa casera, tomate San Marzano, queso muzzarella y albahaca fresca"
+    },
+    {
+        "title": "Pizza Palmitos",
+        "price": 12500,
+        "category": "pizzas",
+        "img": "https://i.ibb.co/0VCZyCJn/producto4.webp",
+        "description": "Masa casera, salsa de tomate palmitos y salsa golf"
+    },
+    {
+        "title": "Pizza Cuatro Quesos",
+        "price": 9500,
+        "category": "pizzas",
+        "img": "https://i.ibb.co/BH7yFShD/producto5.webp",
+        "description": "Masa casera,salsa de tomate, queso muzzarella, azul, parmesano y fontina"
+    },
+    {
+        "title": "Pizza Americana",
+        "price": 13500,
+        "category": "pizzas",
+        "img": "https://i.ibb.co/NdHgq18C/producto6.webp",
+        "description": "Masa casera, salsa de tomate, pepperoni, salchicha y papas fritas"
+    },
+    {
+        "title": "Lomo Simple",
+        "price": 4000,
+        "category": "Lomos",
+        "img": "https://i.ibb.co/whChCgvW/producto7.webp",
+        "description": "Pan arabe, queso, jamon y lomo. Incluye papas fritas"
+    },
+    {
+        "title": "Lomo Completo",
+        "price": 5500,
+        "category": "Lomos",
+        "img": "https://i.ibb.co/prf8d3q6/producto8.webp",
+        "description": "Pan arabe, queso, jamon, huevo, lechuga, tomate, mayonesa casera y lomo, Incluye papas fritas"
+    },
+    {
+        "title": "Lomo Vegetariano",
+        "price": 6000,
+        "category": "Lomos",
+        "img": "https://i.ibb.co/bggSvNNc/producto9.webp",
+        "description": "Pan arabe lomo de seitán queso y vegetales"
+    },
+    {
+        "title": "Lomo de Pollo",
+        "price": 5000,
+        "category": "Lomos",
+        "img": "https://i.ibb.co/Vpk309Dz/producto10.webp",
+        "description": "Pan arabe, pollo, queso, jamon, huevo. Incluye papas fritas"
+    },
+    {
+        "title": "Lomo De Cerdo",
+        "price": 5000,
+        "category": "Lomos",
+        "img": "https://i.ibb.co/rKhw818C/producto11.webp",
+        "description": "Pan arabe, lomo de cerdo asado, queso, jamon, tomate y lechuga"
+    },
+    {
+        "title": "Empanada Criollas",
+        "price": 1500,
+        "category": "empanadas",
+        "img": "https://i.ibb.co/5Wp3xpyt/producto12.webp"
+    },
+    {
+        "title": "Empanada Arabes",
+        "price": 2000,
+        "category": "empanadas",
+        "img": "https://i.ibb.co/cXVtZjjb/producto13.webp"
+    },
+    {
+        "title": "Empanada Jamon y Queso",
+        "price": 1500,
+        "category": "empanadas",
+        "img": "https://i.ibb.co/vCV7q4tz/producto14.webp"
+    },
+    {
+        "title": "Empanada De Pollo",
+        "price": 1500,
+        "category": "empanadas",
+        "img": "https://i.ibb.co/nsZws28x/producto15.webp"
+    },
+    {
+        "title": "Empanada De Choclo",
+        "price": 1500,
+        "category": "empanadas",
+        "img": "https://i.ibb.co/x8Lkvqtg/producto16.webp"
+    },
+    {
+        "title": "Coca Cola 1.5Lt",
+        "price": 2500,
+        "category": "bebidas",
+        "img": "https://i.ibb.co/ym6HvPNy/producto17.webp"
+    },
+    {
+        "title": "Sprite 1.5Lt",
+        "price": 2500,
+        "category": "bebidas",
+        "img": "https://i.ibb.co/dwc1WCp1/producto18.webp"
+    },
+    {
+        "title": "Fanta 1.5Lt",
+        "price": 2500,
+        "category": "bebidas",
+        "img": "https://i.ibb.co/PGBQkpVv/producto19.webp"
+    },
+    {
+        "title": "Cerveza Quilmes Lata",
+        "price": 1700,
+        "category": "bebidas",
+        "img": "https://i.ibb.co/0jGB59xG/producto20.webp"
+    },
+    {
+        "title": "Cerveza Los Andes",
+        "price": 2000,
+        "category": "bebidas",
+        "img": "https://i.ibb.co/Kxhjxh7K/producto21.webp"
+    },
+    {
+        "title": "Ensaladas con pasta",
+        "price": 7500,
+        "category": "ensaladas",
+        "img": "https://i.ibb.co/qKxyP6r/producto22.webp",
+        "description": "Fideos tirabuzon, aceitunas negras, tomates cherry, queso tybo, apio"
+    },
+    {
+        "title": "Ensalada de arroz",
+        "price": 7500,
+        "category": "ensaladas",
+        "img": "https://i.ibb.co/2YMGY02H/producto23.webp",
+        "description": "Arroz, huevo, tomates, aceitunas, zanahoria"
+    },
+    {
+        "title": "Ensalada tabulé",
+        "price": 7500,
+        "category": "ensaladas",
+        "img": "https://i.ibb.co/tT6J8NYK/producto24.webp",
+        "description": "Perejil, bulgur, tomates, menta"
+    },
+    {
+        "title": "Ensalada de quinoa",
+        "price": 7500,
+        "category": "ensaladas",
+        "img": "https://i.ibb.co/fYDJwg9Z/producto25.webp",
+        "description": "Quinoa, palta, choclo, semillas de zapallo, tomate"
+    },
+    {
+        "title": "Ensalada de calabacín",
+        "price": 7500,
+        "category": "ensaladas",
+        "img": "https://i.ibb.co/sdp84fZF/producto26.webp",
+        "description": "Calabacin, tomate, lechuga, aceitunas"
+    },
+    {
+        "title": "Ensalada de judías verdes",
+        "price": 7500,
+        "category": "ensaladas",
+        "img": "https://i.ibb.co/gF7THG34/producto27.webp",
+        "description": "judias, huevo, champiñones"
+    }
+]

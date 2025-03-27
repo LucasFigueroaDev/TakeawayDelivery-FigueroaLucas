@@ -1,216 +1,3 @@
-import { msjAlert, menuHamburguesa, linksNav, confirmacion } from "./utils.js";
-// Variable
-let productos;
-let productosCargados = false;
-let totalCarrito = 0;
-const categories = document.getElementById('categories');
-
-// Crear carrito
-let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
-// Funcion para cargar productos del archivo json
-const url = 'json/productos.json';
-async function cargarProductos() {
-    try {
-        const respuesta = await fetch(url);
-        if (!respuesta.ok) {
-            throw new Error("Error al cargar los productos" + respuesta.status + respuesta.statusText);
-        }
-        productos = await respuesta.json();
-        productosCargados = true;
-    } catch (error) {
-        msjAlert(`Error al cargar los productos`);
-    }
-}
-await cargarProductos();
-
-// Funcion crear categoria de productos
-function createCategory(title, img) {
-    const div = document.createElement('div');
-    div.classList.add('categories_containerCategories');
-    const h3 = document.createElement('h3');
-    h3.classList.add('categories_containerCategories_title');
-    h3.textContent = title;
-    const image = document.createElement('img');
-    image.classList.add('categories_containerCategories_image');
-    image.src = `assets/img-productos/producto${img}.webp`
-    image.alt = `imagen de ${title}`;
-    image.width = '800';
-    image.height = '800';
-    div.appendChild(h3);
-    div.appendChild(image);
-    categories.appendChild(div);
-    image.addEventListener('click', () => {
-        if (!productosCargados) return msjAlert('Error: Productos no estan cargados');
-        showCategory(productos, title);
-    });
-};
-
-// Cargar por categorias
-const showCategory = (productos, nombreCategoria) => {
-    const showCategories = document.getElementById('showCategories');
-    const existingCategory = document.querySelector('.categoryContainer');
-    if (existingCategory) {
-        existingCategory.remove();
-    }
-
-    const categoryContainer = document.createElement('div');
-    categoryContainer.classList.add('categoryContainer');
-    // categoryContainer.setAttribute('id', 'categoryContainer');
-
-    const btnClose = document.createElement('button');
-    btnClose.classList.add('categoryContainer_btn-close');
-    btnClose.textContent = 'X';
-    categoryContainer.appendChild(btnClose);
-    btnClose.addEventListener('click', () => {
-        closeCategoryContainer();
-    });
-
-    const categoryProducts = productos[nombreCategoria];
-    if (!categoryProducts || categoryProducts.length === 0) {
-        msjAlert(`No se encontraron productos en la categoría de ${nombreCategoria}`);
-        return;
-    }
-
-    const categoryTitle = document.createElement('h3');
-    categoryTitle.classList.add('categoryContainer_title');
-    categoryTitle.textContent = nombreCategoria.charAt(0).toUpperCase() + nombreCategoria.slice(1);
-    categoryContainer.appendChild(categoryTitle);
-
-    categoryProducts.forEach((product) => {
-        const contenido = divProducto(product);
-        categoryContainer.appendChild(contenido);
-    });
-
-    showCategories.appendChild(categoryContainer);
-
-    const closeCategoryContainer = () =>{
-        categoryContainer.remove();
-    };
-
-    categoryContainer.addEventListener('click', (e) => {
-        if (e.target.classList.contains('categoryContainer_container-products_btn')) {
-            const productoId = parseInt(e.target.id);
-            addProductCart(productoId, categoryProducts);
-        }
-    });
-};
-// agregar producto al carrito
-const addProductCart = (productoId, categoryProducts) => {
-    const productoSeleccionado = categoryProducts.find((producto) => producto.id === productoId);
-    if (productoSeleccionado) {
-        const productoEnCarrito = carrito.find(item => item.id === productoId);
-        if (productoEnCarrito) {
-            productoEnCarrito.cantidad += 1;
-        } else {
-            carrito.push({ ...productoSeleccionado, cantidad: 1 });
-        }
-        updateLocalStorage();
-        msjAlert('Pedido agregado');
-        productCartWindow();
-        calculateTotalCart();
-    }
-}
-// Creacion del header
-const header = document.getElementById('header');
-const containerHeader = document.createElement('div');
-containerHeader.classList.add('containerHeader');
-function createNav(linksNav) {
-    const nav = document.createElement('nav');
-    const h1 = document.createElement('h1');
-    const a = document.createElement('a');
-    a.setAttribute('href', './index.html');
-    a.textContent = 'Fast Food';
-    nav.classList.add('containerHeader_nav');
-    a.classList.add('containerHeader_nav_title');
-    const ul = document.createElement('ul');
-    ul.classList.add('containerHeader_nav_ul');
-    linksNav.forEach(link => {
-        const li = document.createElement('li');
-        li.classList.add('containerHeader_nav_ul_li');
-        const a = document.createElement('a');
-        a.classList.add('containerHeader_nav_ul_li_a');
-        a.textContent = link.name;
-        a.id = link.id;
-        a.href = link.href;
-        li.appendChild(a);
-        ul.appendChild(li);
-    });
-    nav.appendChild(a);
-    nav.appendChild(ul);
-    containerHeader.appendChild(nav);
-    header.appendChild(containerHeader);
-};
-createNav(linksNav);
-
-const containerDescription = document.createElement('div');
-containerDescription.classList.add('containerHeader_description');
-const divText = document.createElement('div');
-const textOne = document.createElement('p');
-textOne.classList.add('containerHeader_description_textOne');
-textOne.textContent = 'Delivery or Takeaway Food';
-const textTwo = document.createElement('p');
-textTwo.classList.add('containerHeader_description_textTwo');
-textTwo.textContent = 'Un Restaurant con sabores unicos';
-divText.appendChild(textOne);
-divText.appendChild(textTwo);
-containerDescription.appendChild(divText);
-const divImage = document.createElement('div');
-const imgDelivery = document.createElement('img');
-imgDelivery.classList.add('containerHeader_description_imgDelivery');
-imgDelivery.src = 'assets/header.png';
-imgDelivery.alt = 'Imagen de delivery';
-imgDelivery.width = '1024';
-imgDelivery.height = '800';
-divImage.appendChild(imgDelivery);
-containerDescription.appendChild(divImage);
-containerHeader.appendChild(containerDescription);
-
-// Seccion categorias
-const title = document.createElement('h2');
-title.classList.add('categories_title');
-title.textContent = 'Categorías';
-categories.appendChild(title);
-// Secciones
-createCategory('pizzas', 1);
-createCategory('lomos', 9);
-createCategory('empanadas', 13);
-createCategory('bebidas', 17);
-createCategory('ensaladas', 22);
-
-const divProducto = (producto) => {
-    // Crear elementos
-    const div = document.createElement('div');
-    div.classList.add('categoryContainer_container-products');
-
-    const img = document.createElement('img');
-    img.classList.add('categoryContainer_container-products_image');
-    img.src = `assets/img-productos/producto${producto.id}.webp`;
-    img.alt = `${producto.nombre}`;
-    img.width = '800';
-    img.height = '800';
-
-    const h3 = document.createElement('h3');
-    h3.classList.add('categoryContainer_container-products_title');
-    h3.textContent = producto.nombre;
-
-    const p = document.createElement('p');
-    p.classList.add('categoryContainer_container-products_txt');
-    p.textContent = `Precio: $${producto.precio}`;
-
-    const btn = document.createElement('button');
-    btn.classList.add('categoryContainer_container-products_btn');
-    btn.setAttribute('id', producto.id);
-    btn.textContent = 'Agregar pedido';
-
-
-    div.appendChild(img);
-    div.appendChild(h3);
-    div.appendChild(p);
-    div.appendChild(btn);
-    return div;
-};
-
 // Crear modal carrito
 const productCartWindow = () => {
     let boxSelectedProducts = document.getElementById('selectedProducts');
@@ -269,10 +56,10 @@ const createFinishButton = () => {
     const finishOrder = document.createElement('button');
     finishOrder.classList.add('selectedProducts_finish');
     finishOrder.textContent = 'Finalizar compra';
-    finishOrder.addEventListener('click', ()=> {
-        if (carrito.length >= 1){
+    finishOrder.addEventListener('click', () => {
+        if (carrito.length >= 1) {
             formPay();
-        }else {
+        } else {
             msjAlert('¡El carrito esta vacio!')
         }
     });
@@ -356,11 +143,6 @@ const createRemoveButton = (item) => {
     });
     return removeButton;
 };
-// actualizar almacenamiento local
-const updateLocalStorage = () => {
-    localStorage.setItem('carrito', JSON.stringify(carrito));
-};
-
 // Calcular total
 const calculateTotalCart = () => {
     totalCarrito = carrito.reduce((total, item) => total + item.precio * item.cantidad, 0);
@@ -369,15 +151,16 @@ const calculateTotalCart = () => {
         totalCartElement.textContent = `Total: $${totalCarrito}`;
     }
 };
+
 // formulario finalizar orden
 const formPay = () => {
     const category = document.querySelector('.categoryContainer');
     category.style.display = 'none';
     const cartProducts = document.getElementById('selectedProducts');
     cartProducts.classList.replace('selectedProducts', 'selectedProducts-disable');
-        Swal.fire({
-            title: 'Metodo de pago y envio',
-            html: `
+    Swal.fire({
+        title: 'Metodo de pago y envio',
+        html: `
                 <label class="inputLabel" for="metodoDePago">Método de pago:</label>
                 <select id="metodoDePago" class="swal2-select input">
                 <option value="tarjeta">Tarjeta de crédito/débito</option>
@@ -388,41 +171,41 @@ const formPay = () => {
                 <option value="local">Retirar por local</option>
                 <option value="domicilio">Enviar a domicilio</option>
                 </select>`,
-            focusConfirm: false,
-            showCancelButton: true,
-            confirmButtonText: 'Continuar',
-            cancelButtonText: 'Cancelar',
-            customClass: {
-                title: 'title',
-                popup: 'popup',
-                input: 'input',
-                confirmButton: 'sweet-btn',
-                cancelButton: 'sweet-btn'
-            },
-            preConfirm: () => {
-                const metodoDePago = document.getElementById('metodoDePago').value;
-                const metodoDeEntrega = document.getElementById('metodoDeEntrega').value;
-                if (!metodoDePago || !metodoDeEntrega) {
-                    Swal.showValidationMessage('Todos los campos son obligatorios');
-                    return false
-                }
-                return { metodoDeEntrega, metodoDePago }
+        focusConfirm: false,
+        showCancelButton: true,
+        confirmButtonText: 'Continuar',
+        cancelButtonText: 'Cancelar',
+        customClass: {
+            title: 'title',
+            popup: 'popup',
+            input: 'input',
+            confirmButton: 'sweet-btn',
+            cancelButton: 'sweet-btn'
+        },
+        preConfirm: () => {
+            const metodoDePago = document.getElementById('metodoDePago').value;
+            const metodoDeEntrega = document.getElementById('metodoDeEntrega').value;
+            if (!metodoDePago || !metodoDeEntrega) {
+                Swal.showValidationMessage('Todos los campos son obligatorios');
+                return false
             }
-        }).then((result) => {
-            if (result.isConfirmed) {
-                const metodoDeEntrega = result.value.metodoDeEntrega;
-                const metodoDePago = result.value.metodoDePago;
-                if (metodoDePago === 'tarjeta' && metodoDeEntrega === 'local') {
-                    solicitarDatos(metodoDeEntrega, metodoDePago);
-                } else if (metodoDePago === 'tarjeta' && metodoDeEntrega === 'domicilio') {
-                    solicitarDatosDomicilio(metodoDePago, metodoDeEntrega);
-                } else if (metodoDePago === 'efectivo' && metodoDeEntrega === 'domicilio') {
-                    solicitarDatosDomicilio(metodoDePago);
-                } else if (metodoDeEntrega === 'local') {
-                    solicitarDatos(metodoDeEntrega, metodoDePago);
-                }
+            return { metodoDeEntrega, metodoDePago }
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const metodoDeEntrega = result.value.metodoDeEntrega;
+            const metodoDePago = result.value.metodoDePago;
+            if (metodoDePago === 'tarjeta' && metodoDeEntrega === 'local') {
+                solicitarDatos(metodoDeEntrega, metodoDePago);
+            } else if (metodoDePago === 'tarjeta' && metodoDeEntrega === 'domicilio') {
+                solicitarDatosDomicilio(metodoDePago, metodoDeEntrega);
+            } else if (metodoDePago === 'efectivo' && metodoDeEntrega === 'domicilio') {
+                solicitarDatosDomicilio(metodoDePago);
+            } else if (metodoDeEntrega === 'local') {
+                solicitarDatos(metodoDeEntrega, metodoDePago);
             }
-        })
+        }
+    })
 };
 // Funcion solicitar datos
 const solicitarDatos = (metodoDeEntrega, metodoDePago) => {
@@ -564,4 +347,3 @@ const solicitarDatosDomicilio = (metodoDePago, metodoDeEntrega) => {
         }
     });
 };
-// menuHamburguesa();
