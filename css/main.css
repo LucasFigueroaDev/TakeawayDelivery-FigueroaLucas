@@ -22,6 +22,11 @@ li {
 .header_container {
   background-color: #f7dcc1;
 }
+.header_container_nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
 .header_container_nav_menu-toggle {
   display: none;
 }
@@ -43,6 +48,7 @@ li {
 }
 .header_container_nav_links_link {
   background-color: #41C2E2;
+  margin-right: 1rem;
   padding: 0 2rem;
   border-radius: 15px;
   text-decoration: none;
@@ -54,6 +60,18 @@ li {
 .header_container_nav_links_link:hover {
   background-color: #117892;
   color: #fff;
+}
+.header_container_nav_cart {
+  font-size: 1.5rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+.header_container_nav_count {
+  display: none;
+  position: relative;
+  top: -1rem;
+  right: 0.1rem;
+  font-size: 1rem;
 }
 .header_container_descriptions {
   display: flex;

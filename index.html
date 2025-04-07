@@ -34,26 +34,29 @@
 
 <body>
     <header class="header_container">
-            <nav class="header_container_nav">
-                <button class="header_container_nav_menu-toggle">☰</button>
-                <ul class="header_container_nav_links">
-                    <li><a class="header_container_nav_links_link name" href="index.html">Fast Food</a></li>
-                    <li><a class="header_container_nav_links_link" href="pages/products.html">Nuestras comidas</a></li>
-                    <li><a class="header_container_nav_links_link" href="#us">Nosotros</a></li>
-                    <li><a class="header_container_nav_links_link" href="#customers">Clientes</a></li>
-                    <li><a class="header_container_nav_links_link" href="#">Hace tu pedido</a></li>
-                </ul>
-            </nav>
-            <div class="header_container_descriptions">
-                <div>
-                    <h1 class="header_container_descriptions_title"> Delivery or Takeaway Food</h1>
-                    <p class="header_container_descriptions_txt">Un Restaurant con sabores unicos</p>
-                </div>
-                <div class="header_container_descriptions_box-img">
-                    <img src='assets/header.png' alt='Imagen de delivery'
-                        class="header_container_descriptions_box-img_img-delivery">
-                </div>
+        <nav class="header_container_nav">
+            <button class="header_container_nav_menu-toggle">☰</button>
+            <ul class="header_container_nav_links">
+                <li><a class="header_container_nav_links_link name" href="index.html">Fast Food</a></li>
+                <li><a class="header_container_nav_links_link" href="pages/products.html">Nuestras comidas</a></li>
+                <li><a class="header_container_nav_links_link" href="#us">Nosotros</a></li>
+                <li><a class="header_container_nav_links_link" href="#customers">Clientes</a></li>
+                <li><a class="header_container_nav_links_link" href="#">Hace tu pedido</a></li>
+            </ul>
+            <div>
+                <a href="pages/cart.html" class="header_container_nav_cart">🛒<span id="count" class="header_container_nav_count">0</span></a>
             </div>
+        </nav>
+        <div class="header_container_descriptions">
+            <div>
+                <h1 class="header_container_descriptions_title"> Delivery or Takeaway Food</h1>
+                <p class="header_container_descriptions_txt">Un Restaurant con sabores unicos</p>
+            </div>
+            <div class="header_container_descriptions_box-img">
+                <img src='assets/header.png' alt='Imagen de delivery'
+                    class="header_container_descriptions_box-img_img-delivery">
+            </div>
+        </div>
     </header>
     <main>
         <section class="section-category">
@@ -63,8 +66,7 @@
                     <h3 class="section-category_container_card_title">Pizzas</h3>
                     <div class="section-category_container_card_img">
                         <a href="pages/products.html">
-                            <img src="https://i.ibb.co/V0YXvBPm/producto2.webp"
-                            alt="Imagen de una pizza">
+                            <img src="https://i.ibb.co/V0YXvBPm/producto2.webp" alt="Imagen de una pizza">
                         </a>
                     </div>
                 </div>
@@ -72,8 +74,7 @@
                     <h3 class="section-category_container_card_title">Lomos</h3>
                     <div class="section-category_container_card_img">
                         <a href="pages/products.html">
-                            <img src="https://i.ibb.co/prf8d3q6/producto8.webp"
-                                alt="Imagen de un lomo">
+                            <img src="https://i.ibb.co/prf8d3q6/producto8.webp" alt="Imagen de un lomo">
                         </a>
                     </div>
                 </div>
@@ -81,8 +82,7 @@
                     <h3 class="section-category_container_card_title">Empanadas</h3>
                     <div class="section-category_container_card_img">
                         <a href="pages/products.html">
-                            <img src="https://i.ibb.co/cXVtZjjb/producto13.webp"
-                            alt="Imagen de empanadas">
+                            <img src="https://i.ibb.co/cXVtZjjb/producto13.webp" alt="Imagen de empanadas">
                         </a>
                     </div>
                 </div>
@@ -90,8 +90,7 @@
                     <h3 class="section-category_container_card_title">Ensaladas</h3>
                     <div class="section-category_container_card_img">
                         <a href="pages/products.html">
-                            <img src="https://i.ibb.co/qKxyP6r/producto22.webp"
-                            alt="Imagen de una ensalada">
+                            <img src="https://i.ibb.co/qKxyP6r/producto22.webp" alt="Imagen de una ensalada">
                         </a>
                     </div>
                 </div>
@@ -199,8 +198,8 @@
                     <p class="container-footer_data_box_txt">fastfood@correo.com</p>
                 </div>
                 <div class="container-footer_data_box">
-                    <img class="container-footer_data_box_logo" src="assets/mapa.png" alt="logo de ubicacion" width="512"
-                        height="512" loading="lazy">
+                    <img class="container-footer_data_box_logo" src="assets/mapa.png" alt="logo de ubicacion"
+                        width="512" height="512" loading="lazy">
                     <p class="container-footer_data_box_txt">1500 - Boulevard Park </p>
                 </div>
             </div>
@@ -230,6 +229,7 @@
             <p class="container-footer_copyright_description">℗ App Web - Design Figueroa Lucas</p>
         </div>
     </footer>
+    <script type="module" src="js/index.js"></script>
 </body>
 
 </html>

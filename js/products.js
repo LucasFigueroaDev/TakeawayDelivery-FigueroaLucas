@@ -1,8 +1,9 @@
 import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
+import { cartProducts } from './utils.js';
 
 // Crear carrito en el localstorage
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
+let data = [];
 // Funcion para cargar productos del archivo json
 const url = '../Db/productos.json';
 const containerProducts = document.getElementById('container-products');
@@ -12,7 +13,7 @@ async function uploadProducts() {
     try {
         const response = await fetch(url);
         if (!response) throw new Error("No se pudo cargar los productos");
-        const data = await response.json();
+        data = await response.json();
         const categories = new Set(data.map(product => product.category));
 
         // Mostrar categorias
@@ -24,6 +25,7 @@ async function uploadProducts() {
         });
 
         renderProducts(data);
+        cartProducts(cart);
 
     } catch (error) {
         throw new Error("Error al cargar los productos");
@@ -43,7 +45,7 @@ function renderProducts(products) {
             <div class="categories_card-product_content">
                 <p class="categories_card-product_content_price">Precio: $${product.price}</p>
                 ${product.description ? `<p class="categories_card-product_content_description">${product.description}</p>` : ''}
-                <button class="categories_card-product_content_button-add-to-cart" data-product-id="${uuidv4()}">Agregar pedido</button>
+                <button class="categories_card-product_content_button-add-to-cart" id=${product.id}>Agregar pedido</button>
             </div>
         `;
         containerProducts.appendChild(div);
@@ -52,8 +54,6 @@ function renderProducts(products) {
 };
 
 categorySelect.addEventListener('change', async () => {
-    const response = await fetch(url);
-    const data = await response.json();
     const selectedCategory = categorySelect.value;
     if (selectedCategory === 'all') {
         renderProducts(data);
@@ -62,28 +62,35 @@ categorySelect.addEventListener('change', async () => {
         renderProducts(filteredProducts);
     }
 });
+
+
 function addCartEventListener() {
     const addToCartButtons = document.querySelectorAll('.categories_card-product_content_button-add-to-cart');
+
     addToCartButtons.forEach(button => {
         button.addEventListener('click', () => {
-            const productId = button.dataset.productId;
+            const productId = button.id;
 
-            const product = cart.find(product => product.id === productId);
+            const productToAdd = data.find(item => item.id === productId);
 
-            if (product) {
-                product.quantity++;
+            if (!productToAdd) return;
+
+            // Buscar si el producto ya está en el carrito
+            const existingProduct = cart.find(item => item.id === productId);
+
+            if (existingProduct) {
+                existingProduct.quantity += 1;
             } else {
                 cart.push({
-                    id: productId,
-                    quantity: 1
+                    ...productToAdd,
+                    quantity: 1,
                 });
             }
+
             localStorage.setItem('cart', JSON.stringify(cart));
-            console.log(cart);
-            
+            cartProducts(cart);
         });
     });
 }
-console.log(cart);
 
 uploadProducts();

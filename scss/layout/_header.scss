@@ -2,6 +2,9 @@
     background-color: #f7dcc1;
 
     &_nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
 
         &_menu-toggle {
             display: none;
@@ -27,6 +30,7 @@
 
             &_link {
                 background-color: #41C2E2;
+                margin-right: 1rem;
                 padding: 0 2rem;
                 border-radius: 15px;
                 text-decoration: none;
@@ -42,6 +46,20 @@
 
             }
 
+        }
+
+        &_cart {
+            font-size: 1.5rem;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        &_count {
+            display: none;
+            position: relative;
+            top: -1rem;
+            right: 0.1rem;
+            font-size: 1rem;
         }
     }
 

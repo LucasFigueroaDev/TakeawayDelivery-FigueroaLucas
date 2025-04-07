@@ -1,5 +1,6 @@
 [
     {
+        "id": "PRD001WSP",
         "title": "Pizza Especial",
         "price": 8500,
         "category": "pizzas",
@@ -7,6 +8,7 @@
         "description": "Masa casera, salsa de tomate, queso muzzarella, jamon, pimiento y aceitunas"
     },
     {
+        "id": "PRD002DOR",
         "title": "Pizza Muzzarella",
         "price": 6000,
         "category": "pizzas",
@@ -14,6 +16,7 @@
         "description": "Masa casera, salsa de tomare, queso muzzarella, aceitunas"
     },
     {
+        "id": "PRD003XSC",
         "title": "Pizza Napolitana",
         "price": 10000,
         "category": "pizzas",
@@ -21,6 +24,7 @@
         "description": "Masa casera, tomate San Marzano, queso muzzarella y albahaca fresca"
     },
     {
+        "id": "PRD004RDR",
         "title": "Pizza Palmitos",
         "price": 12500,
         "category": "pizzas",
@@ -28,6 +32,7 @@
         "description": "Masa casera, salsa de tomate palmitos y salsa golf"
     },
     {
+        "id": "PRD005QWT",
         "title": "Pizza Cuatro Quesos",
         "price": 9500,
         "category": "pizzas",
@@ -35,6 +40,7 @@
         "description": "Masa casera,salsa de tomate, queso muzzarella, azul, parmesano y fontina"
     },
     {
+        "id": "PRD006BOP",
         "title": "Pizza Americana",
         "price": 13500,
         "category": "pizzas",
@@ -42,6 +48,7 @@
         "description": "Masa casera, salsa de tomate, pepperoni, salchicha y papas fritas"
     },
     {
+        "id": "PRD007SUX",
         "title": "Lomo Simple",
         "price": 4000,
         "category": "Lomos",
@@ -49,6 +56,7 @@
         "description": "Pan arabe, queso, jamon y lomo. Incluye papas fritas"
     },
     {
+        "id": "PRD008PGH",
         "title": "Lomo Completo",
         "price": 5500,
         "category": "Lomos",
@@ -56,6 +64,7 @@
         "description": "Pan arabe, queso, jamon, huevo, lechuga, tomate, mayonesa casera y lomo, Incluye papas fritas"
     },
     {
+        "id": "PRD009MJZ",
         "title": "Lomo Vegetariano",
         "price": 6000,
         "category": "Lomos",
@@ -63,6 +72,7 @@
         "description": "Pan arabe lomo de seitán queso y vegetales"
     },
     {
+        "id": "PRD010YKC",
         "title": "Lomo de Pollo",
         "price": 5000,
         "category": "Lomos",
@@ -70,6 +80,7 @@
         "description": "Pan arabe, pollo, queso, jamon, huevo. Incluye papas fritas"
     },
     {
+        "id": "PRD011NGH",
         "title": "Lomo De Cerdo",
         "price": 5000,
         "category": "Lomos",
@@ -77,66 +88,77 @@
         "description": "Pan arabe, lomo de cerdo asado, queso, jamon, tomate y lechuga"
     },
     {
+        "id": "PRD012RLT",
         "title": "Empanada Criollas",
         "price": 1500,
         "category": "empanadas",
         "img": "https://i.ibb.co/5Wp3xpyt/producto12.webp"
     },
     {
+        "id": "PRD013BDT",
         "title": "Empanada Arabes",
         "price": 2000,
         "category": "empanadas",
         "img": "https://i.ibb.co/cXVtZjjb/producto13.webp"
     },
     {
+        "id": "PRD014WLJ",
         "title": "Empanada Jamon y Queso",
         "price": 1500,
         "category": "empanadas",
         "img": "https://i.ibb.co/vCV7q4tz/producto14.webp"
     },
     {
+        "id": "PRD015TPF",
         "title": "Empanada De Pollo",
         "price": 1500,
         "category": "empanadas",
         "img": "https://i.ibb.co/nsZws28x/producto15.webp"
     },
     {
+        "id": "PRD016KAY",
         "title": "Empanada De Choclo",
         "price": 1500,
         "category": "empanadas",
         "img": "https://i.ibb.co/x8Lkvqtg/producto16.webp"
     },
     {
+        "id": "PRD017GDE",
         "title": "Coca Cola 1.5Lt",
         "price": 2500,
         "category": "bebidas",
         "img": "https://i.ibb.co/ym6HvPNy/producto17.webp"
     },
     {
+        "id": "PRD018JXM",
         "title": "Sprite 1.5Lt",
         "price": 2500,
         "category": "bebidas",
         "img": "https://i.ibb.co/dwc1WCp1/producto18.webp"
     },
     {
+        "id": "PRD019ZWB",
         "title": "Fanta 1.5Lt",
         "price": 2500,
         "category": "bebidas",
         "img": "https://i.ibb.co/PGBQkpVv/producto19.webp"
     },
     {
+        "id": "PRD020RLM",
         "title": "Cerveza Quilmes Lata",
         "price": 1700,
         "category": "bebidas",
         "img": "https://i.ibb.co/0jGB59xG/producto20.webp"
     },
     {
+        "id": "PRD021MQA",
         "title": "Cerveza Los Andes",
         "price": 2000,
         "category": "bebidas",
         "img": "https://i.ibb.co/Kxhjxh7K/producto21.webp"
     },
     {
+        "id": "PRD022WFE",
         "title": "Ensaladas con pasta",
         "price": 7500,
         "category": "ensaladas",
@@ -144,6 +166,7 @@
         "description": "Fideos tirabuzon, aceitunas negras, tomates cherry, queso tybo, apio"
     },
     {
+        "id": "PRD023XLT",
         "title": "Ensalada de arroz",
         "price": 7500,
         "category": "ensaladas",
@@ -151,6 +174,7 @@
         "description": "Arroz, huevo, tomates, aceitunas, zanahoria"
     },
     {
+        "id": "PRD024ZDJ",
         "title": "Ensalada tabulé",
         "price": 7500,
         "category": "ensaladas",
@@ -158,6 +182,7 @@
         "description": "Perejil, bulgur, tomates, menta"
     },
     {
+        "id": "PRD025KLT",
         "title": "Ensalada de quinoa",
         "price": 7500,
         "category": "ensaladas",
@@ -165,6 +190,7 @@
         "description": "Quinoa, palta, choclo, semillas de zapallo, tomate"
     },
     {
+        "id": "PRD026GHM",
         "title": "Ensalada de calabacín",
         "price": 7500,
         "category": "ensaladas",
@@ -172,6 +198,7 @@
         "description": "Calabacin, tomate, lechuga, aceitunas"
     },
     {
+        "id": "PRD027VNZ",
         "title": "Ensalada de judías verdes",
         "price": 7500,
         "category": "ensaladas",
