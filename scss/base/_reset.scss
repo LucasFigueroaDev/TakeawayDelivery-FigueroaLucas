@@ -1,9 +1,10 @@
 * {
+    font-family: $font-family-primary;
     margin: 0;
     padding: 0;
-    font-weight: 400;
-    font-family: $font;
     box-sizing: border-box;
+    color: $text-dark;
+    scroll-behavior: smooth;
 }
 
 *::before,
@@ -11,10 +12,8 @@
     box-sizing: inherit;
 }
 
-img {
-    max-width: 100%;
-}
-
-li {
-    list-style: none;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--margin-medium);
 }

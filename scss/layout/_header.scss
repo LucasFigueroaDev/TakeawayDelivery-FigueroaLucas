@@ -1,88 +1,51 @@
-.header_container {
-    background-color: #f7dcc1;
+.navbar {
+    background-color: $background-light-grey;
+    padding: $padding-small 0;
+    box-shadow: $shadow-small;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 
-    &_nav {
+    &_container {
         display: flex;
+        justify-content: space-between;
         align-items: center;
-        justify-content: space-evenly;
+
+        &_logo img {
+            border-radius: 50%;
+            width: 5rem;
+            height: auto;
+        }
 
         &_menu-toggle {
             display: none;
         }
 
         &_links {
-            margin: 0 2rem;
-            padding: 0.5rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            .name {
-                color: $rojo;
-                font-size: 1.5rem;
-                background-color: transparent;
-
-                &:hover {
-                    background-color: transparent;
-                    color: #117892;
-                }
-            }
 
             &_link {
-                background-color: #41C2E2;
-                margin-right: 1rem;
-                padding: 0 2rem;
-                border-radius: 15px;
+                margin-left: 30px;
                 text-decoration: none;
-                font-size: 1.2rem;
-                color: $negro;
-                font-weight: 400;
-                cursor: pointer;
+                color: $text-dark;
+                font-weight: 500;
+                transition: color 0.3s ease;
 
                 &:hover {
-                    background-color: #117892;
-                    color: $blanco;
+                    color: $primary-color;
                 }
 
             }
-
         }
 
-        &_cart {
-            font-size: 1.5rem;
+        &_icon a {
             text-decoration: none;
-            cursor: pointer;
-        }
-
-        &_count {
-            display: none;
-            position: relative;
-            top: -1rem;
-            right: 0.1rem;
-            font-size: 1rem;
-        }
-    }
-
-    &_descriptions {
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-
-        &_title {
-            font-size: 2rem;
-            font-weight: 300;
-            letter-spacing: 3px;
-        }
-
-        &_txt {
-            font-size: 1.2rem;
-            font-weight: 300;
-            font-style: italic;
-        }
-
-        &_box-img {
-            width: 45rem;
-            overflow: hidden;
+            color: $text-dark;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
     }
 }

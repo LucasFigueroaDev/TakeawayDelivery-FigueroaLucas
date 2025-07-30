@@ -1,54 +1,35 @@
-.container-footer {
-    background-color: #f7dcc1;
-    display: flex;
-    justify-content: space-around;
-    padding: 0.5rem;
-    margin-top: 5rem;
+.section-footer {
+    background-color: $background-white;
+    padding: $margin-medium;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+    margin-top: $margin-large;
 
-    &_data {
-        &_subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        &_box {
-            display: flex;
-            align-items: center;
-
-            &_logo {
-                width: 2rem;
-                height: auto;
-            }
-
-        }
-    }
-
-    &_networks {
-        text-align: center;
-
-        &_box {
-            &_logo {
-                width: 2rem;
-                height: auto;
-                margin: 0 0.5rem;
+    &_content {
+        border-top: 1px solid $border-color-light;
+        padding-top: $margin-medium;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        &_links {
+            text-align: center;
+            & a{
+                text-decoration: none;
+                color: $text-medium;
+                margin-right: $margin-medium;
+                font-size: 15px;
+                transition: color 0.3s ease;
+                &:hover {
+                    color: $primary-color;
+                }
             }
         }
-    }
 
-    &_newsletter {
-        &_form {
-            &_sub {
-                padding: 0 5px;
-            }
-        }
-    }
-
-    &_copyright {
-        background-color: $negro;
-
-        &_description {
-            color: $blanco;
+        &_copyright {
+            font-size: 14px;
+            color: $text-medium;
             text-align: center;
         }
     }
+
 }

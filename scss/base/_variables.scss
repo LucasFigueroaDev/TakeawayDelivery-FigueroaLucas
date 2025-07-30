@@ -1,11 +1,42 @@
-// Colores
-$negro: #1D1D1D;
-$blanco: #fff;
-$amarillo: #FFC72C;
-$rojo: #f31628;
+// Colores primarios y de acento
+$primary-color: #FF5722; /* Naranja principal, usado para botones, subrayados, etc. */
+$secondary-color: #007bff; /* Azul, usado para el overlay del carrito y algunos botones */
+$gold-color: #FFD700; /* Dorado para el título principal */
+$text-dark: #333; /* Texto oscuro general */
+$text-medium: #666; /* Texto de tono medio */
+$text-light: #444; /* Texto ligeramente más claro */
+$text-lighter: #555; /* Texto aun más claro */
+$background-light: #f5f5f5; /* Fondo claro general */
+$background-white: #fff; /* Fondo blanco */
+$background-light-blue: #e0f2f7; /* Fondo azul claro para About Us */
+$background-light-grey: #f8f8f8; /* Fondo gris claro para Contact Us */
+$border-color-light: #eee; /* Borde muy claro */
+$border-color-medium: #ddd; /* Borde medio */
 
-// Font
-$font: "Poppins", "sans-serif";
+// Sombras
+$shadow-small: 0 2px 5px rgba(0,0,0,0.1);
+$shadow-medium: 0 4px 8px rgba(0,0,0,0.1);
+$shadow-large: 0 5px 15px rgba(0,0,0,0.1); /* About Us content */
+$shadow-extra-large: 0 10px 25px rgba(0,0,0,0.15); /* Contact card */
+$shadow-image: 0 4px 10px rgba(0,0,0,0.2); /* Images in About Us/Map */
 
-// Bg
-$bg-oscuro: rgba(0,0,0,.8);
+// Bordes
+$border-radius-small: 5px;
+$border-radius-medium: 8px;
+$border-radius-large: 10px;
+$border-radius-extra-large: 12px;
+
+// Fuentes y espaciado
+$font-family-primary: 'Poppins', sans-serif;
+$font-size-base: 16px;
+$font-size-medium: 18px;
+$padding-small: 15px;
+$padding-medium: 40px;
+$padding-large: 80px;
+$margin-small: 10px;
+$margin-medium: 20px;
+$margin-large: 50px;
+$gap-small: 20px;
+$gap-medium: 30px;
+$gap-large: 40px;
+$gap-extra-large: 60px;

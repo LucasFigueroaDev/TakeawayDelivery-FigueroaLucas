@@ -1,0 +1,50 @@
+.section-cart {
+    height: 80vh;
+
+    &_container {
+
+
+        &_title {
+            text-align: center;
+            margin: 2rem 0;
+            letter-spacing: 3px;
+        }
+
+
+
+        &_box {
+            width: 70rem;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 3rem;
+
+
+
+            &_card_product {
+                border: 1px solid #000;
+                border-radius: 15px;
+                padding: 0.5rem;
+
+                &_content {
+                    &_title {}
+
+                    &_price {}
+
+                    &_quantity {}
+
+                    &_total {}
+                }
+            }
+
+            &_total {}
+
+        }
+
+    }
+
+    &_empty-message {
+        text-align: center;
+        font-size: 1rem;
+    }
+}

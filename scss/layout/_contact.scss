@@ -1,0 +1,118 @@
+.section-contact {
+    padding: $padding-large 0;
+    background-color: $background-light-grey;
+    margin-top: $margin-large;
+
+    &_title {
+        text-align: center;
+        font-size: 36px;
+        margin-bottom: $margin-large;
+        color: $text-dark;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10px;
+            width: 100px;
+            height: 5px;
+            background-color: $primary-color;
+            border-radius: 2px;
+        }
+    }
+
+    &_grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: $gap-extra-large;
+        align-items: flex-start;
+
+        &_form-card {
+            height: 781px;
+            background-color: $background-white;
+            padding: 50px;
+            border-radius: $border-radius-extra-large;
+            box-shadow: $shadow-extra-large;
+            border: 1px solid $border-color-light;
+
+            &_subtitle {
+                font-size: 30px;
+                color: #222;
+                margin-bottom: 35px;
+                text-align: left;
+
+            }
+
+            &_group {
+                margin-bottom: 25px;
+                & label {
+                    font-size: 17px;
+                    color: $text-lighter;
+                    margin-bottom: $margin-small;
+                }
+                & input, & textarea {
+                    width: 100%;
+                    padding: 14px;
+                    border: 2px solid $border-color-medium;
+                    border-radius: $border-radius-medium;
+                    font-size: 17px;
+                    box-sizing: border-box;
+                    font-family: $font-family-primary;
+                    background-color: #fcfcfc;
+
+                    &:focus {
+                        outline: none;
+                        border-color: $primary-color;
+                        box-shadow: 0 0 0 4px rgba(255, 87, 34, 0.25);
+                    }
+                }
+            }
+
+            &_button {
+                background-color: $secondary-color;
+                color: $background-white;
+                padding: 18px 35px;
+                border: none;
+                border-radius: $border-radius-medium;
+                font-size: 20px;
+                font-weight: bold;
+                letter-spacing: 0.5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+                width: 100%;
+
+                &:hover {
+                    background-color: #0056b3; /* Tono más oscuro del azul secundario */
+                    transform: translateY(-2px);
+                    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+                }
+            }
+        }
+
+        &_details-card {
+            background-color: $background-white;
+            padding: 50px;
+            border-radius: $border-radius-extra-large;
+            box-shadow: $shadow-extra-large;
+            border: 1px solid $border-color-light;
+
+            &_subtitle {
+                font-size: 30px;
+                color: #222;
+                margin-bottom: 35px;
+                text-align: left;
+            }
+            & p {
+                font-size: 19px;
+                color: $text-light;
+                margin-bottom: 18px;
+                & p:last-of-type {
+                    margin-bottom: 40px;
+                }
+            }
+            
+        }
+    }
+}
