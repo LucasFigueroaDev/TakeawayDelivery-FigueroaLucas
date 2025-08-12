@@ -29,83 +29,52 @@
     <!--css-->
     <link rel="stylesheet" href="../css/main.css">
     <!--Title-->
-    <title>Fast Food - Delivery or Takeaway Food</title>
+    <title>Fast Food</title>
 </head>
 
 <body>
-    <header class="header">
-        <div class="header_container">
-            <nav class="header_container_nav">
-                <button class="header_container_nav_menu-toggle">☰</button>
-                <ul class="header_container_nav_links">
-                    <li><a class="header_container_nav_links_link name" href="../index.html">Fast Food</a></li>
-                    <li><a class="header_container_nav_links_link" href="products.html">Nuestras comidas</a></li>
-                    <li><a class="header_container_nav_links_link" href="../index.html#us">Nosotros</a></li>
-                    <li><a class="header_container_nav_links_link" href="../index.html#customers">Clientes</a></li>
-                    <li><a class="header_container_nav_links_link" href="#">Hace tu pedido</a></li>
-                </ul>
-                <div>
-                    <a href="cart.html" class="header_container_nav_cart">🛒<span id="count" class="header_container_nav_count">0</span></a>
-                </div>
-            </nav>
-        </div>
+    <header class="navbar">
+        <nav class="container navbar_container">
+            <div class="navbar_container_logo">
+                <img src="../assets/logo.png" alt="Logo de la empresa">
+            </div>
+            <button class="navbar_container_menu-toggle">☰</button>
+            <ul class="navbar_container_links">
+                <li><a class="navbar_container_links_link" href="../index.html">Home</a></li>
+                <li><a class="navbar_container_links_link" href="offers.html">Ofertas</a></li>
+                <li><a class="navbar_container_links_link" href="products.html">Menu</a></li>
+                <li><a class="navbar_container_links_link" href="../index.html#about-us">Sobre nosotros</a></li>
+                <li><a class="navbar_container_links_link" href="../index.html#contact">Contacto</a></li>
+            </ul>
+            <div class="navbar_container_icon">
+                <a href="cart.html">🛒<span id="count">0</span></a>
+            </div>
+        </nav>
     </header>
     <main>
-        <section class="section-category">
-            <h2 class="section-category_title">Nuestras comidas</h2>
-            <select name="category" id="category-select" class="section-category_select">
-                <option value="all">Todas las categorias</option>
-            </select>
-            <div id="container-products" class="categories">
+        <section class="section-menu">
+            <div class="container" id="menu">
+                <h2 class="section-menu_main-title">Menu</h2>
+                <div class="section-menu_categories" id="categories"></div>
+                <div class="section-menu_container" id="products"></div>
             </div>
         </section>
     </main>
-    <footer>
-        <div class="container-footer">
-            <div class="container-footer_data">
-                <h4 class="container-footer_data_subtitle">Fast Food</h4>
-                <div class="container-footer_data_box">
-                    <img class="container-footer_data_box_logo" src="../assets/llamar.png" alt="logo de telefono"
-                        width="512" height="512" loading="lazy">
-                    <p class="container-footer_data_box_txt">0000-123456789</p>
+    <footer class="section-footer">
+        <div class="section-footer_content">
+            <div class="container">
+                <div class="section-footer_content_links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Sitemap</a>
                 </div>
-                <div class="container-footer_data_box">
-                    <img class="container-footer_data_box_logo" src="../assets/correo.png"
-                        alt="logo de correo electronico" width="512" height="512" loading="lazy">
-                    <p class="container-footer_data_box_txt">fastfood@correo.com</p>
-                </div>
-                <div class="container-footer_data_box">
-                    <img class="container-footer_data_box_logo" src="../assets/mapa.png" alt="logo de ubicacion"
-                        width="512" height="512" loading="lazy">
-                    <p class="container-footer_data_box_txt">1500 - Boulevard Park </p>
+                <div class="section-footer_content_copyright">
+                    © 2024 FastFood. All rights reserved. Design by Figueroa Lucas
                 </div>
             </div>
-            <div class="container-footer_networks">
-                <h4 class="container-footer_data_subtitle">Redes sociales</h4>
-                <div class="container-footer_networks_box">
-                    <a href="https://www.facebook.com"><img class="container-footer_networks_box_logo"
-                            src="../assets/facebook.png" alt="logo de facebook" width="512" height="512"
-                            loading="lazy"></a>
-                    <a href="https://www.x.com"><img class="container-footer_networks_box_logo"
-                            src="../assets/gorjeo.png" alt="logo de x" width="512" height="512" loading="lazy"></a>
-                    <a href="https://www.instagram.com"><img class="container-footer_networks_box_logo"
-                            src="../assets/instagram.png" alt="logo de instagram" width="512" height="512"
-                            loading="lazy"></a>
-                </div>
-            </div>
-            <div class="container-footer_newsletter">
-                <h4 class="container-footer_data_subtitle">Newsletter</h4>
-                <form action="" class="container-footer_newsletter_form">
-                    <input class="container-footer_newsletter_form_input" type="text" placeholder="Name">
-                    <input class="container-footer_newsletter_form_input" type="email" placeholder="Your Email">
-                    <input class="container-footer_newsletter_form_sub" type="submit" value="Subscribe">
-                </form>
-            </div>
-        </div>
-        <div class="container-footer_copyright">
-            <p class="container-footer_copyright_description">℗ App Web - Design Figueroa Lucas</p>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="../js/products.js"></script>
 </body>
 

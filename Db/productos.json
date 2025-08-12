@@ -1,208 +1,324 @@
-[
-    {
-        "id": "PRD001WSP",
-        "title": "Pizza Especial",
-        "price": 8500,
-        "category": "pizzas",
-        "img": "https://i.ibb.co/V0YXvBPm/producto2.webp",
-        "description": "Masa casera, salsa de tomate, queso muzzarella, jamon, pimiento y aceitunas"
-    },
-    {
-        "id": "PRD002DOR",
-        "title": "Pizza Muzzarella",
-        "price": 6000,
-        "category": "pizzas",
-        "img": "https://i.ibb.co/1YwgkxzB/producto1.webp",
-        "description": "Masa casera, salsa de tomare, queso muzzarella, aceitunas"
-    },
-    {
-        "id": "PRD003XSC",
-        "title": "Pizza Napolitana",
-        "price": 10000,
-        "category": "pizzas",
-        "img": "https://i.ibb.co/k6MkJksM/producto3.webp",
-        "description": "Masa casera, tomate San Marzano, queso muzzarella y albahaca fresca"
-    },
-    {
-        "id": "PRD004RDR",
-        "title": "Pizza Palmitos",
-        "price": 12500,
-        "category": "pizzas",
-        "img": "https://i.ibb.co/0VCZyCJn/producto4.webp",
-        "description": "Masa casera, salsa de tomate palmitos y salsa golf"
-    },
-    {
-        "id": "PRD005QWT",
-        "title": "Pizza Cuatro Quesos",
-        "price": 9500,
-        "category": "pizzas",
-        "img": "https://i.ibb.co/BH7yFShD/producto5.webp",
-        "description": "Masa casera,salsa de tomate, queso muzzarella, azul, parmesano y fontina"
-    },
-    {
-        "id": "PRD006BOP",
-        "title": "Pizza Americana",
-        "price": 13500,
-        "category": "pizzas",
-        "img": "https://i.ibb.co/NdHgq18C/producto6.webp",
-        "description": "Masa casera, salsa de tomate, pepperoni, salchicha y papas fritas"
-    },
-    {
-        "id": "PRD007SUX",
-        "title": "Lomo Simple",
-        "price": 4000,
-        "category": "Lomos",
-        "img": "https://i.ibb.co/whChCgvW/producto7.webp",
-        "description": "Pan arabe, queso, jamon y lomo. Incluye papas fritas"
-    },
-    {
-        "id": "PRD008PGH",
-        "title": "Lomo Completo",
-        "price": 5500,
-        "category": "Lomos",
-        "img": "https://i.ibb.co/prf8d3q6/producto8.webp",
-        "description": "Pan arabe, queso, jamon, huevo, lechuga, tomate, mayonesa casera y lomo, Incluye papas fritas"
-    },
-    {
-        "id": "PRD009MJZ",
-        "title": "Lomo Vegetariano",
-        "price": 6000,
-        "category": "Lomos",
-        "img": "https://i.ibb.co/bggSvNNc/producto9.webp",
-        "description": "Pan arabe lomo de seitán queso y vegetales"
-    },
-    {
-        "id": "PRD010YKC",
-        "title": "Lomo de Pollo",
-        "price": 5000,
-        "category": "Lomos",
-        "img": "https://i.ibb.co/Vpk309Dz/producto10.webp",
-        "description": "Pan arabe, pollo, queso, jamon, huevo. Incluye papas fritas"
-    },
-    {
-        "id": "PRD011NGH",
-        "title": "Lomo De Cerdo",
-        "price": 5000,
-        "category": "Lomos",
-        "img": "https://i.ibb.co/rKhw818C/producto11.webp",
-        "description": "Pan arabe, lomo de cerdo asado, queso, jamon, tomate y lechuga"
-    },
-    {
-        "id": "PRD012RLT",
-        "title": "Empanada Criollas",
-        "price": 1500,
-        "category": "empanadas",
-        "img": "https://i.ibb.co/5Wp3xpyt/producto12.webp"
-    },
-    {
-        "id": "PRD013BDT",
-        "title": "Empanada Arabes",
-        "price": 2000,
-        "category": "empanadas",
-        "img": "https://i.ibb.co/cXVtZjjb/producto13.webp"
-    },
-    {
-        "id": "PRD014WLJ",
-        "title": "Empanada Jamon y Queso",
-        "price": 1500,
-        "category": "empanadas",
-        "img": "https://i.ibb.co/vCV7q4tz/producto14.webp"
-    },
-    {
-        "id": "PRD015TPF",
-        "title": "Empanada De Pollo",
-        "price": 1500,
-        "category": "empanadas",
-        "img": "https://i.ibb.co/nsZws28x/producto15.webp"
-    },
-    {
-        "id": "PRD016KAY",
-        "title": "Empanada De Choclo",
-        "price": 1500,
-        "category": "empanadas",
-        "img": "https://i.ibb.co/x8Lkvqtg/producto16.webp"
-    },
-    {
-        "id": "PRD017GDE",
-        "title": "Coca Cola 1.5Lt",
-        "price": 2500,
-        "category": "bebidas",
-        "img": "https://i.ibb.co/ym6HvPNy/producto17.webp"
-    },
-    {
-        "id": "PRD018JXM",
-        "title": "Sprite 1.5Lt",
-        "price": 2500,
-        "category": "bebidas",
-        "img": "https://i.ibb.co/dwc1WCp1/producto18.webp"
-    },
-    {
-        "id": "PRD019ZWB",
-        "title": "Fanta 1.5Lt",
-        "price": 2500,
-        "category": "bebidas",
-        "img": "https://i.ibb.co/PGBQkpVv/producto19.webp"
-    },
-    {
-        "id": "PRD020RLM",
-        "title": "Cerveza Quilmes Lata",
-        "price": 1700,
-        "category": "bebidas",
-        "img": "https://i.ibb.co/0jGB59xG/producto20.webp"
-    },
-    {
-        "id": "PRD021MQA",
-        "title": "Cerveza Los Andes",
-        "price": 2000,
-        "category": "bebidas",
-        "img": "https://i.ibb.co/Kxhjxh7K/producto21.webp"
-    },
-    {
-        "id": "PRD022WFE",
-        "title": "Ensaladas con pasta",
-        "price": 7500,
-        "category": "ensaladas",
-        "img": "https://i.ibb.co/qKxyP6r/producto22.webp",
-        "description": "Fideos tirabuzon, aceitunas negras, tomates cherry, queso tybo, apio"
-    },
-    {
-        "id": "PRD023XLT",
-        "title": "Ensalada de arroz",
-        "price": 7500,
-        "category": "ensaladas",
-        "img": "https://i.ibb.co/2YMGY02H/producto23.webp",
-        "description": "Arroz, huevo, tomates, aceitunas, zanahoria"
-    },
-    {
-        "id": "PRD024ZDJ",
-        "title": "Ensalada tabulé",
-        "price": 7500,
-        "category": "ensaladas",
-        "img": "https://i.ibb.co/tT6J8NYK/producto24.webp",
-        "description": "Perejil, bulgur, tomates, menta"
-    },
-    {
-        "id": "PRD025KLT",
-        "title": "Ensalada de quinoa",
-        "price": 7500,
-        "category": "ensaladas",
-        "img": "https://i.ibb.co/fYDJwg9Z/producto25.webp",
-        "description": "Quinoa, palta, choclo, semillas de zapallo, tomate"
-    },
-    {
-        "id": "PRD026GHM",
-        "title": "Ensalada de calabacín",
-        "price": 7500,
-        "category": "ensaladas",
-        "img": "https://i.ibb.co/sdp84fZF/producto26.webp",
-        "description": "Calabacin, tomate, lechuga, aceitunas"
-    },
-    {
-        "id": "PRD027VNZ",
-        "title": "Ensalada de judías verdes",
-        "price": 7500,
-        "category": "ensaladas",
-        "img": "https://i.ibb.co/gF7THG34/producto27.webp",
-        "description": "judias, huevo, champiñones"
-    }
-]
+{
+    "menu": [
+        {
+            "id": "H001",
+            "category": "Hamburguesas",
+            "name": "Hamburguesa Clásica",
+            "description": "Doble carne, queso cheddar, lechuga, tomate, cebolla, pepinillos y salsa especial en pan brioche.",
+            "image": "../assets/img-productos/h001.png",
+            "price": 8.50
+        },
+        {
+            "id": "H002",
+            "category": "Hamburguesas",
+            "name": "Hamburguesa BBQ Ahumada",
+            "description": "Carne de res, queso provolone, bacon crocante, aros de cebolla fritos y salsa BBQ ahumada en pan rústico.",
+            "image": "../assets/img-productos/h002.png",
+            "price": 9.75
+        },
+        {
+            "id": "H003",
+            "category": "Hamburguesas",
+            "name": "Hamburguesa Vegetariana",
+            "description": "Medallón de lentejas y arroz, queso halloumi a la plancha, rúcula, tomate, palta y aderezo de yogur y menta en pan integral.",
+            "image": "../assets/img-productos/h003.png",
+            "price": 7.90
+        },
+        {
+            "id": "H004",
+            "category": "Hamburguesas",
+            "name": "Hamburguesa Doble Queso",
+            "description": "Dos patties de carne, doble queso americano, pepinillos y kétchup en pan de sésamo.",
+            "image": "../assets/img-productos/h004.png",
+            "price": 9.00
+        },
+        {
+            "id": "H005",
+            "category": "Hamburguesas",
+            "name": "Hamburguesa Spicy Jalapeño",
+            "description": "Carne de res, queso pepper jack, jalapeños frescos, cebolla caramelizada y salsa picante en pan brioche.",
+            "image": "../assets/img-productos/h005.png",
+            "price": 9.50
+        },
+        {
+            "id": "L001",
+            "category": "Lomitos",
+            "name": "Lomito Completo",
+            "description": "Fino corte de lomo, jamón, queso, huevo frito, lechuga, tomate y mayonesa en pan de lomo artesanal.",
+            "image": "../assets/img-productos/l001.png",
+            "price": 9.99
+        },
+        {
+            "id": "L002",
+            "category": "Lomitos",
+            "name": "Lomito de Pollo Grille",
+            "description": "Pechuga de pollo grillada, queso, palta, rúcula y aderezo caesar en pan ciabatta.",
+            "image": "../assets/img-productos/l002.png",
+            "price": 9.25
+        },
+        {
+            "id": "L003",
+            "category": "Lomitos",
+            "name": "Lomito Vegetarianos",
+            "description": "Berenjena y zucchini grillados, queso brie, tomate seco y pesto en pan integral.",
+            "image": "../assets/img-productos/l003.png",
+            "price": 8.75
+        },
+        {
+            "id": "L004",
+            "category": "Lomitos",
+            "name": "Lomito de Bondiola",
+            "description": "Bondiola braseada, cebolla morada caramelizada, queso provolone y mostaza dijon en pan rústico.",
+            "image": "../assets/img-productos/l004.png",
+            "price": 10.50
+        },
+        {
+            "id": "P001",
+            "category": "Papas Fritas",
+            "name": "Papas Fritas Clásicas",
+            "description": "Crujientes papas fritas con un toque de sal marina.",
+            "image": "../assets/img-productos/p001.png",
+            "price": 3.00
+        },
+        {
+            "id": "P002",
+            "category": "Papas Fritas",
+            "name": "Papas Fritas con Cheddar y Bacon",
+            "description": "Papas fritas cubiertas con salsa de queso cheddar derretido y trozos de bacon crocante.",
+            "image": "../assets/img-productos/p002.png",
+            "price": 4.50
+        },
+        {
+            "id": "P003",
+            "category": "Papas Fritas",
+            "name": "Papas Fritas con Chili y Queso",
+            "description": "Papas fritas con chili con carne casero y abundante queso rallado.",
+            "image": "../assets/img-productos/p003.png",
+            "price": 5.00
+        },
+        {
+            "id": "P004",
+            "category": "Papas Fritas",
+            "name": "Batatas Fritas",
+            "description": "Deliciosas batatas fritas, crujientes por fuera y suaves por dentro.",
+            "image": "../assets/img-productos/p004.png",
+            "price": 3.75
+        },
+        {
+            "id": "G001",
+            "category": "Gaseosas",
+            "name": "Coca-Cola",
+            "description": "Gaseosa Coca-Cola original.",
+            "image": "../assets/img-productos/g001.png",
+            "price": 2.50
+        },
+        {
+            "id": "G002",
+            "category": "Gaseosas",
+            "name": "Sprite",
+            "description": "Gaseosa Sprite.",
+            "image": "../assets/img-productos/g002.png",
+            "price": 2.50
+        },
+        {
+            "id": "G003",
+            "category": "Gaseosas",
+            "name": "Fanta Naranja",
+            "description": "Gaseosa Fanta sabor naranja.",
+            "image": "../assets/img-productos/g003.png",
+            "price": 2.50
+        },
+        {
+            "id": "G004",
+            "category": "Gaseosas",
+            "name": "Agua Mineral",
+            "description": "Botella de agua mineral sin gas de 500ml.",
+            "image": "../assets/img-productos/g004.png",
+            "price": 1.50
+        },
+        {
+            "id": "C001",
+            "category": "Cervezas",
+            "name": "Cerveza Lager",
+            "description": "Cerveza rubia estilo Lager, lata de 473ml.",
+            "image": "../assets/img-productos/c001.png",
+            "price": 4.00
+        },
+        {
+            "id": "C002",
+            "category": "Cervezas",
+            "name": "Cerveza Artesanal IPA",
+            "description": "Cerveza artesanal estilo India Pale Ale, botella de 500ml.",
+            "image": "../assets/img-productos/c002.png",
+            "price": 6.00
+        },
+        {
+            "id": "C003",
+            "category": "Cervezas",
+            "name": "Cerveza Negra Stout",
+            "description": "Cerveza oscura estilo Stout, lata de 473ml.",
+            "image": "../assets/img-productos/c003.png",
+            "price": 4.50
+        },
+        {
+            "id": "C004",
+            "category": "Cervezas",
+            "name": "Cerveza Sin Alcohol",
+            "description": "Cerveza sin alcohol, lata de 330ml.",
+            "image": "../assets/img-productos/c004.png",
+            "price": 3.00
+        },
+        {
+            "id": "T001",
+            "category": "Tacos",
+            "name": "Tacos de Carne",
+            "description": "Dos tortillas de maíz rellenas de carne desmechada, pico de gallo, lechuga y crema agria.",
+            "image": "../assets/img-productos/t001.png",
+            "price": 7.00
+        },
+        {
+            "id": "T002",
+            "category": "Tacos",
+            "name": "Tacos de Pollo",
+            "description": "Dos tortillas de maíz rellenas de pollo desmechado, cebolla morada encurtida, cilantro y salsa chipotle.",
+            "image": "../assets/img-productos/t002.png",
+            "price": 6.75
+        },
+        {
+            "id": "T003",
+            "category": "Tacos",
+            "name": "Tacos Vegetarianos",
+            "description": "Dos tortillas de maíz con frijoles negros, pimientos asados, maíz, palta y aderezo de lima.",
+            "image": "../assets/img-productos/t003.png",
+            "price": 6.50
+        },
+        {
+            "id": "T004",
+            "category": "Tacos",
+            "name": "Tacos de Pescado",
+            "description": "Dos tortillas de maíz con pescado blanco rebozado, repollo morado, salsa tártara y un toque de lima.",
+            "image": "../assets/img-productos/t004.png",
+            "price": 7.50
+        },
+        {
+            "id": "PLLO01",
+            "category": "Pollo",
+            "name": "Pollo Frito",
+            "description": "Tres piezas de pollo rebozado y frito, jugoso por dentro y crujiente por fuera.",
+            "image": "../assets/img-productos/pll001.png",
+            "price": 8.00
+        },
+        {
+            "id": "PLLO02",
+            "category": "Pollo",
+            "name": "Nuggets de Pollo",
+            "description": "Seis unidades de nuggets de pollo con salsa barbacoa.",
+            "image": "../assets/img-productos/pll002.png",
+            "price": 5.50
+        },
+        {
+            "id": "PLLO03",
+            "category": "Pollo",
+            "name": "Tiras de Pollo Crujientes",
+            "description": "Cuatro tiras de pechuga de pollo empanizadas y fritas, con dip de miel y mostaza.",
+            "image": "../assets/img-productos/pll003.png",
+            "price": 7.00
+        },
+        {
+            "id": "EXT01",
+            "category": "Extras",
+            "name": "Aros de Cebolla",
+            "description": "Porción de aros de cebolla empanizados y fritos, perfectos para acompañar.",
+            "image": "../assets/img-productos/ext01.png",
+            "price": 3.50
+        },
+        {
+            "id": "EXT02",
+            "category": "Extras",
+            "name": "Aderezo Extra",
+            "description": "Elige tu aderezo favorito: mayonesa, kétchup, mostaza, barbacoa, o salsa picante.",
+            "image": "../assets/img-productos/ext02.png",
+            "price": 0.75
+        },
+        {
+            "id": "PZ001",
+            "category": "Pizzas",
+            "name": "Pizza Margarita",
+            "description": "Salsa de tomate, mozzarella fresca, albahaca y aceite de oliva.",
+            "image": "../assets/img-productos/pz001.png",
+            "price": 12.00
+        },
+        {
+            "id": "PZ002",
+            "category": "Pizzas",
+            "name": "Pizza Pepperoni",
+            "description": "Salsa de tomate, mozzarella y abundantes rodajas de pepperoni.",
+            "image": "../assets/img-productos/pz002.png",
+            "price": 13.50
+        },
+        {
+            "id": "PZ003",
+            "category": "Pizzas",
+            "name": "Pizza Cuatro Quesos",
+            "description": "Mozzarella, provolone, parmesano y roquefort.",
+            "image": "../assets/img-productos/pz003.png",
+            "price": 14.00
+        },
+        {
+            "id": "PZ004",
+            "category": "Pizzas",
+            "name": "Pizza Hawaiana",
+            "description": "Salsa de tomate, mozzarella, jamón cocido y piña.",
+            "image": "../assets/img-productos/pz004.png",
+            "price": 13.00
+        },
+        {
+            "id": "PZ005",
+            "category": "Pizzas",
+            "name": "Pizza Vegetales Asados",
+            "description": "Salsa de tomate, mozzarella, pimientos, cebolla, calabacín y berenjena asados.",
+            "image": "../assets/img-productos/pz005.png",
+            "price": 12.75
+        },
+        {
+            "id": "PZ006",
+            "category": "Pizzas",
+            "name": "Pizza Pollo BBQ",
+            "description": "Base de salsa BBQ, mozzarella, pollo desmechado y cebolla morada.",
+            "image": "../assets/img-productos/pz006.png",
+            "price": 14.50
+        },
+        {
+            "id": "PZ007",
+            "category": "Pizzas",
+            "name": "Pizza Fugazzeta",
+            "description": "Abundante mozzarella y cebolla fresca.",
+            "image": "../assets/img-productos/pz007.png",
+            "price": 11.50
+        },
+        {
+            "id": "PZ008",
+            "category": "Pizzas",
+            "name": "Pizza Napolitana",
+            "description": "Salsa de tomate, mozzarella, rodajas de tomate fresco, ajo y orégano.",
+            "image": "../assets/img-productos/pz008.png",
+            "price": 12.25
+        },
+        {
+            "id": "PZ009",
+            "category": "Pizzas",
+            "name": "Pizza Prosciutto y Rúcula",
+            "description": "Salsa de tomate, mozzarella, jamón crudo y rúcula fresca.",
+            "image": "../assets/img-productos/pz009.png",
+            "price": 15.00
+        },
+        {
+            "id": "PZ010",
+            "category": "Pizzas",
+            "name": "Pizza Chorizo Español",
+            "description": "Salsa de tomate, mozzarella, chorizo español y aceitunas negras.",
+            "image": "../assets/img-productos/pz010.png",
+            "price": 14.75
+        }
+    ]
+}

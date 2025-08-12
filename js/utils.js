@@ -10,4 +10,17 @@ function cartProducts(cart) {
     }
 }
 
-export { cartProducts };
+function createButton(className, value, textContent) {
+    const button = document.createElement('button');
+    button.classList.add(className);
+    button.value = value;
+    button.textContent = textContent;
+    return button;
+}
+
+function calcularTotal(cart) {
+    const total = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+    return total;
+}
+
+export { cartProducts, createButton, calcularTotal };

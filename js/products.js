@@ -1,83 +1,64 @@
-import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
-import { cartProducts } from './utils.js';
-
+import { cartProducts, createButton } from './utils.js';
 // Crear carrito en el localstorage
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 let data = [];
 // Funcion para cargar productos del archivo json
 const url = '../Db/productos.json';
-const containerProducts = document.getElementById('container-products');
-const categorySelect = document.getElementById('category-select');
-
 async function uploadProducts() {
     try {
         const response = await fetch(url);
-        if (!response) throw new Error("No se pudo cargar los productos");
+        if (!response.ok) throw new Error("No se pudo cargar los productos");
         data = await response.json();
-        const categories = new Set(data.map(product => product.category));
+        const categories = new Set(data.menu.map(product => product.category));
+        const categoryButtons = document.getElementById('categories');
 
-        // Mostrar categorias
         categories.forEach(category => {
-            const option = document.createElement('option');
-            option.value = category;
-            option.textContent = category;
-            categorySelect.appendChild(option);
-        });
+            const button = createButton('section-menu_categories_button', category, category);
+            button.addEventListener('click', () => {
+                renderProducts(data.menu.filter(product => product.category === category));
+                const allButtons = document.querySelectorAll('.section-menu_categories_button');
+                allButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+            });
+            categoryButtons.appendChild(button);
+        })
 
-        renderProducts(data);
+        renderProducts(data.menu);
         cartProducts(cart);
 
     } catch (error) {
-        throw new Error("Error al cargar los productos");
+        throw error("Error al cargar los productos:", error);
     }
 }
-
 function renderProducts(products) {
+    const containerProducts = document.getElementById('products');
     containerProducts.innerHTML = '';
     products.forEach(product => {
-        const div = document.createElement('div');
-        div.classList.add('categories_card-product');
-        div.innerHTML = `
-            <h3 class="categories_card-product_title">${product.title}</h3>
-            <div class="categories_card-product_img">
-                <img src="${product.img}" alt="${product.title}">
+        const productContent = document.createElement('div');
+        productContent.classList.add('section-menu_container_card');
+        productContent.innerHTML = `
+            <h3 class="section-menu_container_card_title">${product.name}</h3>
+            <div class="section-menu_container_card_img">
+                <img src="${product.image}" alt="${product.name}">
             </div>
-            <div class="categories_card-product_content">
-                <p class="categories_card-product_content_price">Precio: $${product.price}</p>
-                ${product.description ? `<p class="categories_card-product_content_description">${product.description}</p>` : ''}
-                <button class="categories_card-product_content_button-add-to-cart" id=${product.id}>Agregar pedido</button>
+            <div class="section-menu_container_card_description">
+                <p class="section-menu_container_card_description_price">Precio: $${product.price}</p>
+                <p class="section-menu_container_card_description_description">${product.description}</p>
+                <button class="section-menu_container_card_description_button" id=${product.id}>Agregar pedido</button>
             </div>
         `;
-        containerProducts.appendChild(div);
+        containerProducts.appendChild(productContent);
     })
     addCartEventListener();
 };
-
-categorySelect.addEventListener('change', async () => {
-    const selectedCategory = categorySelect.value;
-    if (selectedCategory === 'all') {
-        renderProducts(data);
-    } else {
-        const filteredProducts = data.filter(product => product.category === selectedCategory);
-        renderProducts(filteredProducts);
-    }
-});
-
-
 function addCartEventListener() {
-    const addToCartButtons = document.querySelectorAll('.categories_card-product_content_button-add-to-cart');
-
-    addToCartButtons.forEach(button => {
+    const allButtons = document.querySelectorAll('.section-menu_container_card_description_button');
+    allButtons.forEach(button => {
         button.addEventListener('click', () => {
             const productId = button.id;
-
-            const productToAdd = data.find(item => item.id === productId);
-
+            const productToAdd = data.menu.find(item => item.id === productId);
             if (!productToAdd) return;
-
-            // Buscar si el producto ya está en el carrito
             const existingProduct = cart.find(item => item.id === productId);
-
             if (existingProduct) {
                 existingProduct.quantity += 1;
             } else {
@@ -86,9 +67,19 @@ function addCartEventListener() {
                     quantity: 1,
                 });
             }
-
+            Swal.fire({
+                icon: 'success',
+                title: 'Producto agregado',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                position: 'top-end',
+                toast: true
+            });
             localStorage.setItem('cart', JSON.stringify(cart));
             cartProducts(cart);
+            console.log(cart);
+
         });
     });
 }

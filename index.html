@@ -4,18 +4,20 @@
 <head>
     <!--meta-->
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="La mejor casa de comidas de la ciudad">
+    <meta name="description"
+        content="Fast Food - La mejor casa de comidas de la ciudad. Sabores que enamoran con deliciosas hamburguesas, papas fritas crujientes y más.">
     <meta name="author" content="Figueroa Lucas">
-    <meta name="copyright" content="Figueroa Lucas">
     <meta name="robots" content="index, follow">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Lo más rico">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Fast Food - Sabores que Enamoran">
+    <meta property="og:description"
+        content="Deliciosas hamburguesas, papas fritas crujientes y mucho más en Fast Food. ¡Pide ahora!">
     <meta property="og:url" content="https://lucasfigueroadev.github.io/Entregafinal-FigueroaLucas/">
     <meta property="og:image"
-        content="https://github.com/LucasFigueroaDev/Entregafinal-FigueroaLucas/blob/main/assets/logo.png">
-    <meta property="og:description" content="La mejor casa de comidas de la ciudad">
+        content="https://raw.githubusercontent.com/LucasFigueroaDev/Entregafinal-FigueroaLucas/main/assets/logo.png">
     <!--fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,22 +31,22 @@
     <!--css-->
     <link rel="stylesheet" href="css/main.css">
     <!--Title-->
-    <title>Fast Food - Delivery or Takeaway Food</title>
+    <title>Fast Food</title>
 </head>
 
 <body>
     <header class="navbar">
         <nav class="container navbar_container">
             <div class="navbar_container_logo">
-                <img src="assets/logo.png" alt="Logo de la empresa">
+                <img src="assets/logo.png" alt="Logo de la empresa" />
             </div>
             <button class="navbar_container_menu-toggle">☰</button>
             <ul class="navbar_container_links">
                 <li><a class="navbar_container_links_link" href="index.html">Home</a></li>
-                <li><a class="navbar_container_links_link" href="pages/products.html">Ofertas</a></li>
-                <li><a class="navbar_container_links_link" href="#us">Menu</a></li>
-                <li><a class="navbar_container_links_link" href="#customers">Sobre nosotros</a></li>
-                <li><a class="navbar_container_links_link" href="#">Contacto</a></li>
+                <li><a class="navbar_container_links_link" href="pages/offers.html">Ofertas</a></li>
+                <li><a class="navbar_container_links_link" href="pages/products.html">Menu</a></li>
+                <li><a class="navbar_container_links_link" href="#about-us">Sobre nosotros</a></li>
+                <li><a class="navbar_container_links_link" href="#contact">Contacto</a></li>
             </ul>
             <div class="navbar_container_icon">
                 <a href="pages/cart.html">🛒<span id="count">0</span></a>
@@ -54,74 +56,82 @@
     <main>
         <section class="section-hero">
             <div class="container section-hero_container">
-                <h1 class="section-hero_title">¡Sabores que Enamoran!</h1>
-                <p class="section-hero_txt">¡Deliciosas hamburguesas, papas fritas crujientes y mucho más!</p>
-                <button class="section-hero_button">Pedir Ahora</button>
+                <h1 class="section-hero_title fade-in">¡Sabores que Enamoran!</h1>
+                <p class="section-hero_txt fade-in">
+                    ¡Deliciosas hamburguesas, papas fritas crujientes y mucho más!
+                </p>
+                <button class="section-hero_button fade-in">Pedir Ahora</button>
             </div>
         </section>
         <section class="section-deals">
             <div class="container">
-                <h2 class="section-deals_title">¡Promos que te Sorprenden!</h2>
+                <h2 class="section-deals_title fade-in">¡Promos que te Sorprenden!</h2>
                 <div class="section-deals_grid">
-                    <div class="section-deals_grid_card">
+                    <div class="section-deals_grid_card fade-in">
                         <img class="section-deals_grid_card_img"
                             src="https://via.placeholder.com/300x200?text=Pizza+%26+Soda+Feast"
-                            alt="Pizza & Soda Feast">
+                            alt="Pizza & Soda Feast" />
                         <h3 class="section-deals_grid_card_sub-title">Pizza Party</h3>
-                        <p class="section-deals_grid_card_description">Dos pizzas medianas al precio de una. ¡Ideal para
-                            compartir!</p>
+                        <p class="section-deals_grid_card_description">
+                            Dos pizzas medianas al precio de una. ¡Ideal para compartir!
+                        </p>
                         <button class="section-deals_grid_card_button">Pedilo ahora</button>
                     </div>
-                    <div class="section-deals_grid_card">
+                    <div class="section-deals_grid_card fade-in">
                         <img class="section-deals_grid_card_img"
-                            src="https://via.placeholder.com/300x200?text=Crispy+Chicken+Duo" alt="Crispy Chicken Duo">
+                            src="https://via.placeholder.com/300x200?text=Crispy+Chicken+Duo"
+                            alt="Crispy Chicken Duo" />
                         <h3 class="section-deals_grid_card_sub-title">Dúo de Pollo Crocante</h3>
-                        <p class="section-deals_grid_card_description">El doble de sabor y crocancia en cada mordida.
-                            ¡Probalo!</p>
+                        <p class="section-deals_grid_card_description">
+                            El doble de sabor y crocancia en cada mordida. ¡Probalo!
+                        </p>
                         <button class="section-deals_grid_card_button">Pedilo ahora</button>
                     </div>
-                    <div class="section-deals_grid_card">
+                    <div class="section-deals_grid_card fade-in">
                         <img class="section-deals_grid_card_img"
                             src="https://via.placeholder.com/300x200?text=Combo+Burger+Deluxe"
-                            alt="Combo Burger Deluxe">
+                            alt="Combo Burger Deluxe" />
                         <h3 class="section-deals_grid_card_sub-title">Combo Burger Deluxe</h3>
-                        <p class="section-deals_grid_card_description">Pedí tu hamburguesa favorita y llevate otra sin
-                            cargo. ¡Solo por hoy!</p>
+                        <p class="section-deals_grid_card_description">
+                            Pedí tu hamburguesa favorita y llevate otra sin cargo. ¡Solo por hoy!
+                        </p>
                         <button class="section-deals_grid_card_button">Pedilo ahora</button>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="section-about-us">
+        <section id="about-us" class="section-about-us">
             <div class="container">
-                <h2 class="section-about-us_title">Quienes somos</h2>
+                <h2 class="section-about-us_title fade-in">Quienes somos</h2>
                 <div class="section-about-us_about-content">
                     <div class="section-about-us_about-content_images">
-                        <img src="https://via.placeholder.com/100x100?text=Person1" alt="Person 1">
-                        <img src="https://via.placeholder.com/100x100?text=Person2" alt="Person 2">
-                        <img src="https://via.placeholder.com/100x100?text=Person3" alt="Person 3">
+                        <img src="https://via.placeholder.com/100x100?text=Person1" alt="Person 1" />
+                        <img src="https://via.placeholder.com/100x100?text=Person2" alt="Person 2" />
+                        <img src="https://via.placeholder.com/100x100?text=Person3" alt="Person 3" />
                     </div>
-                    <p class="section-about-us_about-content_description">En FastFood, ¡creemos en alegrar cada bocado!
-                        Nuestra pasión por la comida deliciosa y un servicio excepcional nos impulsa a crear
-                        experiencias gastronómicas inolvidables. Usamos ingredientes frescos y mucho cariño para
-                        preparar tus comidas favoritas. ¡Únete a nuestra familia y prueba la diferencia!</p>
+                    <p class="section-about-us_about-content_description fade-in">
+                        En FastFood, ¡creemos en alegrar cada bocado! Nuestra pasión por la comida deliciosa y un
+                        servicio excepcional nos impulsa a crear experiencias gastronómicas inolvidables. Usamos
+                        ingredientes frescos y mucho cariño para preparar tus comidas favoritas. ¡Únete a nuestra
+                        familia y prueba la diferencia!
+                    </p>
                 </div>
             </div>
         </section>
         <section id="contact" class="section-contact">
             <div class="container">
-                <h2 class="section-contact_title">Contacto</h2>
+                <h2 class="section-contact_title fade-in">Contacto</h2>
                 <div class="section-contact_grid">
-                    <div class="section-contact_grid_form-card">
+                    <div class="section-contact_grid_form-card fade-in">
                         <h2 class="section-contact_grid_form-card_subtitle">Envíanos un mensaje</h2>
                         <form action="#" method="POST">
                             <div class="section-contact_grid_form-card_group">
                                 <label for="name">Nombre</label>
-                                <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+                                <input type="text" id="name" name="name" placeholder="Tu nombre" required />
                             </div>
                             <div class="section-contact_grid_form-card_group">
                                 <label for="email">Correo electrónico</label>
-                                <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                                <input type="email" id="email" name="email" placeholder="tu@email.com" required />
                             </div>
                             <div class="section-contact_grid_form-card_group">
                                 <label for="message">Mensaje</label>
@@ -132,7 +142,7 @@
                         </form>
                     </div>
 
-                    <div class="section-contact_grid_details-card">
+                    <div class="section-contact_grid_details-card fade-in">
                         <h2 class="section-contact_grid_details-card_subtitle">Nuestra ubicación y datos</h2>
                         <p>123 Fast Food Lane, Flavorville, FF 98765</p>
                         <p>+1 (555) 123-4567</p>
